@@ -1,49 +1,66 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AjoutUtilisateurComponent } from './components/administrateur/ajout-utilisateur/ajout-utilisateur.component';
-import { ServicesComponent } from './components/administrateur/services/services.component';
-import { SyntheseCongesComponent } from './components/administrateur/synthese-conges/synthese-conges.component';
-import { ValidationCongesComponent } from './components/administrateur/validation-conges/validation-conges.component';
-import { FicheUtilisateurComponent } from './components/administrateur/fiche-utilisateur/fiche-utilisateur.component';
-import { MotifAbsenceComponent } from './components/administrateur/motif-absence/motif-absence.component';
-import { FermetureInstitutionComponent } from './components/administrateur/fermeture-institution/fermeture-institution.component';
-import { VisibiliteEmployesComponent } from './components/administrateur/visibilite-employes/visibilite-employes.component';
-import { VisualisationAbsencesComponent } from './components/manager/visualisation-absences/visualisation-absences.component';
-import { ValidationCongesManagerComponent } from './components/manager/validation-conges-manager/validation-conges-manager.component';
-import { DemandeCongesComponent } from './components/utilisateur/demande-conges/demande-conges.component';
-import { VisualisationComponent } from './components/utilisateur/visualisation/visualisation.component';
-import { ConventionCollectiveComponent } from './components/utilisateur/convention-collective/convention-collective.component';
-import { AccueilComponent } from './components/accueil/accueil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  CommonModule, LocationStrategy,
+  PathLocationStrategy
+} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { FullComponent } from './layouts/full/full.component';
+
+
+import { NavigationComponent } from './shared/header/navigation.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
+import { Approutes } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SpinnerComponent } from './shared/spinner.component';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelSpeed: 1,
+  wheelPropagation: true,
+  minScrollbarLength: 20
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    AjoutUtilisateurComponent,
-    ServicesComponent,
-    SyntheseCongesComponent,
-    ValidationCongesComponent,
-    FicheUtilisateurComponent,
-    MotifAbsenceComponent,
-    FermetureInstitutionComponent,
-    VisibiliteEmployesComponent,
-    VisualisationAbsencesComponent,
-    ValidationCongesManagerComponent,
-    DemandeCongesComponent,
-    VisualisationComponent,
-    ConventionCollectiveComponent,
-    AccueilComponent,
+    SpinnerComponent,
+    FullComponent,
+    NavigationComponent,
+    SidebarComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
-    NgbModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgbModule,
+    RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
+    PerfectScrollbarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
