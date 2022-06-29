@@ -18,6 +18,8 @@ import { VisualisationComponent } from './components/utilisateur/visualisation/v
 import { ConventionCollectiveComponent } from './components/utilisateur/convention-collective/convention-collective.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
