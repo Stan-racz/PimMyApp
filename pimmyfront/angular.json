@@ -108,5 +108,8 @@
       }
     }
   },
-  "defaultProject": "elite-admin-angular"
+  "defaultProject": "elite-admin-angular",
+  "cli": {
+    "analytics": false
+  }
 }
