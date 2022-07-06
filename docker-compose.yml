@@ -6,10 +6,10 @@ services:
     volumes:
      - ./docker/mysql/sql-scripts:/docker-entrypoint-initdb.d
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
-      - MYSQL_DATABASE=pimmy
-      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=PimpMyBDD
+      - MYSQL_ROOT_PASSWORD=P1mpMy@pp5
       - MYSQL_USER=pimmy
       - MYSQL_PASSWORD=pimmy
     # healthcheck:
@@ -22,6 +22,6 @@ services:
     image: phpmyadmin:latest
     environment:
       - PMA_ARBITRARY=1
-      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=P1mpMy@pp5
     ports:
       - 8080:80

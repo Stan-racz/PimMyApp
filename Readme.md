@@ -29,3 +29,15 @@ OU
 `docker compose logs -f <service>`
 
 (-f permet de voir les logs en continu)
+
+## Voir le statut des containers
+
+`docker compose ps`
+
+## Arrêter lee containers
+
+`docker compose stop`
+
+## Supprimer les containers (et les données !)
+
+`docker compose down -v`
