@@ -1,12 +1,18 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { UtilisateurService } from '../service/utilisateur.service';
+import { Controller, Post, Body, Inject } from '@nestjs/common';
+import { UtilisateurService } from 'src/service/utilisateur.service';
 
-//on peut donner une route a un controller (ici localhost:3000/hello/world va retourner getHello. Aucune autre route ne la retournera)
-@Controller()
+@Controller("utilisateur")
 export class UtilController {
-  constructor(private readonly utilService: UtilisateurService) { }
-  @Post()
+  @Inject(UtilisateurService)
+  private readonly serviceUtil : UtilisateurService;
+
+
+  @Post("ajout")
   createPost(@Body() body: string) {
-    return `Created a new post with values of ${JSON.stringify(body)} 🚀`;
+    // ajout a la BDD
+    var heureContrat = parseInt(body["nbHeureContractuelle"]);
+    this.serviceUtil.create(body["nom"],body["prenom"],body["email"],body["civilite"],body["status"],body["dateNaiss"],heureContrat);
+
+    return `Ajout nouvel utilisateur manuel : ${JSON.stringify(body)}`;
   }
 }
