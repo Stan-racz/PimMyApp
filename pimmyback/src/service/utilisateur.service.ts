@@ -14,10 +14,14 @@ export class UtilisateurService {
     return this.utilRepo.find();
   }
 
-//   findOne(id: number): Promise<Utilisateur> {
-//     return this.utilRepo.findOne(id);
-//   }
-
+  async create(nom: string, prenom: string, email: string, civilite: string, status: string, dateNaiss: string, nbHeureContractuelle: number): Promise<void> {
+    await this.utilRepo
+    .createQueryBuilder()
+    .insert()
+    .into(Utilisateur)
+    .values([{ nom: nom, prenom: prenom, email: email,civilite: civilite, status: status, dateNaiss: dateNaiss, nbHeureContractuelle:nbHeureContractuelle}])
+    .execute();
+  }
   async remove(id: number): Promise<void> {
     await this.utilRepo.delete(id);
   }

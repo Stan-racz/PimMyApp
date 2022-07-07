@@ -9,6 +9,9 @@ import { Absence } from './entity/absence.entity';
 import { Abs_dispo } from './entity/absdispo.entity';
 import { Services } from './entity/services.entity';
 import { HeuresSemaine } from './entity/heuressemaine.entity';
+import { UtilController } from './controller/utilisateur.controller';
+import { UtilModule } from './module/utilisateur.module';
+import { UtilisateurService } from './service/utilisateur.service';
 
 //gestion de l'instanciation des controllers (ajouter les controllers qu'on ajoute)
 @Module({
@@ -24,9 +27,10 @@ import { HeuresSemaine } from './entity/heuressemaine.entity';
       synchronize: true,
       autoLoadEntities: true,
     }),
+    UtilModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UtilController],
+  providers: [AppService, UtilisateurService],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) { }

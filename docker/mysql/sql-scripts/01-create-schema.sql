@@ -1,1 +1,1 @@
-create schema pimmy;
+create schema PimpMyBDD;
