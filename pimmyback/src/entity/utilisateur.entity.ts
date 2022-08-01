@@ -28,6 +28,9 @@ export class Utilisateur {
   @Column("int")
   nbHeureContractuelle: number;
 
+  @Column("text")
+  password: string;
+
   @ManyToOne(type => Services)
   @JoinTable({name: 'id_service'})
   id_service: Services;
