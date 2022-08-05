@@ -1,44 +1,33 @@
-<table>
-<h1><p>Ajout d'utilisateur</p></h1>
-<tr>
-    <strong><td>Nom :</td></strong>
-    <td><input type="text" Nom="NomUtil"></td>
-</tr>
+<div class="form-group">
+    <form #userForm="ngForm">
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="nom"
+            #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required
+        </div>
 
-<tr>
-    <strong><td>Prénom :</td></strong>
-    <td><input type="text" Prénom="PrenomUtil"></td>
-</tr>
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom"
+            placeholder="Prenom">
 
+        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email"
+            placeholder="Email">
 
-<tr>
-    <strong><td>Mail :</td></strong>
-    <td><input type="text" Mail="Mail"></td>
-</tr>
+        <input type="text" class="form-control" id="nombreHeureContractuelle" required
+            [(ngModel)]="model.nombreHeureContractuelle" name="nombreHeureContractuelle"
+            placeholder="nombreHeureContractuelle">
 
-<tr>
-    <strong><td>Civilite :</td></strong>
-    <td><INPUT type="radio" name="sex" value="H" checked> Homme 
-        <INPUT type="radio" name="sex" value="F"> Femme</td>
-</tr>
+        <label for="statu">Status</label>
+        <select class="form-control" id="status" required [(ngModel)]="model.status" name="status">
+            <option *ngFor="let statu of status" [value]="statu">{{statu}}</option>
+        </select>
 
-<tr>
-    <strong><td>Status : </td></strong>
-    <td><SELECT name="Status">    
-        <OPTION> Cadres
-        <OPTION> Non Cadres Administratif
-        <OPTION> Non Cadres Vie Scolaire
-    </SELECT></td>
-</tr>
+        <td>Date De Naissance :</td><br>
 
-<tr>
-    <strong><td>Date De Naissance :</td></strong>
-    <td>
-    <input type="date" id="start" name="trip-start"
-       value=""
-       min="1960-01-01" max="2022-12-31"></td>
-</tr>
+        <td>
+            <input class="form-control" type="date" id="start" required [(ngModel)]="model.naissance" name="naissance"
+                value="" min="1960-01-01" max="2022-12-31">
+        </td>
 
-<input type="button" value="Suivant">
+        <button type="button" class="btn btn-primary" (click)="onSubmit(userForm)">Ajouter</button>
 
-</table>
+    </form>
+</div>
