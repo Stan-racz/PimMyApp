@@ -29,20 +29,20 @@ export class AjoutUtilisateurComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.ajoutUtilisateur(form);
     this.submitted = true;
-    console.log("prenom : " + form.value.prenom);
-    console.log("nom : " + form.value["nom"]);
-    console.log(form.value);
   }
 
   ajoutUtilisateur(form: NgForm) {
 
-    this.http.post<any>('http://localhost:3000/component/ajout-utilisateur', { title: 'Angular POST Request Example' }).subscribe(data => {
-      this.model.nom = form.value.nom;
-      this.model.prenom = form.value.prenom;
-      this.model.email = form.value.email;
-      this.model.status = form.value.status;
-      this.model.naissance = form.value.naissance;
-      this.model.nombreHeureContractuelle = form.value.nombreHeureContractuelle;
+    this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
+      nom: form.value.nom,
+      prenom: form.value.prenom,
+      email: form.value.email,
+      civilite: form.value.civilite,
+      status: form.value.status,
+      dateNaiss: form.value.dateNaiss,
+      nombreHeureContractuelle: form.value.nombreHeureContractuelle,
+    }).subscribe(data => {
+      console.log(data);
     })
   }
 }

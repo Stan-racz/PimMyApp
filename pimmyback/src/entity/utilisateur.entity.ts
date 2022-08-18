@@ -29,10 +29,10 @@ export class Utilisateur {
   nbHeureContractuelle: number;
 
   @ManyToOne(type => Services)
-  @JoinTable({name: 'id_service'})
+  @JoinTable({ name: 'id_service' })
   id_service: Services;
 
   @ManyToMany(type => HeuresSemaine)
-  @JoinTable({name: 'id_nbHSem'})
+  @JoinTable({ name: 'id_nbHSem' })
   id_nbHSem: HeuresSemaine;
 }
