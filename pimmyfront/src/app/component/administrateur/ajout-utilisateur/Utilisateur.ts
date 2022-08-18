@@ -6,7 +6,7 @@ export class Utilisateur {
         public email: string,
         public civilite: string,
         public status: string,
-        public naissance: string,
+        public dateNaiss: string,
         public nombreHeureContractuelle: string,
 
     ) { }

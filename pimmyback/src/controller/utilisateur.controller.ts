@@ -10,10 +10,12 @@ export class UtilController {
   @Post("ajout")
   createPost(@Body() body: string) {
     // ajout a la BDD
-    console.log("saloute");
-    //var heureContrat = parseInt(body["nbHeureContractuelle"]);
-    //this.serviceUtil.create(body["nom"],body["prenom"],body["email"],body["civilite"],body["status"],body["dateNaiss"],heureContrat);
 
-    return `Ajout nouvel utilisateur manuel : ${JSON.stringify(body)}`;
+    var heureContrat = parseInt(body["nombreHeureContractuelle"]);
+    this.serviceUtil.create(body["nom"], body["prenom"], body["email"], body["civilite"], heureContrat, body["status"], body["dateNaiss"]);
+
+    console.log(body);
+    return `${JSON.stringify(body)}`;
+
   }
 }
