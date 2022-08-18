@@ -1,1 +1,38 @@
-<p>ajout-utilisateur works!</p>
+<div class="form-group">
+    <form #userForm="ngForm">
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="nom"
+            #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required
+        </div>
+
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom"
+            placeholder="Prenom">
+
+        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email"
+            placeholder="Email">
+
+        <label for="civilite">Civilite</label>
+        <select class="form-control" id="civilite" required [(ngModel)]="model.civilite" name="civilite">
+            <option *ngFor="let civ of civilite" [value]="civ">{{civ}}</option>
+        </select>
+
+        <input type="text" class="form-control" id="nombreHeureContractuelle" required
+            [(ngModel)]="model.nombreHeureContractuelle" name="nombreHeureContractuelle"
+            placeholder="nombreHeureContractuelle">
+
+        <label for="statu">Status</label>
+        <select class="form-control" id="status" required [(ngModel)]="model.status" name="status">
+            <option *ngFor="let statu of status" [value]="statu">{{statu}}</option>
+        </select>
+
+        <td>Date De Naissance :</td><br>
+
+        <td>
+            <input class="form-control" type="date" id="dateNaiss" required [(ngModel)]="model.dateNaiss"
+                name="dateNaiss" value="" min="1960-01-01" max="2022-12-31">
+        </td>
+
+        <button type="button" class="btn btn-primary" (click)="onSubmit(userForm)">Ajouter</button>
+
+    </form>
+</div>

@@ -34,6 +34,16 @@ import { VisualisationAbsencesComponent } from './manager/visualisation-absences
 import { ConventionCollectiveComponent } from './utilisateur/convention-collective/convention-collective.component';
 import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
 import { VisualisationComponent } from './utilisateur/visualisation/visualisation.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -42,6 +52,16 @@ import { VisualisationComponent } from './utilisateur/visualisation/visualisatio
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatIconModule,
   ],
   declarations: [
     NgbdpaginationBasicComponent,
@@ -52,6 +72,7 @@ import { VisualisationComponent } from './utilisateur/visualisation/visualisatio
     CardsComponent,
     TableComponent,
     LoginComponent,
+
     // Administrateur
     AjoutUtilisateurComponent,
     FermetureInstitutionComponent,
