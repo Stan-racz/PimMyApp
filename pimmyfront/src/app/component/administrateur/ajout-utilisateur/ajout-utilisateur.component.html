@@ -13,7 +13,7 @@
 
         <label for="civilite">Civilite</label>
         <select class="form-control" id="civilite" required [(ngModel)]="model.civilite" name="civilite">
-            <option *ngFor="let civ of civilite" [value]="civilite">{{civ}}</option>
+            <option *ngFor="let civ of civilite" [value]="civ">{{civ}}</option>
         </select>
 
         <input type="text" class="form-control" id="nombreHeureContractuelle" required
