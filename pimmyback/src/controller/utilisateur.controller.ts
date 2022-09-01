@@ -11,10 +11,20 @@ export class UtilController {
   createPost(@Body() body: string) {
     // ajout a la BDD
 
-    var heureContrat = parseInt(body["nombreHeureContractuelle"]);
-    this.serviceUtil.create(body["nom"], body["prenom"], body["email"], body["civilite"], heureContrat, body["status"], body["dateNaiss"]);
+    var i = 0;
+    var len = body["utilisateurs"].length;
+    var heureContrat;
+    // fonctionne pour le formulaire et 1 user comme pour le CSV
+    while (i < len) {
 
-    console.log(body);
+      //console.log(body["utilisateurs"][i]);
+      heureContrat = parseInt(body["utilisateurs"][i]["nombreHeureContractuelle"]);
+      this.serviceUtil.create(body["utilisateurs"][i]["nom"], body["utilisateurs"][i]["prenom"], body["utilisateurs"][i]["email"], body["utilisateurs"][i]["civilite"],
+      heureContrat, body["utilisateurs"][i]["status"], body["utilisateurs"][i]["dateNaiss"]);
+      i++;
+    }
+    console.log(body["utilisateurs"].length);
+    console.log(body["utilisateurs"][0]);
     return `${JSON.stringify(body)}`;
 
   }

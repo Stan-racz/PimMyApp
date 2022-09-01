@@ -27,11 +27,14 @@ export class AjoutUtilisateurComponent implements OnInit {
   submitted = false;
 
   onSubmit(form: NgForm) {
-    this.ajoutUtilisateur(form);
+    //if on clique sur le button formulaire :
+    this.ajoutUtilisateurManuel(form);
+    // else if on clique sur le button csv :
+    // Lancer fonction : ajoutUtilisateurCSV
     this.submitted = true;
   }
 
-  ajoutUtilisateur(form: NgForm) {
+  ajoutUtilisateurManuel(form: NgForm) {
 
     this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
       nom: form.value.nom,
@@ -44,5 +47,27 @@ export class AjoutUtilisateurComponent implements OnInit {
     }).subscribe(data => {
       console.log(data);
     })
+  }
+
+  ajoutUtilisateurCSV(form: NgForm) {
+
+    let csvToJson = require('convert-csv-to-json');
+    csvToJson.parseSubArray('*', ',').getJsonFromCsv('csv.csv');
+    let json = csvToJson.getJsonFromCsv("csv.csv");
+    for (let i = 0; i < json.length; i++) {
+
+      console.log(json[i]);
+      this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
+        // json[i]["nom"],
+        // json[i]["prenom"],
+        // json[i]["email"],
+        // json[i]["civilite"],
+        // json[i]["status"],
+        // json[i]["dateNaiss"],
+        // json[i]["nombreHeureContractuelle"],
+      }).subscribe(data => {
+        console.log(data);
+      })
+    }
   }
 }
