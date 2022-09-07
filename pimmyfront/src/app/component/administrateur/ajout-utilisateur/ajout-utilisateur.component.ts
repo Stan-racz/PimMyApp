@@ -49,25 +49,25 @@ export class AjoutUtilisateurComponent implements OnInit {
     })
   }
 
-  ajoutUtilisateurCSV(form: NgForm) {
+  // ajoutUtilisateurCSV(form: NgForm) {
 
-    let csvToJson = require('convert-csv-to-json');
-    csvToJson.parseSubArray('*', ',').getJsonFromCsv('csv.csv');
-    let json = csvToJson.getJsonFromCsv("csv.csv");
-    for (let i = 0; i < json.length; i++) {
+  //   let csvToJson = require('convert-csv-to-json');
+  //   csvToJson.parseSubArray('*', ',').getJsonFromCsv('csv.csv');
+  //   let json = csvToJson.getJsonFromCsv("csv.csv");
+  //   for (let i = 0; i < json.length; i++) {
 
-      console.log(json[i]);
-      this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
-        // json[i]["nom"],
-        // json[i]["prenom"],
-        // json[i]["email"],
-        // json[i]["civilite"],
-        // json[i]["status"],
-        // json[i]["dateNaiss"],
-        // json[i]["nombreHeureContractuelle"],
-      }).subscribe(data => {
-        console.log(data);
-      })
-    }
-  }
+  //     console.log(json[i]);
+  //     this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
+  //       // json[i]["nom"],
+  //       // json[i]["prenom"],
+  //       // json[i]["email"],
+  //       // json[i]["civilite"],
+  //       // json[i]["status"],
+  //       // json[i]["dateNaiss"],
+  //       // json[i]["nombreHeureContractuelle"],
+  //     }).subscribe(data => {
+  //       console.log(data);
+  //     })
+  //   }
+  // }
 }

@@ -1,1 +1,8 @@
+Utilisateur local des serveurs : local-admin
+			Psswd  : P1mMy@pp5
 BDD : P1mpMy@pp5
+==========================================
+Srv-AD
+Nom de domaine : pimmytest.loc
+Nom NetBIOS du domaine : PIMMYTEST
+Server DNS : Oui
