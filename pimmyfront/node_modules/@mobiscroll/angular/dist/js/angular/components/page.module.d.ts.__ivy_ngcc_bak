@@ -1,0 +1,5 @@
+import { MbscPage } from './page';
+export { MbscPage };
+export { MbscPageOptions } from '../../core/components/page/page';
+export declare class MbscPageModule {
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"list.d.ts","sources":["list.d.ts"],"names":[],"mappings":"AAAA;;AACA;;;AACA","sourcesContent":["import { ListBase } from '../../core/components/list/list';\nexport declare class MbscList extends ListBase {\n}\n"]}

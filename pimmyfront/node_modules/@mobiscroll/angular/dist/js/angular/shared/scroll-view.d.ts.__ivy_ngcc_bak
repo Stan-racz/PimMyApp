@@ -1,0 +1,42 @@
+import { ElementRef } from '@angular/core';
+import { ScrollviewBase } from '../../core/shared/scroll-view/scroll-view';
+/** @hidden */
+export declare class MbscScrollviewBase extends ScrollviewBase {
+    vEl: ElementRef;
+    vEl3d: ElementRef;
+    vInnerEl: ElementRef;
+    vBarCont: ElementRef;
+    vBar: ElementRef;
+    axis: 'X' | 'Y';
+    batchSize: number;
+    batchSize3d: number;
+    changeOnEnd: boolean;
+    easing: string;
+    innerClass: string;
+    innerStyles: any;
+    items: any[];
+    itemSize: number;
+    itemNr: number;
+    selectedIndex: number;
+    margin: boolean;
+    maxIndex: number;
+    minIndex: number;
+    mouseSwipe: boolean;
+    mousewheel: boolean;
+    offset: number;
+    prevAnim: boolean;
+    scroll3d: boolean;
+    scrollBar: boolean;
+    snap: boolean;
+    spaceAround: boolean;
+    swipe: boolean;
+    time: number;
+    touchUi: boolean;
+    visibleSize: number;
+    onAnimationEnd: (args: any) => void;
+    onGestureStart: (args: any) => void;
+    onGestureEnd: (args: any) => void;
+    onIndexChange: (args: any) => void;
+    onStart: (args: any) => void;
+    protected _mounted(): void;
+}

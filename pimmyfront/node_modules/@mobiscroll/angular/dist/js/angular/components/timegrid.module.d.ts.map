@@ -1,0 +1,1 @@
+{"version":3,"file":"timegrid.module.d.ts","sources":["timegrid.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscTimegrid } from './timegrid';\nexport { MbscTimegrid };\nexport { MbscDatetimeOptions } from '../../core/components/datetime/datetime';\nexport declare class MbscTimegridModule {\n}\n"]}

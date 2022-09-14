@@ -1,0 +1,1 @@
+{"version":3,"file":"button.module.d.ts","sources":["button.module.d.ts"],"names":[],"mappings":"AAAA;;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscButton } from './button';\nexport { MbscButton };\nexport { MbscButtonOptions } from '../../core/components/button/button';\nexport declare class MbscButtonModule {\n}\n"]}

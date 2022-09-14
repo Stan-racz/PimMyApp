@@ -1,0 +1,21 @@
+import { IScheduleTimezone } from '../../core/components/eventcalendar/eventcalendar';
+import { TimeIndicatorBase } from '../../core/components/eventcalendar/scheduler/time-indicator';
+import { ITimezonePlugin } from '../../core/util/datetime';
+export declare class MbscTimeIndicator extends TimeIndicatorBase {
+    amText: string;
+    displayedTime: number;
+    displayedDays: number;
+    displayTimezone: string;
+    endDay: number;
+    firstDay: Date;
+    orientation: 'x' | 'y';
+    pmText: string;
+    rtl: boolean;
+    showDayIndicator: boolean;
+    startDay: number;
+    startTime: number;
+    theme: string;
+    timeFormat: string;
+    timezones: IScheduleTimezone[];
+    timezonePlugin: ITimezonePlugin;
+}

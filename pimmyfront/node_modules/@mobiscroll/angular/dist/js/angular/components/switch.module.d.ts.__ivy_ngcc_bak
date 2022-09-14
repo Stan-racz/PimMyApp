@@ -1,0 +1,5 @@
+import { MbscSwitch } from './switch';
+export { MbscSwitch };
+export { MbscSwitchOptions } from '../../core/components/switch/switch';
+export declare class MbscSwitchModule {
+}

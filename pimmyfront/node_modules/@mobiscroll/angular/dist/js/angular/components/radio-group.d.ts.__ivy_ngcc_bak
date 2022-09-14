@@ -1,0 +1,12 @@
+import { RadioGroupBase } from '../../core/components/radio/radio-group';
+import { MbscRadioService } from '../shared/radio-service';
+export declare class MbscRadioGroup extends RadioGroupBase {
+    _radioService: MbscRadioService;
+    color: string;
+    disabled: string;
+    name: string;
+    position: 'start' | 'end';
+    protected _onValueChange(value: any): void;
+    protected _ctor(): void;
+    protected _render(s: any): void;
+}

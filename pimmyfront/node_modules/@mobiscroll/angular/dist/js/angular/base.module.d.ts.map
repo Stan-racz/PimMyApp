@@ -1,0 +1,1 @@
+{"version":3,"file":"base.module.d.ts","sources":["base.module.d.ts"],"names":[],"mappings":";;;AAAA;;;;AACA","sourcesContent":["export declare class MbscBaseModule {\n}\n"]}

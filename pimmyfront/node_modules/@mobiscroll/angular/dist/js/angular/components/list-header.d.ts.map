@@ -1,0 +1,1 @@
+{"version":3,"file":"list-header.d.ts","sources":["list-header.d.ts"],"names":[],"mappings":"AAAA;;AACA;;;AACA","sourcesContent":["import { ListHeaderBase } from '../../core/components/list/list-header';\nexport declare class MbscListHeader extends ListHeaderBase {\n}\n"]}

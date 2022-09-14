@@ -1,0 +1,9 @@
+export declare class MbscCalendarWeekDays {
+    days: number[];
+    firstDay: number;
+    hasScroll: boolean;
+    dayNamesShort: string[];
+    rtl: boolean;
+    showWeekNumbers: boolean;
+    theme: string;
+}

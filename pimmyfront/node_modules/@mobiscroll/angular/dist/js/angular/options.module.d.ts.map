@@ -1,0 +1,1 @@
+{"version":3,"file":"options.module.d.ts","sources":["options.module.d.ts"],"names":[],"mappings":";;AAAA;AACA;;;;AACA","sourcesContent":["export * from './options.service';\nexport declare class MbscOptionsModule {\n}\n"]}

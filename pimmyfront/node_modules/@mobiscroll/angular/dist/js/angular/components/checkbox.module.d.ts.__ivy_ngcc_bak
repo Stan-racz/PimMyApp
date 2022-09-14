@@ -1,0 +1,5 @@
+import { MbscCheckbox } from './checkbox';
+export { MbscCheckbox };
+export { MbscCheckboxOptions } from '../../core/components/checkbox/checkbox';
+export declare class MbscCheckboxModule {
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"checkbox.module.d.ts","sources":["checkbox.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscCheckbox } from './checkbox';\nexport { MbscCheckbox };\nexport { MbscCheckboxOptions } from '../../core/components/checkbox/checkbox';\nexport declare class MbscCheckboxModule {\n}\n"]}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MbscModule } from '@mobiscroll/angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsRoutes } from './component.routing';
 import { NgbdpaginationBasicComponent } from './pagination/pagination.component';
@@ -24,7 +24,7 @@ import { MotifAbsenceComponent } from './administrateur/motif-absence/motif-abse
 import { ServicesComponent } from './administrateur/services/services.component';
 import { SyntheseCongesComponent } from './administrateur/synthese-conges/synthese-conges.component';
 import { ValidationCongesComponent } from './administrateur/validation-conges/validation-conges.component';
-import { VisibiliteEmployesComponent } from './administrateur/visibilite-employes/visibilite-employes.component';
+// import { VisibiliteEmployesComponent } from './administrateur/visibilite-employes/visibilite-employes.component';
 
 // Manager
 import { ValidationCongesManagerComponent } from './manager/validation-conges-manager/validation-conges-manager.component';
@@ -32,16 +32,20 @@ import { VisualisationAbsencesComponent } from './manager/visualisation-absences
 
 // Utilisateur
 import { ConventionCollectiveComponent } from './utilisateur/convention-collective/convention-collective.component';
-import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
+// import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
 import { VisualisationComponent } from './utilisateur/visualisation/visualisation.component';
+import { NgxGanttModule } from '@worktile/gantt';
+import { VisibiliteEmployesComponent } from './administrateur/visibilite-employes/visibilite-employes.component';
 
 @NgModule({
   imports: [
+    NgxGanttModule,
     CommonModule,
     RouterModule.forChild(ComponentsRoutes),
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+
   ],
   declarations: [
     NgbdpaginationBasicComponent,
@@ -66,7 +70,7 @@ import { VisualisationComponent } from './utilisateur/visualisation/visualisatio
     VisualisationAbsencesComponent,
     // Utilisateur
     ConventionCollectiveComponent,
-    DemandeCongesComponent,
+    // DemandeCongesComponent,
     VisualisationComponent
   ]
 })

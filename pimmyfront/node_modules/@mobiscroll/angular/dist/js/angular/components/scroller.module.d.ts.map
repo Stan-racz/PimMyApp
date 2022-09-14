@@ -1,0 +1,1 @@
+{"version":3,"file":"scroller.module.d.ts","sources":["scroller.module.d.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscScroller } from './scroller';\nexport { MbscScroller };\nexport { MbscScrollerOptions } from '../../core/components/scroller/scroller';\nexport declare class MbscScrollerModule {\n}\n"]}

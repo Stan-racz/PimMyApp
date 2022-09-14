@@ -1,0 +1,1 @@
+{"version":3,"file":"page.module.d.ts","sources":["page.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscPage } from './page';\nexport { MbscPage };\nexport { MbscPageOptions } from '../../core/components/page/page';\nexport declare class MbscPageModule {\n}\n"]}

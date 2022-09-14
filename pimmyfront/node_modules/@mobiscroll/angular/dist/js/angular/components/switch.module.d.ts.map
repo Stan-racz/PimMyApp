@@ -1,0 +1,1 @@
+{"version":3,"file":"switch.module.d.ts","sources":["switch.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscSwitch } from './switch';\nexport { MbscSwitch };\nexport { MbscSwitchOptions } from '../../core/components/switch/switch';\nexport declare class MbscSwitchModule {\n}\n"]}

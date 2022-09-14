@@ -1,0 +1,1 @@
+{"version":3,"file":"instance.service.d.ts","sources":["instance.service.d.ts"],"names":[],"mappings":"AAAA;;AACA;;;AACA","sourcesContent":["import { InstanceServiceBase } from '../../core/shared/instance-service';\nexport declare class MbscInstanceService extends InstanceServiceBase {\n}\n"]}

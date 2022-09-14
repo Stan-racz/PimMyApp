@@ -1,0 +1,21 @@
+import { ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
+import { MbscAlertOptions, MbscConfirmOptions, MbscPromptOptions, MbscSnackbarOptions, MbscToastOptions } from '../../core/components/notifications/notifications';
+export declare class Notifications {
+    private _injector;
+    private _cfr;
+    private _app;
+    constructor(_injector: Injector, _cfr: ComponentFactoryResolver, _app: ApplicationRef);
+    toast(options: MbscToastOptions): Promise<undefined>;
+    snackbar(options: MbscSnackbarOptions): Promise<undefined>;
+    alert(options: MbscAlertOptions): Promise<undefined>;
+    confirm(options: MbscConfirmOptions): Promise<boolean>;
+    prompt(options: MbscPromptOptions): Promise<string | null>;
+    private _createPopup;
+    private _showToast;
+    private _showSnackbar;
+    private _showAlert;
+    private _showConfirm;
+    private _showPrompt;
+}
+export declare class MbscNotificationsModule {
+}

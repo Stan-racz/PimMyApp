@@ -1,0 +1,6 @@
+import { DraggableBase } from '../../core/components/draggable/draggable';
+import { MbscCalendarEvent } from '../../core/components/eventcalendar/eventcalendar';
+/** @hidden */
+export declare class DraggableDirective extends DraggableBase {
+    dragData: MbscCalendarEvent;
+}

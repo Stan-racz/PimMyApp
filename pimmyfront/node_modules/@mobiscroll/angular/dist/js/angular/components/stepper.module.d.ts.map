@@ -1,0 +1,1 @@
+{"version":3,"file":"stepper.module.d.ts","sources":["stepper.module.d.ts"],"names":[],"mappings":"AAAA;;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscStepper } from './stepper';\nexport { MbscStepper };\nexport { MbscStepperOptions } from '../../core/components/stepper/stepper';\nexport declare class MbscStepperModule {\n}\n"]}

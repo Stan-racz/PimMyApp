@@ -1,0 +1,1 @@
+{"version":3,"file":"icon.module.d.ts","sources":["icon.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscIcon } from './icon';\nexport { MbscIcon };\nexport { MbscIconOptions } from '../../core/components/icon/icon';\nexport declare class MbscIconModule {\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"calendar-view.module.d.ts","sources":["calendar-view.module.d.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;AACA;;;;AACA","sourcesContent":["/** @hidden */\nexport declare class MbscCalendarViewModule {\n}\n"]}

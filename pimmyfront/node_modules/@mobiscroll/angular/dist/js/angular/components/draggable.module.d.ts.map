@@ -1,0 +1,1 @@
+{"version":3,"file":"draggable.module.d.ts","sources":["draggable.module.d.ts"],"names":[],"mappings":"AAAA;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { DraggableDirective } from './draggable';\nexport { DraggableDirective };\nexport { MbscDraggableOptions } from '../../core/components/draggable/draggable';\nexport declare class MbscDraggableModule {\n}\n"]}

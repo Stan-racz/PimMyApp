@@ -1,0 +1,5 @@
+import { MbscStepper } from './stepper';
+export { MbscStepper };
+export { MbscStepperOptions } from '../../core/components/stepper/stepper';
+export declare class MbscStepperModule {
+}

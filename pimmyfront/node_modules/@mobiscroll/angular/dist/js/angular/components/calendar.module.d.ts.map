@@ -1,0 +1,1 @@
+{"version":3,"file":"calendar.module.d.ts","sources":["calendar.module.d.ts"],"names":[],"mappings":"AAAA;;;;;;AACA;AACA;AACA;;;;AACA","sourcesContent":["import { MbscCalendar } from './calendar';\nexport { MbscCalendar };\nexport { MbscCalendarOptions } from '../../core/components/calendar/calendar';\nexport declare class MbscCalendarModule {\n}\n"]}

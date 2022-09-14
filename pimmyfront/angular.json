@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "2c711fe2-3cfd-4499-9a75-a04256452da8"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -32,7 +35,8 @@
             ],
             "styles": [
               "src/assets/scss/style.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@worktile/gantt/styles/index.scss"
             ],
             "scripts": []
           },
