@@ -32,9 +32,18 @@ import { VisualisationAbsencesComponent } from './manager/visualisation-absences
 
 // Utilisateur
 import { ConventionCollectiveComponent } from './utilisateur/convention-collective/convention-collective.component';
-import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
+// import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
 import { VisualisationComponent } from './utilisateur/visualisation/visualisation.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule, MatButton } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   imports: [
     CommonModule,
@@ -42,6 +51,17 @@ import { VisualisationComponent } from './utilisateur/visualisation/visualisatio
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatToolbarModule,
   ],
   declarations: [
     NgbdpaginationBasicComponent,
@@ -66,7 +86,7 @@ import { VisualisationComponent } from './utilisateur/visualisation/visualisatio
     VisualisationAbsencesComponent,
     // Utilisateur
     ConventionCollectiveComponent,
-    DemandeCongesComponent,
+    // DemandeCongesComponent,
     VisualisationComponent
   ]
 })

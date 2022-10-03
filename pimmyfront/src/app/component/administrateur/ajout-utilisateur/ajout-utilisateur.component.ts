@@ -33,7 +33,7 @@ export class AjoutUtilisateurComponent implements OnInit {
 
   //ajout d'utilisateur via le formulaire
   ajoutUtilisateurManuel(form: NgForm) {
-    this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
+    this.http.post<Utilisateur>('http://localhost:3000/back-end/utilisateur/ajout', {
       nom: form.value.nom,
       prenom: form.value.prenom,
       email: form.value.email,
@@ -76,10 +76,9 @@ export class AjoutUtilisateurComponent implements OnInit {
           }
         }
       }
-      // console.log(">>>>>>>>>>>>>>>>>", tarr);
       // Envoi des donnees contenu dans le fichier au BackEnd
       for (let t = 0; t < tarr.length; t++) {
-        this.http.post<Utilisateur>('http://localhost:3000/utilisateur/ajout', {
+        this.http.post<Utilisateur>('http://localhost:3000/back-end/utilisateur/ajout', {
           nom: tarr[t][0],
           prenom: tarr[t][1],
           email: tarr[t][2],
