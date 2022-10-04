@@ -13,21 +13,20 @@ export class UserService {
 
     create(user: User): Observable<User> {
         return this.authService.hashPassword(user.password).pipe(
-            switchMap((paswordHash: string) => {
+            switchMap((passwordHash: string) => {
+                console.log(user);
                 const newUser = new UserEntity();
                 newUser.nom = user.nom;
                 newUser.prenom = user.prenom;
                 newUser.email = user.email;
-                newUser.password = paswordHash;
+                newUser.password = passwordHash;
                 newUser.role = user.role;
                 newUser.civilite = user.civilite;
+                newUser.status = user.status;
                 newUser.dateNaiss = user.dateNaiss;
                 newUser.nbHeureContractuelle = user.nbHeureContractuelle;
                 return from(this.userRepository.save(newUser)).pipe(
                     map((user: User) => {
-                        // 3 points -> syntaxe de décomposition de littéraux objets (new EMAScript)
-                        // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-
                         const { password, ...result } = user;
                         return result;
                     }),

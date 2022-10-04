@@ -84,7 +84,7 @@ export class DemandeCongesComponent implements OnInit {
       this.closePopup();
 
     }
-    console.log(localStorage.getItem('role'))
+    // console.log(localStorage.getItem('role'))
   }
 
 }
