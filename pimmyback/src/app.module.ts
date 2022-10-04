@@ -1,37 +1,39 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { DataSource } from 'typeorm';
-import { Utilisateur } from './entity/utilisateur.entity';
-import { Demande_abs } from './entity/demandeabs.entity';
-import { Absence } from './entity/absence.entity';
-import { Abs_dispo } from './entity/absdispo.entity';
-import { Services } from './entity/services.entity';
-import { HeuresSemaine } from './entity/heuressemaine.entity';
-import { UtilController } from './controller/utilisateur.controller';
-import { UtilModule } from './module/utilisateur.module';
-import { UtilisateurService } from './service/utilisateur.service';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { UserEntity } from './user/models/user.entity';
+import { Demande_abs } from './demandeAbsence/demandeabs.entity';
+import { Absence } from './absences/absence.entity';
+import { Abs_dispo } from './absdispo/absdispo.entity';
+import { Services } from './services/services.entity';
+import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
+import { ServicesModule } from './services/services.module';
+import { ServicesController } from './services/services.controler';
+import { ServicesService } from './services/services.service';
 
-//gestion de l'instanciation des controllers (ajouter les controllers qu'on ajoute)
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
+      url: "",
       type: 'mysql',
       host: 'localhost',
       port: 3307,
       username: 'root',
       password: 'P1mpMy@pp5',
       database: 'PimpMyBDD',
-      entities: [Utilisateur, Demande_abs, Absence, Abs_dispo, Services, HeuresSemaine],
+      entities: [UserEntity, Demande_abs, Absence, Abs_dispo, Services, HeuresSemaine],
       synchronize: true,
       autoLoadEntities: true,
     }),
-    UtilModule,
-  ],
-  controllers: [AppController, UtilController],
-  providers: [AppService, UtilisateurService],
+    UserModule,
+    AuthModule,
+    ServicesModule,],
+  controllers: [AppController, ServicesController],
+  providers: [AppService, ServicesService],
 })
-export class AppModule {
-  constructor(private dataSource: DataSource) { }
-}
+export class AppModule { }

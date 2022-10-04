@@ -1,4 +1,9 @@
 {
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "name": "elite-admin-angular",
   "version": "0.0.0",
   "scripts": {
@@ -18,10 +23,16 @@
     "@angular/core": "^14.0.3",
     "@angular/forms": "^14.0.5",
     "@angular/localize": "^14.0.3",
+    "@angular/material": "^14.2.3",
     "@angular/platform-browser": "^14.0.3",
     "@angular/platform-browser-dynamic": "^14.0.3",
     "@angular/platform-server": "^14.0.3",
     "@angular/router": "^14.0.3",
+    "@fullcalendar/angular": "^5.11.2",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/interaction": "^5.11.3",
+    "@fullcalendar/list": "^5.11.3",
+    "@fullcalendar/timegrid": "^5.11.3",
     "@ng-bootstrap/ng-bootstrap": "12.1.2",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
@@ -33,6 +44,7 @@
     "bootstrap-icons": "^1.8.3",
     "chart.js": "^3.8.0",
     "chartjs-color": "^2.4.1",
+    "convert-csv-to-json": "^1.3.3",
     "ng-apexcharts": "^1.7.1",
     "ng2-charts": "^3.0.11",
     "ngx-perfect-scrollbar": "^10.1.1",
@@ -52,7 +64,7 @@
     "@types/datatables.net": "^1.10.22",
     "@types/jasmine": "~4.0.3",
     "@types/jasminewd2": "^2.0.10",
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.7.14",
     "codelyzer": "^6.0.2",
     "jasmine-core": "~4.2.0",
     "jasmine-spec-reporter": "~7.0.0",

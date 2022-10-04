@@ -1,1 +1,43 @@
-<p>demande-conges works!</p>
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajout d'un congé</h4>
+            </div>
+            <form #congesForm="ngForm" (ngSubmit)="onSubmit(congesForm)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select ngModel class="form-control" id="motif" required name="motif">
+                            <option value="" disabled hidden>---- Choisir un motif ----</option>
+                            <option *ngFor="let motif of motifs" [ngValue]="motif">{{motif}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="form-label">Début du congé : </label>
+                            <input [ngModel]="debut | date:'yyyy-MM-dd'" class="form-control" type="date" id="debut" required name="debut">
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="form-label">Fin du congé :</label>
+                            <input [ngModel]="fin | date:'yyyy-MM-dd'" class="form-control" type="date" id="fin" required name="fin">
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit" [disabled]="congesForm.form.invalid" class="btn btn-primary">Valider</button>
+                        <button type="button" class="btn btn-danger" (click)="closePopup()">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
