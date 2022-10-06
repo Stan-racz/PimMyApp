@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Services } from './services.entity';
 import { Repository } from 'typeorm';
+import { from, Observable } from 'rxjs';
+import { stringify } from 'querystring';
 
 @Injectable()
 export class ServicesService {
@@ -22,7 +24,15 @@ export class ServicesService {
   //     return this.utilServ.findOne(id);
   //   }
 
-  async remove(id: number): Promise<void> {
-    await this.utilServ.delete(id);
+  async findOne(nom: string): Promise<Services> {
+    return await this.utilServ.findOne({
+      where: {
+        nom: nom
+      }
+    });
   }
+  deleteOne(id: number): Observable<any> {
+    return from(this.utilServ.delete(id));
+  }
+
 }
