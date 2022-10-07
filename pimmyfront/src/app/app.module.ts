@@ -28,6 +28,7 @@ import { DemandeCongesComponent } from './component/utilisateur/demande-conges/d
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction';
+import { MainConfig } from './mainConfig';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -72,7 +73,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    MainConfig
   ],
   bootstrap: [AppComponent]
 })

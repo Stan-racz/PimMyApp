@@ -5,6 +5,7 @@ import { Services } from './Services';
 import { map, Observable, tap } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MainConfig } from '../../../mainConfig';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
@@ -13,22 +14,34 @@ import { Router } from '@angular/router';
 export class ServicesComponent implements OnInit {
   status: any;
   services: Services[] = [];
+  //colonnes affichées par le tableau 
   displayedColumns: string[] = ['nom', 'nomManagerService', 'prenomManagerService', 'actions'];
+  //initialization de la source de données du tableau
   private dataSource = new MatTableDataSource<Services>();
-  constructor(private http: HttpClient, private router: Router) { }
   model = new Services(18, '', '', '',);
+
+
+  constructor(private http: HttpClient, private router: Router, private mainConfig: MainConfig) { }
+
+
+
   onSubmit(form: NgForm) {
-    //si on clique sur le button formulaire :
+    //si le formulaire est valide (les trois champs required remplis) alors je lance le call api avec mon service
     if (form.valid) {
       this.ajoutService(form);
     }
   }
+
+  //call api POST pour envoyer le service à la BDD
   ajoutService(form: NgForm) {
     console.log(form.value)
-    this.http.post('http://localhost:3000/back-end/services', { nomService: form.value.Nom, nomManagerService: form.value.nomManagerService, prenomManagerService: form.value.prenomManagerService }, { headers: this.getHeaders() }).subscribe(data => { console.log(data) });
-    this.reloadCurrentRoute();
+    //un post se constitue de : 'url', {body}, {headers} puis un subscribe si on a besoin d'interpreter le retour api
+    this.http.post(this.mainConfig.getApiBaseUrl() + 'services', { nomService: form.value.Nom, nomManagerService: form.value.nomManagerService, prenomManagerService: form.value.prenomManagerService }, { headers: this.mainConfig.getHeaders() }).subscribe(data => { console.log(data) });
+    //rafraichissement de la page pour afficher les nouvelles données
+    this.mainConfig.reloadCurrentRoute();
   }
 
+  //transformation des données du call api en tableau mat table data source
   thingsAsMatTableDataSource$: Observable<MatTableDataSource<Services>> = this.getServicesData().pipe(
     map((serv: any) => {
       const dataSource = this.dataSource;
@@ -38,32 +51,28 @@ export class ServicesComponent implements OnInit {
   );
 
   ngOnInit(): void {
-    // this.getServicesData().subscribe({
-    //     next: (services: Services[]) => {
-    //       this.services = services;
-    //       console.log(this.services);
-    //     }
-    //   });
-    // this.dataSource = new MatTableDataSource(this.tableauData);
   }
 
-  getHeaders() {
-    let token = localStorage.getItem('token retourné')
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    })
-    return headers;
-  }
+  //les headers sont les protections que nos requêtes utilisent pour identifier l'utilisateur et son rôle
+  // getHeaders() {
+  //   //on récupère le token stocké si l'utilisateur est identifié
+  //   let token = localStorage.getItem('token retourné')
+  //   //on ajoute le token aux headers qui vont servir pour toutes les requêtes http
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${token}`
+  //   })
+  //   return headers;
+  // }
 
   suppressionService(row: any) {
-    console.log('http://localhost:3000/back-end/services/' + row['nom'])
-    this.http.delete<Services>('http://localhost:3000/back-end/services/' + row['nom'], { headers: this.getHeaders() }).subscribe(() => this.status = 'Delete successful');
-    this.reloadCurrentRoute();
+    //on ajoute le service à la fin de la requête DELETE avec row['nom'] qui récupère les données de la rangée selon le bouton cliqué
+    this.http.delete<Services>(this.mainConfig.getApiBaseUrl() + 'services/' + row['nom'], { headers: this.mainConfig.getHeaders() }).subscribe(() => this.status = 'Delete successful');
+    this.mainConfig.reloadCurrentRoute();
   }
-
+  //récupération des données via requête get à l'api puis formatage de la map en tableau lisible pour notre tableau
   getServicesData() {
-    return this.http.get<Services[]>('http://localhost:3000/back-end/services', { headers: this.getHeaders() }).pipe(
+    return this.http.get<Services[]>(this.mainConfig.getApiBaseUrl() + 'services', { headers: this.mainConfig.getHeaders() }).pipe(
       map((services: any[]) => services.map(
         service => {
           return <Services>{
@@ -76,12 +85,4 @@ export class ServicesComponent implements OnInit {
     )
   }
 
-
-  reloadCurrentRoute() {
-    console.log("coucou")
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
 }

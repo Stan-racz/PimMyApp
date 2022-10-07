@@ -1,13 +1,10 @@
 <div class="form-group" #form>
     <form #userForm="ngForm">
-        <input type="text" class="form-control" id="Nom" required [(ngModel)]="model.nom" name="Nom"
-            placeholder="Nom du Service">
+        <input type="text" class="form-control" id="Nom" required [(ngModel)]="model.nom" name="Nom" placeholder="Nom du Service">
 
-        <input type="text" class="form-control" id="nomManagerService" required [(ngModel)]="model.nomManagerService"
-            name="nomManagerService" placeholder="Nom du Manager">
+        <input type="text" class="form-control" id="nomManagerService" required [(ngModel)]="model.nomManagerService" name="nomManagerService" placeholder="Nom du Manager">
 
-        <input type="text" class="form-control" id="prenomManagerService" required
-            [(ngModel)]="model.prenomManagerService" name="prenomManagerService" placeholder="Prenom du Manager">
+        <input type="text" class="form-control" id="prenomManagerService" required [(ngModel)]="model.prenomManagerService" name="prenomManagerService" placeholder="Prenom du Manager">
 
         <button type="button" class="btn btn-primary" (click)="onSubmit(userForm)">Ajouter</button>
         &nbsp;
