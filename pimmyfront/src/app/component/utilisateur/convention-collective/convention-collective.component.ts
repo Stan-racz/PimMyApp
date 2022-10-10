@@ -12,4 +12,6 @@ export class ConventionCollectiveComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  pdfSource = "../../../../assets/ressources/convention-collective.pdf"
+
 }

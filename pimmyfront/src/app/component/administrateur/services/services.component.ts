@@ -42,7 +42,7 @@ export class ServicesComponent implements OnInit {
   }
 
   //transformation des données du call api en tableau mat table data source
-  thingsAsMatTableDataSource$: Observable<MatTableDataSource<Services>> = this.getServicesData().pipe(
+  thingsAsMatTableDataSource$: Observable<any> = this.getServicesData().pipe(
     map((serv: any) => {
       const dataSource = this.dataSource;
       dataSource.data = serv;
@@ -53,17 +53,6 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //les headers sont les protections que nos requêtes utilisent pour identifier l'utilisateur et son rôle
-  // getHeaders() {
-  //   //on récupère le token stocké si l'utilisateur est identifié
-  //   let token = localStorage.getItem('token retourné')
-  //   //on ajoute le token aux headers qui vont servir pour toutes les requêtes http
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`
-  //   })
-  //   return headers;
-  // }
 
   suppressionService(row: any) {
     //on ajoute le service à la fin de la requête DELETE avec row['nom'] qui récupère les données de la rangée selon le bouton cliqué
