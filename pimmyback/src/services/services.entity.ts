@@ -5,9 +5,13 @@ export class Services {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column("text")
+  @Column({ unique: true })
   nom: string;
 
   @Column("text")
-  manager: string;
+  manager_Nom: string;
+
+  @Column("text")
+  manager_Prenom: string;
+
 }

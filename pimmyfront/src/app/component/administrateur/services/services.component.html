@@ -1,1 +1,54 @@
-<p>services works!</p>
+<div class="form-group" #form>
+    <form #userForm="ngForm">
+        <input type="text" class="form-control" id="Nom" required [(ngModel)]="model.nom" name="Nom" placeholder="Nom du Service">
+
+        <input type="text" class="form-control" id="nomManagerService" required [(ngModel)]="model.nomManagerService" name="nomManagerService" placeholder="Nom du Manager">
+
+        <input type="text" class="form-control" id="prenomManagerService" required [(ngModel)]="model.prenomManagerService" name="prenomManagerService" placeholder="Prenom du Manager">
+
+        <button type="button" class="btn btn-primary" (click)="onSubmit(userForm)">Ajouter</button>
+        &nbsp;
+
+    </form>
+</div>
+
+<table mat-table [dataSource]="thingsAsMatTableDataSource$ | async">
+    <!--- Note that these columns can be defined in any order.
+      The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef>Service</th>
+        <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="prenomManagerService">
+        <th mat-header-cell *matHeaderCellDef>Prénom du manager</th>
+        <td mat-cell *matCellDef="let element">{{ element.prenomManagerService }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nomManagerService">
+        <th mat-header-cell *matHeaderCellDef>Nom du manager</th>
+        <td mat-cell *matCellDef="let element">{{ element.nomManagerService }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let row">
+            <button class="btn btn-primary" (click)="suppressionService(row)">Supprimer</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<!-- TODO AJOUTER LES REQUIRED AUX CHAMPS DAJOUT -->
+<!-- <table>
+    <ng-container matColumnDef="deleteService">
+        <th mat-header-cell *matHeaderCellDef>Nom du manager</th>
+        <td mat-cell><button></button>></td>
+    </ng-container>
+</table> -->

@@ -34,6 +34,11 @@ export class UserController {
         return this.userService.findOne(params.id);
     }
 
+    @Get(':nom/:prenom')
+    findByName(@Param() params): Observable<User> {
+        return this.userService.findByName(params.nom, params.prenom);
+    }
+
     @hasRoles(UserRole.MANAGER, UserRole.ADMIN)
     @UseGuards(JwtAuthGuard, RolesGuard)
     @Get()

@@ -15,7 +15,11 @@ export const ServicesSchema = new EntitySchema<Services>
                 nom: {
                     type: String,
                 },
-                manager: {
+                manager_Nom: {
+                    type: String,
+                },
+
+                manager_Prenom: {
                     type: String,
                 }
             }

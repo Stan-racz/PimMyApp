@@ -50,7 +50,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullComponent,
     NavigationComponent,
     SidebarComponent,
-    DemandeCongesComponent
+    DemandeCongesComponent,
   ],
   imports: [
     CommonModule,
@@ -62,7 +62,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NgbModule,
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
     PerfectScrollbarModule,
-    FullCalendarModule
+    FullCalendarModule,
   ],
   providers: [
     {
@@ -72,7 +72,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+
   ],
   bootstrap: [AppComponent]
 })

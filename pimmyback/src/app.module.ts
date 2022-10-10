@@ -11,6 +11,9 @@ import { Absence } from './absences/absence.entity';
 import { Abs_dispo } from './absdispo/absdispo.entity';
 import { Services } from './services/services.entity';
 import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
+import { ServicesModule } from './services/services.module';
+import { ServicesController } from './services/services.controler';
+import { ServicesService } from './services/services.service';
 
 @Module({
   imports: [
@@ -28,8 +31,9 @@ import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
       autoLoadEntities: true,
     }),
     UserModule,
-    AuthModule,],
-  controllers: [AppController],
-  providers: [AppService],
+    AuthModule,
+    ServicesModule,],
+  controllers: [AppController, ServicesController],
+  providers: [AppService, ServicesService],
 })
 export class AppModule { }

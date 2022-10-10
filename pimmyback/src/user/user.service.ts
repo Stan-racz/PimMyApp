@@ -48,6 +48,21 @@ export class UserService {
             catchError(err => throwError(() => new Error('no user corresponding to that id')))
         );
     }
+
+    findByName(nom: string, prenom: string): Observable<User> {
+        return from(this.userRepository.findOne({
+            where: {
+                nom: nom,
+                prenom: prenom
+            }
+        })).pipe(
+            map((user: User) => {
+                const { password, ...result } = user;
+                return result;
+            }),
+            catchError(err => throwError(() => new Error("Pas d'utilisateur correspondant à ce nom/prénom")))
+        );
+    }
     findAll(): Observable<User[]> {
         return from(this.userRepository.find()).pipe(
             map((users: User[]) => {

@@ -44,6 +44,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { MainConfig } from '../../app/mainConfig';
 @NgModule({
   imports: [
     CommonModule,
@@ -62,6 +64,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatProgressBarModule,
     MatIconModule,
     MatToolbarModule,
+    PdfViewerModule
   ],
   declarations: [
     NgbdpaginationBasicComponent,
@@ -88,6 +91,9 @@ import { MatIconModule } from '@angular/material/icon';
     ConventionCollectiveComponent,
     // DemandeCongesComponent,
     VisualisationComponent
+  ],
+  providers: [
+    MainConfig
   ]
 })
 export class ComponentsModule { }
