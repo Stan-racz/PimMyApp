@@ -23,8 +23,10 @@ export class AuthenticationService {
       map((token) => {
         // console.log('token ' + token.access_token);
         // console.log('role ' + token.role);
+        console.log(token.userEmail)
         localStorage.setItem('token retourné', token.access_token);
         localStorage.setItem('role', token.role)
+        localStorage.setItem('userEmail', token.userEmail)
         return token;
       })
     )

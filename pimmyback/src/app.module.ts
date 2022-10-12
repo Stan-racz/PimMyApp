@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { UserEntity } from './user/models/user.entity';
-import { Demande_abs } from './demandeAbsence/demandeabs.entity';
+import { DemandeAbsEntity } from './demandeAbsence/demandeabs.entity';
 import { Absence } from './absences/absence.entity';
 import { Abs_dispo } from './absdispo/absdispo.entity';
 import { Services } from './services/services.entity';
@@ -14,6 +14,9 @@ import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
 import { ServicesModule } from './services/services.module';
 import { ServicesController } from './services/services.controler';
 import { ServicesService } from './services/services.service';
+import { DemandeAbsController } from './demandeAbsence/demandeabs.controller';
+import { DemandeAbsService } from './demandeAbsence/demandeabs.service';
+import { DemandeAbsModule } from './demandeAbsence/demandeAbs.module';
 
 @Module({
   imports: [
@@ -26,14 +29,15 @@ import { ServicesService } from './services/services.service';
       username: 'root',
       password: 'P1mpMy@pp5',
       database: 'PimpMyBDD',
-      entities: [UserEntity, Demande_abs, Absence, Abs_dispo, Services, HeuresSemaine],
+      entities: [UserEntity, DemandeAbsEntity, Absence, Abs_dispo, Services, HeuresSemaine],
       synchronize: true,
       autoLoadEntities: true,
     }),
     UserModule,
     AuthModule,
-    ServicesModule,],
+    ServicesModule,
+    DemandeAbsModule],
   controllers: [AppController, ServicesController],
-  providers: [AppService, ServicesService],
+  providers: [AppService, ServicesService]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Abs_dispo } from './absdispo.entity';
 import { EntitySchema } from 'typeorm';
 
-export const ServicesSchema = new EntitySchema<Abs_dispo>
+export const AbsDispoSchema = new EntitySchema<Abs_dispo>
     (
         {
             name: 'Abscences Disponibles',

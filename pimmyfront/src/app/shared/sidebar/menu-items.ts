@@ -68,14 +68,6 @@ if (role == "admin") {
       submenu: []
     },
     {
-      path: '/component/validation-conges',
-      title: 'Validation congés',
-      icon: 'bi bi-check2-circle',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
-    {
       path: '/component/fiche-utilisateur',
       title: 'Fiche utilisateur',
       icon: 'bi bi-person',
