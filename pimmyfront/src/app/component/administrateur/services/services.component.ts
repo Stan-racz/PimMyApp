@@ -21,7 +21,7 @@ export class ServicesComponent implements OnInit {
   model = new Services(18, '', '', '',);
 
 
-  constructor(private http: HttpClient, private router: Router, private mainConfig: MainConfig) { }
+  constructor(private http: HttpClient, private mainConfig: MainConfig) { }
 
 
 

@@ -22,10 +22,11 @@ export class UserController {
     login(@Body() user: User): Observable<Object> {
 
         this.userService.findByMail(user['email']).subscribe((value) => this.leRole = value['role']);
-
+        console.log(user)
         return this.userService.login(user).pipe(
             map((jwt: string) => {
-                return { access_token: jwt, role: this.leRole };
+                console.log()
+                return { access_token: jwt, role: this.leRole, userEmail: user.email };
             })
         )
     }

@@ -1,7 +1,7 @@
 import { HeuresSemaine } from './heuressemaine.entity';
 import { EntitySchema } from 'typeorm';
 
-export const ServicesSchema = new EntitySchema<HeuresSemaine>
+export const heureSemaineSchema = new EntitySchema<HeuresSemaine>
     (
         {
             name: 'Heures semaine',

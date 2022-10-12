@@ -2,8 +2,8 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 't
 import { Absence } from '../absences/absence.entity';
 import { UserEntity } from '../user/models/user.entity';
 
-@Entity("demande_abs")
-export class Demande_abs {
+@Entity("DemandeAbsEntity")
+export class DemandeAbsEntity {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
@@ -22,14 +22,15 @@ export class Demande_abs {
   @Column("text")
   commentaire: string;
 
-  @Column("text")
-  status: string;
+  @Column("bool")
+  manager_ok: boolean;
 
-  @ManyToMany(type => UserEntity)
-  @JoinTable({ name: 'id_util' })
-  id_util: UserEntity;
+  @Column("bool")
+  admin_ok: boolean;
 
-  @ManyToMany(type => Absence)
-  @JoinTable({ name: 'id_abs' })
-  id_abs: Absence;
+  @Column("int")
+  id_absence: number;
+
+  @Column("int")
+  id_utilisateur: number;
 }

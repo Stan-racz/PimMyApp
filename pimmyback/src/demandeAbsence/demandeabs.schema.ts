@@ -1,11 +1,11 @@
-import { Demande_abs } from './demandeabs.entity';
+import { DemandeAbsEntity } from './demandeabs.entity';
 import { EntitySchema } from 'typeorm';
 
-export const DemandeAbsSchema = new EntitySchema<Demande_abs>
+export const DemandeAbsSchema = new EntitySchema<DemandeAbsEntity>
     (
         {
             name: 'Demande d\'absence',
-            target: Demande_abs,
+            target: DemandeAbsEntity,
             columns: {
                 id: {
                     type: Number,
@@ -29,6 +29,12 @@ export const DemandeAbsSchema = new EntitySchema<Demande_abs>
                 },
                 status: {
                     type: String,
+                },
+                manager_ok: {
+                    type: Boolean,
+                },
+                admin_ok: {
+                    type: Boolean,
                 }
             }
         }
