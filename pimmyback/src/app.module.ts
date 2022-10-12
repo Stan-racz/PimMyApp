@@ -14,9 +14,8 @@ import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
 import { ServicesModule } from './services/services.module';
 import { ServicesController } from './services/services.controler';
 import { ServicesService } from './services/services.service';
-import { DemandeAbsController } from './demandeAbsence/demandeabs.controller';
-import { DemandeAbsService } from './demandeAbsence/demandeabs.service';
 import { DemandeAbsModule } from './demandeAbsence/demandeAbs.module';
+import { AbsenceModule } from './absences/absence.module';
 
 @Module({
   imports: [
@@ -36,7 +35,8 @@ import { DemandeAbsModule } from './demandeAbsence/demandeAbs.module';
     UserModule,
     AuthModule,
     ServicesModule,
-    DemandeAbsModule],
+    DemandeAbsModule,
+    AbsenceModule],
   controllers: [AppController, ServicesController],
   providers: [AppService, ServicesService]
 })

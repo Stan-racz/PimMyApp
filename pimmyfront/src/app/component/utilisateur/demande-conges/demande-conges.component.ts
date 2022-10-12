@@ -5,6 +5,9 @@ import listPlugin from '@fullcalendar/list';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { MainConfig } from '../../../mainConfig';
+import { map } from 'rxjs';
+import { Absences } from './Absences';
 
 @Component({
   selector: 'app-demande-conges',
@@ -13,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DemandeCongesComponent implements OnInit {
 
-  motifs = ['Congé payé', 'Congé sans solde', 'RTT'];
+  motifs : any[] = [];
   debut: any;
   fin: any;
   commentaire: any;
@@ -51,12 +54,32 @@ export class DemandeCongesComponent implements OnInit {
     select: this.openPopup.bind(this)
   };
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, private mainConfig: MainConfig) {
     const name = Calendar.name;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+    this.getAbsences().pipe(
+      map((abs:any[]) => {
+        this.motifs.push(abs)
+      })
+    )
+    console.log(this.motifs);
+    
+  }
+
+  getAbsences(){
+    return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl()+"absence",{headers:this.mainConfig.getHeaders()}).pipe(
+      map((absences: any[]) => absences.map(
+        absence => {
+          return <Absences>{
+            id: absence["id"],
+            nom: absence["nom"]
+          }
+        })
+      ),
+    )
   }
 
   openPopup(selectInfo: DateSelectArg) {

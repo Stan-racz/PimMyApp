@@ -28,6 +28,9 @@ export class DemandeAbsEntity {
   @Column("bool")
   admin_ok: boolean;
 
+  @Column("text")
+  email: string;
+
   @Column("int")
   id_absence: number;
 
