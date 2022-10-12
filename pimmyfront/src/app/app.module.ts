@@ -60,7 +60,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy', onSameUrlNavigation: 'reload' }),
     PerfectScrollbarModule,
     FullCalendarModule,
   ],
