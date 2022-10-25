@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Observable } from 'rxjs';
 import { AbsenceService } from 'src/absences/absence.service';
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
@@ -13,12 +14,14 @@ import { DemandeAbsService } from './demandeabs.service';
 export class DemandeAbsController {
   constructor(private readonly DemandeAbsService: DemandeAbsService, private readonly UserService: UserService, private readonly AbsenceService: AbsenceService) { }
 
-  @Post()
-  async createDemandeAbs(@Body() demandeAbs: DemandeAbsEntity) {
-    var temp = await this.UserService.findByMail(demandeAbs.email)
-    demandeAbs.id_utilisateur = temp[0].id
+  @Post('create')
+  createDemandeAbs(@Body() demandeAbs: DemandeAbsEntity) : Observable<DemandeAbsEntity | Object> {
+    // var temp = await this.UserService.findByMail(demandeAbs.email)
+    // demandeAbs.id_utilisateur = temp[0].id
     // var temp2 = await this.AbsenceService.findByName(demande)
-    return this.DemandeAbsService.create(demandeAbs)
+    console.log(demandeAbs);
+    
+    return this.DemandeAbsService.create(demandeAbs).pipe()
   }
 
   // @hasRoles(UserRole.ADMIN)

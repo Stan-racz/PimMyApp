@@ -1,5 +1,6 @@
 <button class="btn btn-outline-primary mb-2 me-2" (click)="openModal()">Nouvelle demande</button>
 <button (click)="reloadCurrentRoute()">refresh</button>
+<button (click)="getAbsences()">absences</button>
 
 <full-calendar [options]="calendarOptions"></full-calendar>
 
@@ -16,7 +17,7 @@
                     <div class="form-group">
                         <select ngModel class="form-control" id="motif" required name="motif">
                             <option value="" disabled hidden>---- Choisir un motif ----</option>
-                            <option *ngFor="let motif of motifs" [ngValue]="motif">{{motif}}</option>
+                            <option *ngFor="let motif of motifs" [ngValue]="motif['id']">{{motif['nom']}}</option>
                         </select>
                     </div>
 
