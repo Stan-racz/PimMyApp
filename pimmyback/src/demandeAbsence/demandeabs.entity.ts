@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert, ManyToOne } from 'typeorm';
 import { Absence } from '../absences/absence.entity';
 import { UserEntity } from '../user/models/user.entity';
 
@@ -31,11 +31,11 @@ export class DemandeAbsEntity {
   @Column("text")
   email: string;
 
-  @Column("int")
-  id_absence: number;
+  @ManyToOne(() => Absence, (absence) => absence.id)
+  id_absence: Absence;
 
   @BeforeInsert()
-  emailToLowerCase(){
+  emailToLowerCase() {
     this.email = this.email.toLowerCase();
   }
 }

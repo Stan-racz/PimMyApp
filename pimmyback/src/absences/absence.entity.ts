@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { DemandeAbsEntity } from '../demandeAbsence/demandeabs.entity';
+
 
 @Entity("absence")
 export class Absence {
@@ -8,4 +10,6 @@ export class Absence {
   @Column("text")
   nom: string; 
   
+  @OneToMany(() => DemandeAbsEntity, (demandeAbs) => demandeAbs.id_absence)
+  demandeAbs: DemandeAbsEntity[]
 }

@@ -1,3 +1,5 @@
+import { Absences } from "./Absences";
+
 export class DemandeAbs {
     constructor(
         public id: number,
@@ -9,7 +11,6 @@ export class DemandeAbs {
         public manager_ok: boolean,
         public admin_ok: boolean,
         public email: string,
-        public id_absence: number,
-
+        public id_absence: Absences,
     ) { }
 }

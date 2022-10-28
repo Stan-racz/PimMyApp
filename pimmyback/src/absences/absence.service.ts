@@ -17,18 +17,32 @@ export class AbsenceService {
 
   findByName(nom: string): Observable<Absence> {
     return from(this.absServ.findOne({
-        where: {
-            nom: nom,
-            
-        }
+      where: {
+        nom: nom,
+      }
     })).pipe(
-        map((absence: Absence) => {
-            const { ...result } = absence;
-            return result;
-        }),
-        catchError(err => throwError(() => new Error("Pas d'absence correspondant à ce nom")))
+      map((absence: Absence) => {
+        const { ...result } = absence;
+        return result;
+      }),
+      catchError(err => throwError(() => new Error("Pas d'absence correspondant à ce nom")))
     );
-}
+  }
+
+  findById(id: number): Observable<Absence> {
+    return from(this.absServ.findOne({
+      where: {
+        id: id,
+
+      }
+    })).pipe(
+      map((absence: Absence) => {
+        const { ...result } = absence;
+        return result;
+      }),
+      catchError(err => throwError(() => new Error("Pas d'absence correspondant à cet id")))
+    );
+  }
 
   async remove(id: number): Promise<void> {
     await this.absServ.delete(id);

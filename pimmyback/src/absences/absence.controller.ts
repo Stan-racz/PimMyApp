@@ -9,12 +9,14 @@ export class AbsenceController {
   constructor(private readonly absenceService: AbsenceService) { }
 
   @Get()
-    findAll(): Promise<Absence[]> {
-        return this.absenceService.findAll();
-    }
+  findAll(): Promise<Absence[]> {
+    return this.absenceService.findAll();
+  }
 
-  @Get(':nom')
-    findByName(@Param() params): Observable<Absence> {
-        return this.absenceService.findByName(params.nom);
-    }
+  @Get(':id')
+  findById(@Param() params): Observable<Absence> {
+    return this.absenceService.findById(params.id);
+  }
+
+
 }

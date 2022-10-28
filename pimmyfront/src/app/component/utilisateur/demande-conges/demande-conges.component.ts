@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Calendar } from '@fullcalendar/core';
 import { CalendarOptions, DateSelectArg } from '@fullcalendar/angular';
 import listPlugin from '@fullcalendar/list';
@@ -6,11 +6,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MainConfig } from '../../../mainConfig';
-import { catchError, map, tap } from 'rxjs';
 import { Absences } from './Absences';
 import { DemandeAbs } from './DemandeAbs';
-
-
 
 @Component({
   selector: 'app-demande-conges',
@@ -23,15 +20,16 @@ export class DemandeCongesComponent implements OnInit {
   debut: any;
   fin: any;
   commentaire: any;
-  date_deb: any;
-  date_fin: any;
-
   displayStyle = "none";
   calendar: any;
-  events = [
-    { title: "RTT", start: '2022-09-30T08:00:00', end: '2022-09-30T12:00:00', color: "#272c33" },
-    { title: "Congés payés ", date: '2022-10-10', color: "#272c33" },
-  ]
+  conditions = [
+    { id: 1, nom: 'Matinée' },
+    { id: 2, nom: "Journée entière" },
+    { id: 3, nom: "Après-midi" }
+  ];
+  choixConditionDebut = this.conditions[1].id
+  choixConditionFin = this.conditions[1].id
+
 
   calendarOptions: CalendarOptions = {
     plugins: [listPlugin],
@@ -44,183 +42,147 @@ export class DemandeCongesComponent implements OnInit {
     buttonText: {
       today: 'Aujourd\'hui',
       list: 'Liste',
-      // month: "Mois",
+      month: "Mois",
     },
     initialView: 'dayGridMonth',
     weekends: true,
     editable: true,
     selectable: true,
     businessHours: true,
-    events: this.events,
     locale: 'fr',
     firstDay: 1,
-    select: this.openPopup.bind(this)
+    select: this.openPopup.bind(this),
   };
 
   constructor(private router: Router, private http: HttpClient, private mainConfig: MainConfig) {
     const name = Calendar.name;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.getAbsences()
+    this.http.get<DemandeAbs[]>(
+      this.mainConfig.getApiBaseUrl() + "demandeAbs/" + localStorage.getItem('userEmail'), { headers: this.mainConfig.getHeaders() }).subscribe(async (res) => {
+        this.calendarOptions.events = [];
+        
+        for (let index = 0; index < res.length; index++) {
+          const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
+          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+
+          this.calendarOptions.events.push({
+            title: res[index].id_absence.nom,
+            start: res[index].date_deb,
+            end: res[index].date_fin,
+            color: color,
+            textColor: textColor,
+            borderColor: "#272c33"
+          })
+        }
+      });
   }
 
-  ngOnInit(): void {
-    this.getAbsences()
-    // console.log(this.motifs);
+  ngOnInit() {
+  }
 
+  changeConditionFin(condition: any) {
+    this.fin = condition.target.value
+
+  }
+  changeConditionDebut(condition: any) {
+    this.debut = condition.target.value
   }
 
   getAbsences() {
-
-    console.log('test');
     return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absence", { headers: this.mainConfig.getHeaders() }).subscribe(
       {
         next: data => {
-          // console.log(data);
-          // for(let key in data){
-          //   this.motifs.push({key: key, value: data[key]})
-
-          // }
           this.motifs = data
-          console.log(this.motifs);
-
         }
       }
     );
-
-    return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absence", { headers: this.mainConfig.getHeaders() }).pipe(
-      map((absences: any[]) => absences.map(
-        absence => {
-          console.log(absence);
-          // this.motifs.push(absence['nom'])
-          // console.log(this.motifs)
-
-          // var objAbs =  <Absences>{
-          //   id: absence["id"],
-          //   nom: absence["nom"]
-          // }
-          // return objAbs
-        })
-      ),
-    )
   }
 
   openPopup(selectInfo: DateSelectArg) {
-    // console.log(selectInfo)
+    // Pour afficher dan sla pop up la date de fin
+    const newEnd = new Date(selectInfo.end.setDate(selectInfo.end.getDate() - 1))
 
     this.displayStyle = "block";
     this.debut = selectInfo.startStr;
-    this.fin = selectInfo.endStr;
+    this.fin = newEnd;
     this.calendar = selectInfo.view.calendar;
     this.calendar.unselect();
-
   }
 
   closePopup(form: NgForm) {
-    form.reset();
     this.displayStyle = "none";
+    this.reloadCurrentRoute();
   }
 
   onSubmit(form: NgForm) {
-
-    const title = form.value.motif;
-    // A modifier : la date de fin -> inclus quand demi-journée et exclu quand journée entière
+    // A modifier : pour les demi journée
     if (form.submitted) {
+      let newFin = new Date(form.value.fin)
+      newFin = new Date(newFin.setDate(newFin.getDate() + 1))
 
       if (form.value.debut === form.value.fin) {
-        console.log('égal');
-        switch (form.value.date_deb) {
-          case 'deb_mat':
-            this.date_deb = form.value.debut + "T08:00:00"
-            this.date_fin = form.value.fin + "T12:00:00"
+        switch (form.value.choixConditionDebut) {
+          case 1:
+            form.value.fin += "T12:00:00"
+            form.value.choixConditionDebut = true
+            form.value.choixConditionFin = false
             break;
 
-          case 'deb_fin':
-            this.date_deb = form.value.debut + "T13:00:00"
-            this.date_fin = form.value.fin + "T17:00:00"
+          case 3:
+            form.value.debut += "T13:00:00"
+            form.value.fin = newFin.toLocaleDateString('fr-CA')
+            form.value.choixConditionDebut = false
+            form.value.choixConditionFin = true
             break;
 
           default:
-            this.date_deb = form.value.debut
-            this.date_fin = form.value.fin
+            form.value.choixConditionDebut = true
+            form.value.choixConditionFin = true
+            form.value.fin = newFin.toLocaleDateString('fr-CA')
             break;
         }
       }
       else {
-        console.log('ok');
-
-        if (form.value.date_deb === "deb_mat" && form.value.date_fin === "deb_mat") {
-          this.date_deb = form.value.debut + "T08:00:00"
-          this.date_fin = form.value.fin + "T12:00:00"
-          console.log("matin et matin");
-
+        if (form.value.choixConditionDebut === 1 && form.value.choixConditionFin === 1) {
+          form.value.fin += "T12:00:00"
+          form.value.choixConditionDebut = true
+          form.value.choixConditionFin = false
         }
-        else if (form.value.date_deb === "deb_fin" && form.value.date_fin === "deb_mat") {
-          this.date_deb = form.value.debut + "T13:00:00"
-          this.date_fin = form.value.fin + "T12:00:00"
-          console.log("ap et matin");
-
+        else if (form.value.choixConditionDebut === 3 && form.value.choixConditionFin === 1) {
+          form.value.debut += "T13:00:00"
+          form.value.fin += "T12:00:00"
+          form.value.choixConditionDebut = false
+          form.value.choixConditionFin = false
         }
-        else if (form.value.date_deb === "deb_fin" && form.value.date_fin === "deb_fin") {
-          this.date_deb = form.value.debut + "T13:00:00"
-          this.date_fin = form.value.fin + "T17:00:00"
-          console.log("ap et ap");
+        else if (form.value.choixConditionDebut === 3 && form.value.choixConditionFin === 3) {
+          form.value.debut += "T13:00:00"
+          form.value.fin = newFin.toLocaleDateString('fr-CA')
+          form.value.choixConditionDebut = false
+          form.value.choixConditionFin = true
+        }
+        else if (form.value.choixConditionDebut === 1 && form.value.choixConditionFin === 3) {
+          form.value.debut += "T13:00:00"
+          form.value.fin = newFin.toLocaleDateString('fr-CA')
+          form.value.choixConditionDebut = false
+          form.value.choixConditionFin = true
 
         }
         else {
-          this.date_deb = form.value.debut
-          this.date_fin = form.value.fin
+          form.value.choixConditionDebut = true
+          form.value.choixConditionFin = true
+          form.value.fin = newFin.toLocaleDateString('fr-CA')
         }
       }
-
-      if (form.value.date_deb === "deb_mat" || form.value.date_deb === "entiere") {
-        form.value.deb_mat = true
-      }
-      else {
-        form.value.deb_mat = false
-      }
-
-      if (form.value.date_fin === "fin_mat" || form.value.date_fin === "entiere") {
-        form.value.fin_mat = true
-      }
-      else {
-        form.value.fin_mat = false
-      }
-
-      this.calendar.addEvent({
-        title,
-        start: this.date_deb,
-        end: this.date_fin,
-        // allDay: true,
-        color: "#272c33",
-      });
-
-      this.events.push({ title: title, start: form.value.debut, end: form.value.fin, color: "#272c33" })
-
-      console.log(typeof form.value.debut,
-        form.value.deb_mat,
-        form.value.fin,
-        form.value.fin_mat,
-        form.value.commentaire,
-        false,
-        false,
-        typeof localStorage.getItem('userEmail'),
-        form.value.motif,);
-
       this.demandeAbsence(form);
-
-      form.resetForm();
       this.closePopup(form);
-
     }
-    // console.log(localStorage.getItem('role'))
   }
+
   openModal() {
     this.displayStyle = "block";
-    // console.log(this.calendarOptions);
-    // let test =new Calendar()
-    // console.log(this.calendar);
-
-
   }
+
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -229,16 +191,17 @@ export class DemandeCongesComponent implements OnInit {
   }
 
   demandeAbsence(form: NgForm) {
+
     this.http.post<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/create", {
       date_deb: form.value.debut,
-      deb_mat: form.value.deb_mat,
+      deb_mat: form.value.choixConditionDebut,
       date_fin: form.value.fin,
-      fin_mat: form.value.fin_mat,
+      fin_mat: form.value.choixConditionFin,
       commentaire: form.value.commentaire,
       manager_ok: false,
       admin_ok: false,
       id_absence: form.value.motif,
       email: localStorage.getItem('userEmail'),
-    }, { headers: this.mainConfig.getHeaders() }).subscribe(data => { console.log(data) })
+    }, { headers: this.mainConfig.getHeaders() }).subscribe()
   }
 }
