@@ -28,7 +28,7 @@ if (role == "admin") {
       submenu: []
     },
     {
-      path: '/component/validation-conges-manager',
+      path: '/component/validation-conges',
       title: 'Validation congés',
       icon: 'bi bi-check2-circle',
       class: '',

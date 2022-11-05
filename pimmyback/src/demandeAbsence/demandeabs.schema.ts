@@ -33,6 +33,12 @@ export const DemandeAbsSchema = new EntitySchema<DemandeAbsEntity>
                 ,
                 admin_ok: {
                     type: Boolean,
+                },
+                email: {
+                    type: String,
+                },
+                refus: {
+                    type: Boolean,
                 }
             }
         }

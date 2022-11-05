@@ -1,0 +1,15 @@
+import { forwardRef, Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from 'src/user/user.module';
+import { AbsDispoController } from './absdispo.controller';
+import { Abs_dispo } from './absdispo.entity';
+import { AbsDispoService } from './absdispo.service';
+
+
+@Module({
+    imports: [TypeOrmModule.forFeature([Abs_dispo])],
+    controllers: [AbsDispoController],
+    providers: [AbsDispoService],
+    exports: [AbsDispoService]
+})
+export class AbsDispoModule { } 

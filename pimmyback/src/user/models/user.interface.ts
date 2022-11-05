@@ -9,6 +9,7 @@ export interface User {
     status?: string;
     dateNaiss: string;
     nbHeureContractuelle: number;
+    id_service: number;
 }
 
 export enum UserRole {

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { AbsenceService } from 'src/absences/absence.service';
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
@@ -16,17 +16,18 @@ export class DemandeAbsController {
 
   @Post('create')
   createDemandeAbs(@Body() demandeAbs: DemandeAbsEntity): Observable<DemandeAbsEntity | Object> {
-    // var temp = await this.UserService.findByMail(demandeAbs.email)
-    // demandeAbs.id_utilisateur = temp[0].id
-    // var temp2 = await this.AbsenceService.findByName(demande)
-    console.log(demandeAbs);
-
+    //ne pas oublier d'ajouter une fonction qui décompte les jours de congés dispo de l'utilisateur /!\
+    // console.log(demandeAbs);
     return this.DemandeAbsService.create(demandeAbs).pipe()
   }
-
+  //roles admin manager
   @Get('all')
   findAllAbs() {
     return this.DemandeAbsService.findAll();
+  }
+  @Get('absManager')
+  findAllManagerNotOk() {
+    return this.DemandeAbsService.findAllManagerNotOk();
   }
 
   // @hasRoles(UserRole.ADMIN)
@@ -36,8 +37,23 @@ export class DemandeAbsController {
     return this.DemandeAbsService.findAllManagerOk();
   }
 
+  //roles : manager admin user
   @Get(':email')
   findByEmail(@Param() params) {
-    return this.DemandeAbsService.findByEmail( params.email)
+    return this.DemandeAbsService.findByEmail(params.email)
+  }
+
+  //roles : manager & admin
+  @Put('validationManager')
+  managerOk(@Body() body) {
+    // console.log(body.email);
+    return this.DemandeAbsService.updateValidationManager(body.email)
+  }
+
+  //roles : manager & admin
+  @Put('validationAdmin')
+  adminOk(@Body() body) {
+    // console.log(body.email);
+    return this.DemandeAbsService.updateValidationAdmin(body.email)
   }
 }

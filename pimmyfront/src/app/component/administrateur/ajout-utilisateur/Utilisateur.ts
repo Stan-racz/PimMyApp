@@ -8,6 +8,7 @@ export class Utilisateur {
         public status: string,
         public dateNaiss: string,
         public nombreHeureContractuelle: string,
-
+        public id_service: number,
+        public role: string,
     ) { }
 }

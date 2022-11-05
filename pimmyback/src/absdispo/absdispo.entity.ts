@@ -15,8 +15,8 @@ export class Abs_dispo {
   @JoinColumn({ name: 'id_util' })
   id_util: UserEntity;
 
-  @ManyToMany(type => Absence)
-  @JoinTable({ name: 'id_abs' })
+  @ManyToOne(type => Absence)
+  // @JoinTable({ name: 'id_abs' })
   id_abs: Absence;
 
 }

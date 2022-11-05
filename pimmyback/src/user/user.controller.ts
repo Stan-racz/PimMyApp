@@ -13,6 +13,7 @@ export class UserController {
     constructor(private userService: UserService) { }
     @Post()
     create(@Body() user: User): Observable<User | Object> {
+
         return this.userService.create(user).pipe(
             map((user: User) => user),
             catchError(err => of({ error: err.message }))

@@ -13,14 +13,27 @@ export class DemandeAbsService {
   ) { }
 
   findAll(): Promise<DemandeAbsEntity[]> {
-    return this.demandeAbsServ.find();
+    return this.demandeAbsServ.find({ relations: ['id_absence'] });
   }
 
   findAllManagerOk(): Promise<DemandeAbsEntity[]> {
     return this.demandeAbsServ.find(
       {
+        relations: ['id_absence'],
         where: {
           manager_ok: true,
+          admin_ok: false
+        }
+      }
+    );
+  }
+
+  findAllManagerNotOk(): Promise<DemandeAbsEntity[]> {
+    return this.demandeAbsServ.find(
+      {
+        relations: ['id_absence'],
+        where: {
+          manager_ok: false,
         }
       }
     );
@@ -33,7 +46,7 @@ export class DemandeAbsService {
 
   create(demandeAbs: DemandeAbsEntity): Observable<DemandeAbsEntity> {
     const newDemande = new DemandeAbsEntity();
-    
+
     newDemande.date_deb = demandeAbs.date_deb;
     newDemande.deb_mat = demandeAbs.deb_mat;
     newDemande.date_fin = demandeAbs.date_fin;
@@ -43,6 +56,7 @@ export class DemandeAbsService {
     newDemande.admin_ok = demandeAbs.admin_ok;
     newDemande.id_absence = demandeAbs.id_absence;
     newDemande.email = demandeAbs.email;
+    newDemande.refus = false;
     return from(this.demandeAbsServ.save(newDemande)).pipe(
       map((demandeAbs: DemandeAbsEntity) => {
         return demandeAbs;
@@ -50,13 +64,35 @@ export class DemandeAbsService {
     )
   }
 
-  findByEmail( email: string) {
+  findByEmail(email: string) {
     return this.demandeAbsServ.find({
       relations: { id_absence: true },
       where: {
         email: email
       }
     })
+  }
+
+  updateValidationManager(email: string) {
+    return this.demandeAbsServ.update(
+      {
+        email: email
+      },
+      {
+        manager_ok: true,
+      }
+    )
+  }
+
+  updateValidationAdmin(email: string) {
+    return this.demandeAbsServ.update(
+      {
+        email: email
+      },
+      {
+        admin_ok: true,
+      }
+    )
   }
 
   // create(demandeAbs: DemandeAbsEntity): Observable<DemandeAbsEntity> {

@@ -16,6 +16,7 @@ import { ServicesController } from './services/services.controler';
 import { ServicesService } from './services/services.service';
 import { DemandeAbsModule } from './demandeAbsence/demandeAbs.module';
 import { AbsenceModule } from './absences/absence.module';
+import { AbsDispoModule } from './absdispo/absdispo.module';
 
 @Module({
   imports: [
@@ -36,7 +37,8 @@ import { AbsenceModule } from './absences/absence.module';
     AuthModule,
     ServicesModule,
     DemandeAbsModule,
-    AbsenceModule],
+    AbsenceModule,
+    AbsDispoModule],
   controllers: [AppController, ServicesController],
   providers: [AppService, ServicesService]
 })

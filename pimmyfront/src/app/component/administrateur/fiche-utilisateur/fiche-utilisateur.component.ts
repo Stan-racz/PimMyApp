@@ -22,7 +22,7 @@ export class FicheUtilisateurComponent implements OnInit {
 
   }
 
-  model = new Utilisateur(18, '', '', '', "", "", "", "",);
+  model = new Utilisateur(18, '', '', '', "", "", "", "", 1, "");
   displayedColumns: string[] = ['nom', 'prenom', 'email', 'civilite', 'status', 'dateNaiss', 'nbHeureContractuelle'];
 
 

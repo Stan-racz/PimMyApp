@@ -1,32 +1,34 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { UserRole } from "./user.interface";
+import { Services } from '../../services/services.entity';
+import { Optional } from "@nestjs/common";
 
 @Entity()
 export class UserEntity {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id?: number;
 
     @Column("text")
-    nom: string;
+    nom?: string;
 
     @Column("text")
-    prenom: string;
+    prenom?: string;
 
     @Column({ unique: true })
-    email: string;
+    email?: string;
 
     @Column({ unique: true })
-    password: string;
+    password?: string;
 
     @Column({ type: 'enum', enum: UserRole, default: UserRole.USER })
-    role: UserRole;
+    role?: UserRole;
 
     @Column("text")
-    civilite: string;
+    civilite?: string;
 
     @Column("text")
-    status: string;
+    status?: string;
 
     @Column("text")
     dateNaiss: string;
@@ -34,8 +36,6 @@ export class UserEntity {
     @Column("int")
     nbHeureContractuelle: number;
 
-    @BeforeInsert()
-    emailToLowerCase() {
-        this.email = this.email.toLowerCase();
-    }
+    @ManyToOne(() => Services, (service) => service.id)
+    id_service: number;
 }
