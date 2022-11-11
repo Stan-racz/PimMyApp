@@ -53,16 +53,6 @@ export class ValidationCongesManagerComponent implements OnInit {
     )
   }
 
-  getAbsences() {
-    return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absence", { headers: this.mainConfig.getHeaders() }).subscribe(
-      {
-        next: data => {
-          this.motifs = data
-        }
-      }
-    );
-  }
-
   acceptanceConges(email: string) {
 
     this.http.put<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/validationManager", {
@@ -70,7 +60,7 @@ export class ValidationCongesManagerComponent implements OnInit {
     }, { headers: this.mainConfig.getHeaders() }).subscribe()
     console.log(email);
 
-    setTimeout(() => { }, 300)
+    this.mainConfig.sleep(300)
     this.mainConfig.reloadCurrentRoute()
   }
 

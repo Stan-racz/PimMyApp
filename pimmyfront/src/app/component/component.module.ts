@@ -48,6 +48,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MainConfig } from '../../app/mainConfig';
 
 import { DxButtonModule, DxSelectBoxComponent, DxSelectBoxModule } from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
@@ -68,7 +69,7 @@ import { DxButtonModule, DxSelectBoxComponent, DxSelectBoxModule } from 'devextr
     MatToolbarModule,
     PdfViewerModule,
     DxButtonModule,
-    DxSelectBoxModule
+    DxSelectBoxModule,
   ],
   declarations: [
     NgbdpaginationBasicComponent,

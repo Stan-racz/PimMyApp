@@ -22,18 +22,29 @@ export class AbsDispoService {
   async remove(id: number): Promise<void> {
     await this.absDispoServ.delete(id);
   }
-  //remplacer ça part une query ou qqch de moins fixe
-  statusTab = ['Cadres', 'Non Cadres Administratif', 'Non Cadres Vie Scolaire'];
+
+  statusEtConges = [{
+    status: 'Cadres',
+    compteurConges: 36
+  },
+  {
+    status: 'Non Cadres Administratif',
+    compteurConges: 36
+  },
+  {
+    status: 'Non Cadres Vie Scolaire',
+    compteurConges: 51
+  }]
 
   ajoutCPP(absDispo: any) {
     const newDemande = new Abs_dispo();
     console.log(absDispo.status);
-    if (absDispo.status == this.statusTab[0]) {
-      newDemande.compteur = 36;
-    } else if (absDispo.status == this.statusTab[1]) {
-      newDemande.compteur = 36;
-    } else if (absDispo.status == this.statusTab[2]) {
-      newDemande.compteur = 51;
+    if (absDispo.status == this.statusEtConges[0].status) {
+      newDemande.compteur = this.statusEtConges[0].compteurConges;
+    } else if (absDispo.status == this.statusEtConges[1].status) {
+      newDemande.compteur = this.statusEtConges[1].compteurConges;
+    } else if (absDispo.status == this.statusEtConges[2].status) {
+      newDemande.compteur = this.statusEtConges[2].compteurConges;
     }
     newDemande.id_util = absDispo.id_util;
     newDemande.id_abs = absDispo.id_abs;

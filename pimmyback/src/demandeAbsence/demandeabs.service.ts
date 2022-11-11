@@ -29,11 +29,14 @@ export class DemandeAbsService {
   }
 
   findAllManagerNotOk(): Promise<DemandeAbsEntity[]> {
+    console.log("cc la manager validation");
+
     return this.demandeAbsServ.find(
       {
         relations: ['id_absence'],
         where: {
           manager_ok: false,
+          admin_ok: false,
         }
       }
     );

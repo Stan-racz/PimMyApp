@@ -71,27 +71,28 @@ export class AjoutUtilisateurComponent implements OnInit {
     let absences;
     let found;
     let id_absences;
-    // this.http.post<Utilisateur>(this.mainConfig.getApiBaseUrl() + 'users', {
-    //   nom: form.value.nom,
-    //   prenom: form.value.prenom,
-    //   email: form.value.email,
-    //   password: mdp,
-    //   role: form.value.role,
-    //   civilite: form.value.civilite,
-    //   status: form.value.status,
-    //   dateNaiss: form.value.dateNaiss,
-    //   nbHeureContractuelle: Number(form.value.nombreHeureContractuelle),
-    //   //trouver pourquoi ça s'ajoute pas dans la bdd
-    //   id_service: 1,
-    // }).subscribe(data => {
-    //   console.log(data);
-    //   userId = data.id
-    // })
-    setTimeout(() => { }, 300)
+    this.http.post<Utilisateur>(this.mainConfig.getApiBaseUrl() + 'users', {
+      nom: form.value.nom,
+      prenom: form.value.prenom,
+      email: form.value.email,
+      password: mdp,
+      role: form.value.role,
+      civilite: form.value.civilite,
+      status: form.value.status,
+      dateNaiss: form.value.dateNaiss,
+      nbHeureContractuelle: Number(form.value.nombreHeureContractuelle),
+      //trouver pourquoi ça s'ajoute pas dans la bdd - (est ce que je reçois le 1 dans le back? si oui alors c'est le formattage de la requete la bas)
+      id_service: 1,
+    }).subscribe(data => {
+      console.log(data);
+      userId = data.id
+    })
+
+    this.mainConfig.sleep(300)
     absences = this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).pipe(map(
       (absences) => absences.map(
         absence => {
-          console.log("yo", absence);
+          // console.log("yo", absence);
 
           return <Absences>{
             id: absence.id,
@@ -100,7 +101,7 @@ export class AjoutUtilisateurComponent implements OnInit {
         }
       )
     ))
-    setTimeout(() => { }, 300)
+    this.mainConfig.sleep(300)
     // console.log("absneces :) ", absences);
 
     // found = absences.forEach((absence) => {

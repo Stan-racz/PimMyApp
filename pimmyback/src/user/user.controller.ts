@@ -3,6 +3,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { UserEntity } from './models/user.entity';
 import { User, UserRole } from './models/user.interface';
 import { UserService } from './user.service';
 
@@ -12,8 +13,7 @@ export class UserController {
     leRole: string;
     constructor(private userService: UserService) { }
     @Post()
-    create(@Body() user: User): Observable<User | Object> {
-
+    create(@Body() user: UserEntity): Observable<User | Object> {
         return this.userService.create(user).pipe(
             map((user: User) => user),
             catchError(err => of({ error: err.message }))

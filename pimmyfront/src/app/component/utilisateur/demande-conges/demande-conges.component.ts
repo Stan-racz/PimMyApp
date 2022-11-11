@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Calendar } from '@fullcalendar/core';
 import { CalendarOptions, DateSelectArg } from '@fullcalendar/angular';
 import listPlugin from '@fullcalendar/list';
@@ -57,11 +57,14 @@ export class DemandeCongesComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private mainConfig: MainConfig) {
     const name = Calendar.name;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.getAbsences()
+    this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).subscribe((res) => {
+      this.motifs = res
+    });
+
     this.http.get<DemandeAbs[]>(
       this.mainConfig.getApiBaseUrl() + "demandeAbs/" + localStorage.getItem('userEmail'), { headers: this.mainConfig.getHeaders() }).subscribe(async (res) => {
         this.calendarOptions.events = [];
-        
+
         for (let index = 0; index < res.length; index++) {
           const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
           const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
@@ -89,16 +92,6 @@ export class DemandeCongesComponent implements OnInit {
     this.debut = condition.target.value
   }
 
-  getAbsences() {
-    return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absence", { headers: this.mainConfig.getHeaders() }).subscribe(
-      {
-        next: data => {
-          this.motifs = data
-        }
-      }
-    );
-  }
-
   openPopup(selectInfo: DateSelectArg) {
     // Pour afficher dan sla pop up la date de fin
     const newEnd = new Date(selectInfo.end.setDate(selectInfo.end.getDate() - 1))
@@ -123,6 +116,8 @@ export class DemandeCongesComponent implements OnInit {
 
       if (form.value.debut === form.value.fin) {
         switch (form.value.choixConditionDebut) {
+
+          //TODO a discuter : rajouter une condition : si les deux dates sont différentes alors le choix est uniquement journée entières (= plus de drop down mais un choix en dur)
           case 1:
             form.value.fin += "T12:00:00"
             form.value.choixConditionDebut = true
@@ -191,7 +186,6 @@ export class DemandeCongesComponent implements OnInit {
   }
 
   demandeAbsence(form: NgForm) {
-
     this.http.post<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/create", {
       date_deb: form.value.debut,
       deb_mat: form.value.choixConditionDebut,

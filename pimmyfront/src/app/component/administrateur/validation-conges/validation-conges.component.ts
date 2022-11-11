@@ -25,6 +25,8 @@ export class ValidationCongesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //TODO IMPORTANT RAJOUTER UN CALENDRIER QUI RESUME LES CONGES DEMANDES PAR SERVICE
+
 
   thingsAsMatTableDataSource$: Observable<any> = this.getDemandeConges().pipe(
     map((serv: any) => {
@@ -54,23 +56,13 @@ export class ValidationCongesComponent implements OnInit {
     )
   }
 
-  getAbsences() {
-    return this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absence", { headers: this.mainConfig.getHeaders() }).subscribe(
-      {
-        next: data => {
-          this.motifs = data
-        }
-      }
-    );
-  }
-
   acceptanceConges(email: string) {
     this.http.put<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/validationAdmin", {
       email: email
     }, { headers: this.mainConfig.getHeaders() }).subscribe()
     console.log(email);
 
-    setTimeout(() => { }, 300)
+    this.mainConfig.sleep(300)
     this.mainConfig.reloadCurrentRoute()
   }
 

@@ -11,7 +11,7 @@ export class UserService {
         private authService: AuthService
     ) { }
 
-    create(user: User): Observable<User> {
+    create(user: UserEntity): Observable<User> {
         return this.authService.hashPassword(user.password).pipe(
             switchMap((passwordHash: string) => {
                 console.log("service ", user);
@@ -32,7 +32,11 @@ export class UserService {
                         const { password, ...result } = user;
                         return result;
                     }),
-                    catchError(err => throwError(() => new Error(err)))
+                    catchError(err => throwError(() => {
+                        console.log(err);
+
+                        new Error(err);
+                    }))
                 )
             })
         )

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MainConfig } from '../../mainConfig';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AuthenticationService } from '../../services/authentication.service/authentication.service';
 
@@ -17,8 +18,8 @@ export class NavigationComponent implements AfterViewInit {
   public showSearch = false;
 
   constructor(
-    private modalService: NgbModal,
     private authService: AuthenticationService,
+    // private mainConfig: MainConfig,
   ) {
 
   }
@@ -26,9 +27,12 @@ export class NavigationComponent implements AfterViewInit {
   statut() {
     console.log(localStorage.getItem('role'));
   }
+
   logOut() {
     this.authService.logOut();
+    // this.mainConfig.redirect("")
   }
+
   // This is for Notifications
   notifications: Object[] = [
     {
