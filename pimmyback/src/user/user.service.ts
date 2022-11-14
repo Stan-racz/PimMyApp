@@ -57,17 +57,14 @@ export class UserService {
 
     findByName(nom: string, prenom: string): Observable<User> {
         return from(this.userRepository.findOne({
+            relations: {
+                id_service: true,
+            },
             where: {
                 nom: nom,
                 prenom: prenom
             }
-        })).pipe(
-            map((user: User) => {
-                const { password, ...result } = user;
-                return result;
-            }),
-            catchError(err => throwError(() => new Error("Pas d'utilisateur correspondant à ce nom/prénom")))
-        );
+        }))
     }
 
     findByEmail(email: string): Observable<User> {
@@ -94,14 +91,17 @@ export class UserService {
             })
         );
     }
+
     deleteOne(id: number): Observable<any> {
         return from(this.userRepository.delete(id));
     }
+
     updateOne(id: number, user: User): Observable<any> {
         delete user.email;
         delete user.password;
         return from(this.userRepository.update(id, user));
     }
+
     login(user: User) {
         return this.validateUser(user.email, user.password).pipe(
             switchMap((user: User) => {
@@ -119,6 +119,7 @@ export class UserService {
             }
             ));
     }
+
     validateUser(email: string, password: string): Observable<User> {
         return this.findByMail(email).pipe(
             switchMap((user: User) => (this.authService.comparePassords(password, user.password).pipe(

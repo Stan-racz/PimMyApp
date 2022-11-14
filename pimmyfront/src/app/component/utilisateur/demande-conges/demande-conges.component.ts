@@ -31,7 +31,7 @@ export class DemandeCongesComponent implements OnInit {
   choixConditionDebut = this.conditions[1].id
   choixConditionFin = this.conditions[1].id
 
-// Refresh fair même méthode que visualisation congé par service
+  // Refresh fair même méthode que visualisation congé par service
   calendarOptions: CalendarOptions = {
     plugins: [listPlugin],
     headerToolbar: {
@@ -75,8 +75,6 @@ export class DemandeCongesComponent implements OnInit {
     ).subscribe(
       async (res) => {
         this.calendarOptions.events = [];
-        console.log("yolo", res[0]);
-
         for (let index = 0; index < res.length; index++) {
           const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
           const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
@@ -86,7 +84,7 @@ export class DemandeCongesComponent implements OnInit {
             {
               // Revoir pour id_service et le format
               title: res[index].id_absence.nom,
-              user:  res[index].user_info.prenom + " " + res[index].user_info.nom,
+              user: res[index].user_info.prenom + " " + res[index].user_info.nom,
               service: res[index].user_info.id_service?.nom,
               start: res[index].date_deb,
               end: res[index].date_fin,
@@ -198,8 +196,7 @@ export class DemandeCongesComponent implements OnInit {
   }
 
   demandeAbsence(form: NgForm) {
-    // console.log("lol id", localStorage.getItem('userId'));
-    if (this.dates.indexOf(form.value.debut) !== -1) {
+    if (this.dates.indexOf(form.value.debut) !== -1 || this.dates.indexOf(form.value.fin) !== -1) {
       console.log("dates indisponibles");
     }
     this.http.post<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/create", {

@@ -65,6 +65,7 @@ export class AjoutUtilisateurComponent implements OnInit {
 
   //ajout d'utilisateur via le formulaire
   ajoutUtilisateurManuel(form: NgForm) {
+
     let mdp = password.randomPassword()
     // console.log(form.value);
     let userId;

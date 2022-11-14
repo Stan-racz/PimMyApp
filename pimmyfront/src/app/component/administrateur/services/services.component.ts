@@ -59,17 +59,24 @@ export class ServicesComponent implements OnInit {
     this.http.delete<Services>(this.mainConfig.getApiBaseUrl() + 'services/' + row['nom'], { headers: this.mainConfig.getHeaders() }).subscribe(() => this.status = 'Delete successful');
     this.mainConfig.reloadCurrentRoute();
   }
+
   //récupération des données via requête get à l'api puis formatage de la map en tableau lisible pour notre tableau
   getServicesData() {
-    return this.http.get<Services[]>(this.mainConfig.getApiBaseUrl() + 'services', { headers: this.mainConfig.getHeaders() }).pipe(
-      map((services: any[]) => services.map(
-        service => {
-          return <Services>{
-            nom: service["nom"],
-            nomManagerService: service["manager_Nom"],
-            prenomManagerService: service['manager_Prenom']
+    return this.http.get<Services[]>(
+      this.mainConfig.getApiBaseUrl() + 'services',
+      { headers: this.mainConfig.getHeaders() }
+    ).pipe(
+      map(
+        (services: any[]) => services.map(
+          service => {
+
+            return <Services>{
+              nom: service["nom"],
+              nomManagerService: service["manager_Nom"],
+              prenomManagerService: service['manager_Prenom']
+            }
           }
-        })
+        )
       ),
     )
   }

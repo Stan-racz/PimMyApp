@@ -27,7 +27,7 @@ export class UserController {
             this.userId = value.id;
             return this.leRole = value['role'];
         });
-        console.log(user)
+        // console.log(user)
         return this.userService.login(user).pipe(
             map((jwt: string) => {
                 console.log(this.userId)
