@@ -27,13 +27,17 @@ export const DemandeAbsSchema = new EntitySchema<DemandeAbsEntity>
                 commentaire: {
                     type: String,
                 },
-                status: {
-                    type: String,
-                },
                 manager_ok: {
                     type: Boolean,
-                },
+                }
+                ,
                 admin_ok: {
+                    type: Boolean,
+                },
+                email: {
+                    type: String,
+                },
+                refus: {
                     type: Boolean,
                 }
             }

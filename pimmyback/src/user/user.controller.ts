@@ -3,6 +3,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { UserEntity } from './models/user.entity';
 import { User, UserRole } from './models/user.interface';
 import { UserService } from './user.service';
 
@@ -10,9 +11,10 @@ import { UserService } from './user.service';
 export class UserController {
 
     leRole: string;
+    userId: number;
     constructor(private userService: UserService) { }
     @Post()
-    create(@Body() user: User): Observable<User | Object> {
+    create(@Body() user: UserEntity): Observable<User | Object> {
         return this.userService.create(user).pipe(
             map((user: User) => user),
             catchError(err => of({ error: err.message }))
@@ -21,12 +23,15 @@ export class UserController {
     @Post('login')
     login(@Body() user: User): Observable<Object> {
 
-        this.userService.findByMail(user['email']).subscribe((value) => this.leRole = value['role']);
+        this.userService.findByMail(user['email']).subscribe((value) => {
+            this.userId = value.id;
+            return this.leRole = value['role'];
+        });
         console.log(user)
         return this.userService.login(user).pipe(
             map((jwt: string) => {
-                console.log()
-                return { access_token: jwt, role: this.leRole, userEmail: user.email };
+                console.log(this.userId)
+                return { access_token: jwt, role: this.leRole, userEmail: user.email, userId: this.userId };
             })
         )
     }

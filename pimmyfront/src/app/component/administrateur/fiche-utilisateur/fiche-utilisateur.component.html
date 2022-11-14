@@ -1,45 +1,52 @@
+<h1>Fiche utilisateur</h1>
+
+<br>
+
 <div class="form-group" #form>
     <form #userForm="ngForm">
         <input type="text" class="form-control" id="Nom" required [(ngModel)]="model.nom" name="Nom" placeholder="Nom de l'employé">
 
-        <input type="text" class="form-control" id="nomManagerService" required [(ngModel)]="model.prenom" name="Prenom" placeholder="Nom de l'employé">
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="Prenom" placeholder="Prénom de l'employé">
 
         <button type="button" class="btn btn-primary" (click)="onUserSearch(userForm)">Chercher</button>
         &nbsp;
     </form>
 </div>
 
-<div class="form-group" #form *ngIf="dataUser">
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="nom">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nom </mat-header-cell>
+        <mat-cell *matCellDef="let row"> Raczynski </mat-cell>
+    </ng-container>
 
-    <!-- <table mat-table [dataSource]="thingsAsMatTableDataSource$ | async"> -->
+    <ng-container matColumnDef="prenom">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom </mat-header-cell>
+        <mat-cell *matCellDef="let element"> Stanislas </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateNaiss">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Statut </mat-header-cell>
+        <mat-cell *matCellDef="let element"> Non Cadres Administratif</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> stan@racz.com</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="conges">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Congés restants </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 15j </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nbHeureContrat">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Heures contractuelles </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 1500 </mat-cell>
+    </ng-container>
 
 
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="nom">
-            <th mat-header-cell *matHeaderCellDef>Service</th>
-            <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
-        </ng-container> -->
 
-    <!-- Name Column -->
-    <!-- <ng-container matColumnDef="prenomManagerService">
-            <th mat-header-cell *matHeaderCellDef>Prénom du manager</th>
-            <td mat-cell *matCellDef="let element">{{ element.prenomManagerService }}</td>
-        </ng-container> -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+</table>
+<br>
 
-    <!-- Weight Column -->
-    <!-- <ng-container matColumnDef="nomManagerService">
-            <th mat-header-cell *matHeaderCellDef>Nom du manager</th>
-            <td mat-cell *matCellDef="let element">{{ element.nomManagerService }}</td>
-        </ng-container> -->
-
-    <!-- <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Actions </th>
-            <td mat-cell *matCellDef="let row">
-                <button class="btn btn-primary" (click)="suppressionService(row)">Supprimer</button>
-            </td>
-        </ng-container> -->
-
-    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table> -->
-</div>
+<hr>

@@ -46,6 +46,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MainConfig } from '../../app/mainConfig';
+
+import { DxButtonModule, DxSelectBoxComponent, DxSelectBoxModule } from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
@@ -64,7 +67,9 @@ import { MainConfig } from '../../app/mainConfig';
     MatProgressBarModule,
     MatIconModule,
     MatToolbarModule,
-    PdfViewerModule
+    PdfViewerModule,
+    DxButtonModule,
+    DxSelectBoxModule,
   ],
   declarations: [
     NgbdpaginationBasicComponent,

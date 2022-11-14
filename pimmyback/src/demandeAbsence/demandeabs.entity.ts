@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert, ManyToOne, OneToMany } from 'typeorm';
 import { Absence } from '../absences/absence.entity';
 import { UserEntity } from '../user/models/user.entity';
 
@@ -7,15 +7,16 @@ export class DemandeAbsEntity {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
+
   @Column("date")
   date_deb: Date;
-
+  //Renommer en matinée
   @Column("bool")
   deb_mat: boolean;
 
   @Column("date")
   date_fin: Date;
-
+  //renommer en aprem si les deux sont a vrai alors journée entière
   @Column("bool")
   fin_mat: boolean;
 
@@ -28,9 +29,20 @@ export class DemandeAbsEntity {
   @Column("bool")
   admin_ok: boolean;
 
-  @Column("int")
-  id_absence: number;
+  @Column("text")
+  email: string;
 
-  @Column("int")
-  id_utilisateur: number;
+  @Column("bool")
+  refus: boolean;
+
+  @ManyToOne(() => Absence, (absence) => absence.id)
+  id_absence: Absence;
+
+  @ManyToOne(() => UserEntity, (user) => user.id)
+  user_info: UserEntity;
+
+  @BeforeInsert()
+  emailToLowerCase() {
+    this.email = this.email.toLowerCase();
+  }
 }

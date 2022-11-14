@@ -11,10 +11,11 @@ export class UserService {
         private authService: AuthService
     ) { }
 
-    create(user: User): Observable<User> {
+    create(user: UserEntity): Observable<User> {
         return this.authService.hashPassword(user.password).pipe(
             switchMap((passwordHash: string) => {
-                console.log(user);
+                console.log("service ", user);
+
                 const newUser = new UserEntity();
                 newUser.nom = user.nom;
                 newUser.prenom = user.prenom;
@@ -25,12 +26,17 @@ export class UserService {
                 newUser.status = user.status;
                 newUser.dateNaiss = user.dateNaiss;
                 newUser.nbHeureContractuelle = user.nbHeureContractuelle;
+                newUser.id_service = user.id_service;
                 return from(this.userRepository.save(newUser)).pipe(
                     map((user: User) => {
                         const { password, ...result } = user;
                         return result;
                     }),
-                    catchError(err => throwError(() => new Error('create user')))
+                    catchError(err => throwError(() => {
+                        console.log(err);
+
+                        new Error(err);
+                    }))
                 )
             })
         )

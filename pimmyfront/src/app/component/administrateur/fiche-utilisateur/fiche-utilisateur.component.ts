@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { NgForm, ReactiveFormsModule } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable } from 'rxjs';
+import { main } from '@popperjs/core';
+import { map, Observable, tap } from 'rxjs';
 import { MainConfig } from '../../../mainConfig';
 import { Utilisateur } from '../ajout-utilisateur/Utilisateur';
 
@@ -13,54 +14,42 @@ import { Utilisateur } from '../ajout-utilisateur/Utilisateur';
 })
 export class FicheUtilisateurComponent implements OnInit {
 
-  dataUser: boolean = false;
-  private dataSource = new MatTableDataSource<Utilisateur>();
-  constructor(private http: HttpClient, private mainConfig: MainConfig) { }
-  // nom: string;
-  // prenom: string;
+  users: string[] = [""];
+
+  // private dataSource = new MatTableDataSource<Utilisateur>();
+  dataSource = new MatTableDataSource<any>(this.users);
+  constructor(
+    private http: HttpClient,
+    private mainConfig: MainConfig,
+    private ref: ChangeDetectorRef
+  ) { }
   ngOnInit(): void {
 
   }
 
-  model = new Utilisateur(18, '', '', '', "", "", "", "",);
-  displayedColumns: string[] = ['nom', 'prenom', 'email', 'civilite', 'status', 'dateNaiss', 'nbHeureContractuelle'];
-
-
+  model = new Utilisateur(18, '', '', '', "", "", "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, ""); displayedColumns: string[] = ['nom', 'prenom', 'dateNaiss', 'email', 'conges', 'nbHeureContrat'];
 
   onUserSearch(form: NgForm) {
-    if (form.valid) {
-      this.dataUser = true;
+    this.getUserData(form.value.Nom, form.value.Prenom).subscribe(data => {
+      // this.users = data
+      console.log("yolo", this.users);
     }
+    )
+    // this.mainConfig.sleep(1000)
+    // setTimeout(() => { }, 10000)
+    console.log(this.users);
+
+    this.dataSource = new MatTableDataSource(this.users);
+    // this.dataSource = new MatTableDataSource(this.feedsOverviewData);
   }
 
-  onSubmit(form: NgForm) {
-
+  getUserData(nom: string, prenom: string) {
+    return this.http.get<Utilisateur[]>(
+      this.mainConfig.getApiBaseUrl() + 'users/' + nom + "/" + prenom,
+      {
+        headers: this.mainConfig.getHeaders()
+      })
   }
-
-  // thingsAsMatTableDataSource$: Observable<any> = this.getUserData().pipe(
-  //   map((serv: any) => {
-  //     const dataSource = this.dataSource;
-  //     dataSource.data = serv;
-  //     return dataSource;
-  //   })
-  // );
-
-  // getUserData(nom: string, prenom: string) {
-  //   return this.http.get<Utilisateur[]>(this.mainConfig.getApiBaseUrl() + 'users', { headers: this.mainConfig.getHeaders() }).pipe(
-  //     map((utilisateurs: any[]) => utilisateurs.map(
-  //       utilisateur => {
-  //         return <Utilisateur>{
-  //           nom: utilisateur["nom"],
-  //           prenom: utilisateur["prenom"],
-  //           email: utilisateur['email'],
-  //           civilite: utilisateur['civilite'],
-  //           status: utilisateur['status'],
-  //           dateNaiss: utilisateur['dateNaiss'],
-  //           nombreHeureContractuelle: utilisateur['nombreHeureContractuelle']
-  //         }
-  //       })
-  //     ),
-  //   )
-  // }
 
 }
+

@@ -13,12 +13,8 @@
           btn.
         </h6>
         <div class="button-group">
-          <button
-            type="button"
-            *ngFor="let buttondata of buttonsdata"
-            class="btn btn-{{ buttondata.btn }}"
-          >
-            {{ buttondata.btn }}
+          <button type="button" *ngFor="let buttondata of buttonsdata" class="btn btn-{{ buttondata }}">
+            {{ buttondata}}
           </button>
         </div>
       </div>
@@ -38,12 +34,8 @@
           General btn.
         </h6>
         <div class="button-group">
-          <button
-            type="button"
-            *ngFor="let buttondata of buttonsdata"
-            class="btn btn-outline-{{ buttondata.btn }}"
-          >
-            {{ buttondata.btn }}
+          <button type="button" *ngFor="let buttondata of buttonsdata" class="btn btn-outline-{{ buttondata }}">
+            {{ buttondata }}
           </button>
         </div>
       </div>
@@ -63,12 +55,8 @@
           create a General btn.
         </h6>
         <div class="button-group">
-          <button
-            type="button"
-            *ngFor="let buttondata of buttonsdata"
-            class="btn btn-rounded btn-{{ buttondata.btn }}"
-          >
-            {{ buttondata.btn }}
+          <button type="button" *ngFor="let buttondata of buttonsdata" class="btn btn-rounded btn-{{ buttondata}}">
+            {{ buttondata}}
           </button>
         </div>
       </div>
@@ -116,12 +104,9 @@
           a General btn.
         </h6>
         <div class="row button-group">
-          <div
-            class="col-lg-2 col-md-4 d-grid"
-            *ngFor="let buttondata of buttonsdata"
-          >
-            <button type="button" class="btn btn-{{ buttondata.btn }}">
-              {{ buttondata.btn }}
+          <div class="col-lg-2 col-md-4 d-grid" *ngFor="let buttondata of buttonsdata">
+            <button type="button" class="btn btn-{{ buttondata}}">
+              {{ buttondata }}
             </button>
           </div>
         </div>
@@ -141,12 +126,9 @@
           General btn.
         </h6>
         <div class="row button-group">
-          <div
-            class="col-lg-2 col-md-4 d-grid"
-            *ngFor="let buttondata of buttonsdata"
-          >
-            <button type="button" class="btn btn-outline-{{ buttondata.btn }}">
-              {{ buttondata.btn }}
+          <div class="col-lg-2 col-md-4 d-grid" *ngFor="let buttondata of buttonsdata">
+            <button type="button" class="btn btn-outline-{{ buttondata }}">
+              {{ buttondata}}
             </button>
           </div>
         </div>
@@ -165,12 +147,9 @@
           create a General btn.
         </h6>
         <div class="row button-group">
-          <div
-            class="col-lg-2 col-md-4 d-grid"
-            *ngFor="let buttondata of buttonsdata"
-          >
-            <button type="button" class="btn btn-lg btn-{{ buttondata.btn }}">
-              {{ buttondata.btn }}
+          <div class="col-lg-2 col-md-4 d-grid" *ngFor="let buttondata of buttonsdata">
+            <button type="button" class="btn btn-lg btn-{{ buttondata }}">
+              {{ buttondata }}
             </button>
           </div>
         </div>
@@ -189,33 +168,14 @@
         <h4 class="card-title mb-0">Checkbox buttons</h4>
       </div>
       <div class="card-body border-top">
-        <div
-          class="btn-group"
-          role="group"
-          aria-label="Basic checkbox toggle button group"
-        >
-          <input
-            type="checkbox"
-            class="btn-check"
-            [(ngModel)]="model.left"
-            id="btncheck1"
-          />
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+          <input type="checkbox" class="btn-check" [(ngModel)]="model.left" id="btncheck1" />
           <label class="btn btn-outline-primary" for="btncheck1">Left</label>
 
-          <input
-            type="checkbox"
-            class="btn-check"
-            [(ngModel)]="model.middle"
-            id="btncheck2"
-          />
+          <input type="checkbox" class="btn-check" [(ngModel)]="model.middle" id="btncheck2" />
           <label class="btn btn-outline-primary" for="btncheck2">Middle</label>
 
-          <input
-            type="checkbox"
-            class="btn-check"
-            [(ngModel)]="model.right"
-            id="btncheck3"
-          />
+          <input type="checkbox" class="btn-check" [(ngModel)]="model.right" id="btncheck3" />
           <label class="btn btn-outline-primary" for="btncheck3">Right</label>
         </div>
         <pre class="p-2 bg-light rounded-3 mt-3"><code >{{ model | json }}</code></pre>
@@ -233,30 +193,13 @@
       <div class="card-body border-top">
         <form [formGroup]="checkboxGroupForm">
           <div class="btn-group btn-group-toggle">
-            <input
-              type="checkbox"
-              class="btn-check"
-              formControlName="left"
-              id="btncheck4"
-            />
+            <input type="checkbox" class="btn-check" formControlName="left" id="btncheck4" />
             <label class="btn btn-outline-primary" for="btncheck4">Left</label>
 
-            <input
-              type="checkbox"
-              class="btn-check"
-              formControlName="middle"
-              id="btncheck5"
-            />
-            <label class="btn btn-outline-primary" for="btncheck5"
-              >Middle</label
-            >
+            <input type="checkbox" class="btn-check" formControlName="middle" id="btncheck5" />
+            <label class="btn btn-outline-primary" for="btncheck5">Middle</label>
 
-            <input
-              type="checkbox"
-              class="btn-check"
-              formControlName="right"
-              id="btncheck6"
-            />
+            <input type="checkbox" class="btn-check" formControlName="right" id="btncheck6" />
             <label class="btn btn-outline-primary" for="btncheck6">Right</label>
           </div>
         </form>
@@ -273,12 +216,7 @@
         <h4 class="card-title mb-0">Radio Buttons</h4>
       </div>
       <div class="card-body border-top">
-        <div
-          class="btn-group btn-group-toggle"
-          ngbRadioGroup
-          name="radioBasic"
-          [(ngModel)]="model1"
-        >
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model1">
           <label ngbButtonLabel class="btn-primary">
             <input ngbButton type="radio" [value]="1" /> Left (pre-checked)
           </label>
@@ -303,12 +241,7 @@
       </div>
       <div class="card-body border-top">
         <form [formGroup]="radioGroupForm">
-          <div
-            class="btn-group btn-group-toggle"
-            ngbRadioGroup
-            name="radioBasic"
-            formControlName="model"
-          >
+          <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
             <label ngbButtonLabel class="btn-primary">
               <input ngbButton type="radio" [value]="1" /> Left (pre-checked)
             </label>

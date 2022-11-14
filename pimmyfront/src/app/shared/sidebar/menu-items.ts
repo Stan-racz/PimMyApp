@@ -28,7 +28,7 @@ if (role == "admin") {
       submenu: []
     },
     {
-      path: '/component/validation-conges-manager',
+      path: '/component/validation-conges',
       title: 'Validation congés',
       icon: 'bi bi-check2-circle',
       class: '',
@@ -136,33 +136,9 @@ if (role == "manager") {
       submenu: []
     },
     {
-      path: '/component/services',
-      title: 'Services',
-      icon: 'bi bi-gear',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
-    {
       path: '/component/synthese-conges',
       title: 'Synthèse des congés',
       icon: 'bi bi-clipboard-data',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
-    {
-      path: '/component/validation-conges',
-      title: 'Validation congés',
-      icon: 'bi bi-check2-circle',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
-    {
-      path: '/component/fiche-utilisateur',
-      title: 'Fiche utilisateur',
-      icon: 'bi bi-person',
       class: '',
       extralink: false,
       submenu: []
