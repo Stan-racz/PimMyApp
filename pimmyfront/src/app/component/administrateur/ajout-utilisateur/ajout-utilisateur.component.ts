@@ -39,7 +39,7 @@ export class AjoutUtilisateurComponent implements OnInit {
   civilite = ['Homme', 'Femme'];
   status = ['Cadres', 'Non Cadres Administratif', 'Non Cadres Vie Scolaire'];
   roles = ['user', 'manager', 'admin'];
-  model = new Utilisateur(18, '', '', '', this.civilite[0], this.status[0], "", "", 1, "");
+  model = new Utilisateur(18, '', '', '', this.civilite[0], this.status[0], "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, "");
   submitted = false;
   services: Services[] = [];
   onSubmit(form: NgForm) {

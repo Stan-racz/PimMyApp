@@ -27,8 +27,7 @@ export class FicheUtilisateurComponent implements OnInit {
 
   }
 
-  model = new Utilisateur(18, '', '', '', "", "", "", "", 1, "");
-  displayedColumns: string[] = ['nom', 'prenom', 'dateNaiss', 'email', 'conges', 'nbHeureContrat'];
+  model = new Utilisateur(18, '', '', '', "", "", "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, ""); displayedColumns: string[] = ['nom', 'prenom', 'dateNaiss', 'email', 'conges', 'nbHeureContrat'];
 
   onUserSearch(form: NgForm) {
     this.getUserData(form.value.Nom, form.value.Prenom).subscribe(data => {

@@ -17,6 +17,7 @@ import { DemandeAbs } from './DemandeAbs';
 export class DemandeCongesComponent implements OnInit {
 
   motifs: any[] = [];
+  dates: any[] = [];
   debut: any;
   fin: any;
   commentaire: any;
@@ -46,8 +47,8 @@ export class DemandeCongesComponent implements OnInit {
     },
     initialView: 'dayGridMonth',
     weekends: true,
-    editable: true,
     selectable: true,
+    selectOverlap: () => false,
     businessHours: true,
     locale: 'fr',
     firstDay: 1,
@@ -57,28 +58,38 @@ export class DemandeCongesComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private mainConfig: MainConfig) {
     const name = Calendar.name;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).subscribe((res) => {
-      this.motifs = res
-    });
+    this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).subscribe(
+      (res) => {
+        this.motifs = res
+      }
+    );
 
     this.http.get<DemandeAbs[]>(
-      this.mainConfig.getApiBaseUrl() + "demandeAbs/" + localStorage.getItem('userEmail'), { headers: this.mainConfig.getHeaders() }).subscribe(async (res) => {
+      this.mainConfig.getApiBaseUrl() + "demandeAbs/" + localStorage.getItem('userEmail'),
+      { headers: this.mainConfig.getHeaders() }
+    ).subscribe(
+      async (res) => {
         this.calendarOptions.events = [];
+        // console.log("yolo", res[0].user_info);
 
         for (let index = 0; index < res.length; index++) {
           const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
           const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
-
-          this.calendarOptions.events.push({
-            title: res[index].id_absence.nom,
-            start: res[index].date_deb,
-            end: res[index].date_fin,
-            color: color,
-            textColor: textColor,
-            borderColor: "#272c33"
-          })
+          this.dates.push(res[index].date_deb)
+          this.dates.push(res[index].date_fin)
+          this.calendarOptions.events.push(
+            {
+              title: res[index].id_absence.nom + " " + res[index].user_info.prenom + " " + res[index].user_info.nom + " " + res[index].user_info.id_service.nom,
+              start: res[index].date_deb,
+              end: res[index].date_fin,
+              color: color,
+              textColor: textColor,
+              borderColor: "#272c33",
+            }
+          )
         }
-      });
+      }
+    );
   }
 
   ngOnInit() {
@@ -105,7 +116,7 @@ export class DemandeCongesComponent implements OnInit {
 
   closePopup(form: NgForm) {
     this.displayStyle = "none";
-    this.reloadCurrentRoute();
+    this.mainConfig.reloadCurrentRoute();
   }
 
   onSubmit(form: NgForm) {
@@ -178,14 +189,11 @@ export class DemandeCongesComponent implements OnInit {
     this.displayStyle = "block";
   }
 
-  reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
-  }
-
   demandeAbsence(form: NgForm) {
+    // console.log("lol id", localStorage.getItem('userId'));
+    if (this.dates.indexOf(form.value.debut) !== -1) {
+      console.log("dates indisponibles");
+    }
     this.http.post<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/create", {
       date_deb: form.value.debut,
       deb_mat: form.value.choixConditionDebut,
@@ -195,6 +203,7 @@ export class DemandeCongesComponent implements OnInit {
       manager_ok: false,
       admin_ok: false,
       id_absence: form.value.motif,
+      user_info: localStorage.getItem('userId'),
       email: localStorage.getItem('userEmail'),
     }, { headers: this.mainConfig.getHeaders() }).subscribe()
   }

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, BeforeInsert, ManyToOne, OneToMany } from 'typeorm';
 import { Absence } from '../absences/absence.entity';
 import { UserEntity } from '../user/models/user.entity';
 
@@ -37,6 +37,9 @@ export class DemandeAbsEntity {
 
   @ManyToOne(() => Absence, (absence) => absence.id)
   id_absence: Absence;
+
+  @ManyToOne(() => UserEntity, (user) => user.id)
+  user_info: UserEntity;
 
   @BeforeInsert()
   emailToLowerCase() {

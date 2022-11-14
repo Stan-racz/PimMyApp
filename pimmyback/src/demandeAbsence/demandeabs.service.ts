@@ -60,6 +60,7 @@ export class DemandeAbsService {
     newDemande.id_absence = demandeAbs.id_absence;
     newDemande.email = demandeAbs.email;
     newDemande.refus = false;
+    newDemande.user_info = demandeAbs.user_info;
     return from(this.demandeAbsServ.save(newDemande)).pipe(
       map((demandeAbs: DemandeAbsEntity) => {
         return demandeAbs;
@@ -68,12 +69,19 @@ export class DemandeAbsService {
   }
 
   findByEmail(email: string) {
-    return this.demandeAbsServ.find({
-      relations: { id_absence: true },
-      where: {
-        email: email
+    return this.demandeAbsServ.find(
+      {
+        relations: {
+          id_absence: true,
+          user_info: {
+            id_service: true,
+          },
+        },
+        where: {
+          email: email
+        }
       }
-    })
+    )
   }
 
   updateValidationManager(email: string) {

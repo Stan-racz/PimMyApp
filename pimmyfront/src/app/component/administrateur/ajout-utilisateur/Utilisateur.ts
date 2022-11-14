@@ -1,3 +1,5 @@
+import { Services } from "../services/Services";
+
 export class Utilisateur {
     constructor(
         public id: number,
@@ -8,7 +10,7 @@ export class Utilisateur {
         public status: string,
         public dateNaiss: string,
         public nombreHeureContractuelle: string,
-        public id_service: number,
+        public id_service: Services,
         public role: string,
     ) { }
 }

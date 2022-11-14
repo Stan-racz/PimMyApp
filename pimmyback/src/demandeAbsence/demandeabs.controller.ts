@@ -16,15 +16,18 @@ export class DemandeAbsController {
 
   @Post('create')
   createDemandeAbs(@Body() demandeAbs: DemandeAbsEntity): Observable<DemandeAbsEntity | Object> {
-    //ne pas oublier d'ajouter une fonction qui décompte les jours de congés dispo de l'utilisateur /!\
-    // console.log(demandeAbs);
+    //ne pas oublier d'ajouter une fonction qui décompte 
+    //les jours de congés dispo de l'utilisateur /!\
     return this.DemandeAbsService.create(demandeAbs).pipe()
   }
-  //roles admin manager
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('all')
   findAllAbs() {
     return this.DemandeAbsService.findAll();
   }
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('absManager')
   findAllManagerNotOk() {
     return this.DemandeAbsService.findAllManagerNotOk();
@@ -37,19 +40,23 @@ export class DemandeAbsController {
     return this.DemandeAbsService.findAllManagerOk();
   }
 
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   //roles : manager admin user
   @Get(':email')
   findByEmail(@Param() params) {
     return this.DemandeAbsService.findByEmail(params.email)
   }
-
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   //roles : manager & admin
   @Put('validationManager')
   managerOk(@Body() body) {
     // console.log(body.email);
     return this.DemandeAbsService.updateValidationManager(body.email)
   }
-
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   //roles : manager & admin
   @Put('validationAdmin')
   adminOk(@Body() body) {

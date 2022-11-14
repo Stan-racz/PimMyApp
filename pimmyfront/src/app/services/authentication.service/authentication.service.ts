@@ -25,8 +25,9 @@ export class AuthenticationService {
         // console.log('role ' + token.role);
         console.log(token.userEmail)
         localStorage.setItem('token retourné', token.access_token);
-        localStorage.setItem('role', token.role)
-        localStorage.setItem('userEmail', token.userEmail)
+        localStorage.setItem('role', token.role);
+        localStorage.setItem('userEmail', token.userEmail);
+        localStorage.setItem('userId', token.userId);
         return token;
       })
     )

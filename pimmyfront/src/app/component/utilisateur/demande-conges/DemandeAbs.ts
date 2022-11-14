@@ -1,5 +1,5 @@
 import { Absences } from "./Absences";
-
+import { Utilisateur } from "../../administrateur/ajout-utilisateur/Utilisateur";
 export class DemandeAbs {
     constructor(
         public id: number,
@@ -12,5 +12,6 @@ export class DemandeAbs {
         public admin_ok: boolean,
         public email: string,
         public id_absence: Absences,
+        public user_info: Utilisateur,
     ) { }
 }

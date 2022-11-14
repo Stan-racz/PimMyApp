@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 export class UserController {
 
     leRole: string;
+    userId: number;
     constructor(private userService: UserService) { }
     @Post()
     create(@Body() user: UserEntity): Observable<User | Object> {
@@ -22,12 +23,15 @@ export class UserController {
     @Post('login')
     login(@Body() user: User): Observable<Object> {
 
-        this.userService.findByMail(user['email']).subscribe((value) => this.leRole = value['role']);
+        this.userService.findByMail(user['email']).subscribe((value) => {
+            this.userId = value.id;
+            return this.leRole = value['role'];
+        });
         console.log(user)
         return this.userService.login(user).pipe(
             map((jwt: string) => {
-                console.log()
-                return { access_token: jwt, role: this.leRole, userEmail: user.email };
+                console.log(this.userId)
+                return { access_token: jwt, role: this.leRole, userEmail: user.email, userId: this.userId };
             })
         )
     }
