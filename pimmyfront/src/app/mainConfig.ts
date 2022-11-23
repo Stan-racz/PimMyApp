@@ -96,9 +96,9 @@ export class MainConfig {
     }
 
     creationCompteurAbsDispo(userId: number, MotifAbsId: string, nbJourMotif: number) {
-        this.http.post(
-            this.apiBaseUrl,
-        )
+        // this.http.post(
+        //     this.apiBaseUrl,
+        // )
     }
 
     /**

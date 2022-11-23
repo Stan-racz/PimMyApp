@@ -36,21 +36,22 @@ export class FicheUtilisateurComponent implements OnInit {
   displayedColumns: string[] = ['nom', 'prenom', 'email', 'service', 'role', 'conges', 'nbHeureContrat'];
 
   onUserSearch(form: NgForm) {
-    // this.getUserData(form.value["nom"], form.value.prenom).subscribe(data => console.log("yolo", data));
-    this.getServicesData(form.value.nom, form.value.prenom).subscribe(data => {
-      this.users.push(data)
+    this.getUserData(form.value.nom, form.value.prenom).subscribe(data => {
+      this.users[0] = data;
       console.log("users", this.users);
       this.dataSource.data = this.users
     }
     );
-
-
     // console.log("patate de forain", this.users);
     // this.dataSource = new MatTableDataSource(this.users);
     // this.dataSource = new MatTableDataSource(this.feedsOverviewData);
   }
 
-  getServicesData(nom: string, prenom: string) {
+  reload() {
+    this.mainConfig.reloadCurrentRoute();
+  }
+
+  getUserData(nom: string, prenom: string) {
     return this.http.get<Utilisateur>(
       this.mainConfig.getApiBaseUrl() + 'users/' + nom + "/" + prenom,
       { headers: this.mainConfig.getHeaders() }

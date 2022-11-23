@@ -7,8 +7,10 @@
         <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="Nom de l'employé">
 
         <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom" placeholder="Prénom de l'employé">
-
+        <br>
         <button type="button" class="btn btn-primary" (click)="onUserSearch(userForm)">Chercher</button>
+        &nbsp;
+        <button type="button" class="btn btn-primary" (click)="reload()">Réinitialiser</button>
         &nbsp;
     </form>
 </div>
@@ -23,7 +25,6 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
     </ng-container>
-
 
     <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>
@@ -48,7 +49,6 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Heures contractuelles </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.nbHeureContractuelle}} </mat-cell>
     </ng-container>
-
 
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

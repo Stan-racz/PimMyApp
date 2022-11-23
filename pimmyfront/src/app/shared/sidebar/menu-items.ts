@@ -13,7 +13,7 @@ if (role == "admin") {
     },
     {
       path: '/component/visualisation',
-      title: 'Visualisation historique',
+      title: 'Historiques demandes',
       icon: 'bi bi-calendar3',
       class: '',
       extralink: false,
@@ -87,14 +87,6 @@ if (role == "admin") {
       path: '/component/fermeture-institution',
       title: 'Fermeture institution',
       icon: 'bi bi-x-octagon',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
-    {
-      path: '/component/visibilite-employes',
-      title: 'Visibilité des employés',
-      icon: 'bi bi-eye',
       class: '',
       extralink: false,
       submenu: []

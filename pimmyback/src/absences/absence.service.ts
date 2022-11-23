@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Absence } from './absence.entity';
 import { Repository } from 'typeorm';
@@ -46,5 +46,14 @@ export class AbsenceService {
 
   async remove(id: number): Promise<void> {
     await this.absServ.delete(id);
+  }
+
+  async create(nom: string) {
+    console.log("service ! ", nom);
+    return await this.absServ.createQueryBuilder().insert().into(Absence).values([{ nom: nom }]).execute();
+  }
+
+  deleteOne(id: number): Observable<any> {
+    return from(this.absServ.delete({ id: id }));
   }
 }
