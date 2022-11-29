@@ -47,6 +47,12 @@ export class DemandeAbsController {
   findByEmail(@Param() params) {
     return this.DemandeAbsService.findByEmail(params.email)
   }
+
+  @Get('/service/:service')
+  findByService(@Param() params) {
+    return this.DemandeAbsService.findByService(params.service)
+  }
+
   // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
   // @UseGuards(JwtAuthGuard, RolesGuard)
   //roles : manager & admin

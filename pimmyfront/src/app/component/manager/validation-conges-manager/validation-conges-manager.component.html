@@ -1,5 +1,16 @@
 <h1>Validation des congés - Manager</h1>
 <br>
+<form>
+    <div class="form-group ">
+        <select ngModel class="form-select" id="motif" required name="motif" (ngModelChange)="onChange($event)">
+            <option value="" disabled hidden>---- Choisir un service ----</option>
+            <option value="0">All</option>
+            <option *ngFor="let service of servicesFilter" [ngValue]="service.id">{{service.nom}}</option>
+        </select>
+    </div>
+</form>
+<br>
+<br>
 
 <table mat-table [dataSource]="thingsAsMatTableDataSource$ | async">
     <!--- Note that these columns can be defined in any order.
@@ -59,3 +70,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<br>
+<br>
+
+<full-calendar #calendar [options]="calendarOptions"></full-calendar>

@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/resource-timeline": "^5.11.3",
     "@nestjs/typeorm": "^8.1.4",
+    "fullcalendar-year-view": "^0.0.3",
     "mysql2": "^2.3.3",
     "typeorm": "^0.3.6"
   }

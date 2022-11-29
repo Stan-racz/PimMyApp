@@ -1,11 +1,17 @@
-import { HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { map } from "rxjs";
+import { Utilisateur } from "./component/administrateur/ajout-utilisateur/Utilisateur";
+import { Absences } from "./component/utilisateur/demande-conges/Absences";
 
 @Injectable()
 export class MainConfig {
 
-    constructor(private router: Router) { }
+    constructor(
+        private router: Router,
+        private http: HttpClient,
+    ) { }
 
     private apiBaseUrl: string = 'http://localhost:3000/back-end/';
 
@@ -53,5 +59,64 @@ export class MainConfig {
     redirect(component: string) {
         this.router.navigate([component])
         this.reloadCurrentRoute()
+    }
+
+    getMotifsAbsence() {
+        return this.http.get<Absences[]>(
+            this.getApiBaseUrl() + "absences",
+            { headers: this.getHeaders() }
+        ).pipe(
+            map(
+                (absences: any[]) => absences.map(
+                    abs => {
+                        console.log(abs);
+                        return <Absences>{
+                            nom: abs["nom"],
+                            nbJour: abs["nbJour"],
+                        }
+                    }
+                )
+            )
+        );
+    }
+
+    getUserIdByMail(email: string) {
+        return this.http.get<Utilisateur[]>(
+            this.apiBaseUrl + "users/email/" + email,
+            {
+                headers: this.getHeaders(),
+            }
+        ).pipe(
+            map(
+                (users: any) => {
+                    return users.id
+                }
+            )
+        );
+    }
+
+    creationCompteurAbsDispo(userId: number, MotifAbsId: string, nbJourMotif: number) {
+        this.http.post(
+            this.apiBaseUrl,
+        )
+    }
+
+    /**
+     * 
+     * @param email 
+     */
+    ajoutCompteurAbsUser(email: string) {
+        let motifsAbs;
+        this.getMotifsAbsence().subscribe(
+            (data) => {
+                motifsAbs = data
+                motifsAbs.forEach(
+                    (motif) => {
+                        if (motif.nbJour != null) {
+                            //TODO ajouter si le nb jour n'est pas null un compteur pour ce motif de congé
+                        }
+                    }
+                )
+            });
     }
 }

@@ -40,6 +40,12 @@ export class UserController {
         return this.userService.findOne(params.id);
     }
 
+    @Get('email/:email')
+    findByEmail(@Param() params) {
+        // console.log(params.email);
+        return this.userService.findByEmail(params.email);
+    }
+
     @Get(':nom/:prenom')
     findByName(@Param() params): Observable<User> {
         return this.userService.findByName(params.nom, params.prenom);

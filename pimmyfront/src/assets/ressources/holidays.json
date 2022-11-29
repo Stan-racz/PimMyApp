@@ -1,0 +1,2666 @@
+{
+    "holidays": [
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-01-01",
+                "datetime": {
+                    "year": 2022,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-04-18",
+                "datetime": {
+                    "year": 2022,
+                    "month": 4,
+                    "day": 18
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-05-01",
+                "datetime": {
+                    "year": 2022,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-05-08",
+                "datetime": {
+                    "year": 2022,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-05-26",
+                "datetime": {
+                    "year": 2022,
+                    "month": 5,
+                    "day": 26
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-06-06",
+                "datetime": {
+                    "year": 2022,
+                    "month": 6,
+                    "day": 6
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-07-14",
+                "datetime": {
+                    "year": 2022,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-08-15",
+                "datetime": {
+                    "year": 2022,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-11-01",
+                "datetime": {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-11-11",
+                "datetime": {
+                    "year": 2022,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2022-12-25",
+                "datetime": {
+                    "year": 2022,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-01-01",
+                "datetime": {
+                    "year": 2023,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-04-10",
+                "datetime": {
+                    "year": 2023,
+                    "month": 4,
+                    "day": 10
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-05-01",
+                "datetime": {
+                    "year": 2023,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-05-08",
+                "datetime": {
+                    "year": 2023,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-05-18",
+                "datetime": {
+                    "year": 2023,
+                    "month": 5,
+                    "day": 18
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-05-29",
+                "datetime": {
+                    "year": 2023,
+                    "month": 5,
+                    "day": 29
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-07-14",
+                "datetime": {
+                    "year": 2023,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-08-15",
+                "datetime": {
+                    "year": 2023,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-11-01",
+                "datetime": {
+                    "year": 2023,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-11-11",
+                "datetime": {
+                    "year": 2023,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2023-12-25",
+                "datetime": {
+                    "year": 2023,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-01-01",
+                "datetime": {
+                    "year": 2024,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-04-01",
+                "datetime": {
+                    "year": 2024,
+                    "month": 4,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-05-01",
+                "datetime": {
+                    "year": 2024,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-05-08",
+                "datetime": {
+                    "year": 2024,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-05-09",
+                "datetime": {
+                    "year": 2024,
+                    "month": 5,
+                    "day": 9
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-05-20",
+                "datetime": {
+                    "year": 2024,
+                    "month": 5,
+                    "day": 20
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-07-14",
+                "datetime": {
+                    "year": 2024,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-08-15",
+                "datetime": {
+                    "year": 2024,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-11-01",
+                "datetime": {
+                    "year": 2024,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-11-11",
+                "datetime": {
+                    "year": 2024,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2024-12-25",
+                "datetime": {
+                    "year": 2024,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-01-01",
+                "datetime": {
+                    "year": 2025,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-04-21",
+                "datetime": {
+                    "year": 2025,
+                    "month": 4,
+                    "day": 21
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-05-01",
+                "datetime": {
+                    "year": 2025,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-05-08",
+                "datetime": {
+                    "year": 2025,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-05-29",
+                "datetime": {
+                    "year": 2025,
+                    "month": 5,
+                    "day": 29
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-06-09",
+                "datetime": {
+                    "year": 2025,
+                    "month": 6,
+                    "day": 9
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-07-14",
+                "datetime": {
+                    "year": 2025,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-08-15",
+                "datetime": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-11-01",
+                "datetime": {
+                    "year": 2025,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-11-11",
+                "datetime": {
+                    "year": 2025,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2025-12-25",
+                "datetime": {
+                    "year": 2025,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-01-01",
+                "datetime": {
+                    "year": 2026,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-04-06",
+                "datetime": {
+                    "year": 2026,
+                    "month": 4,
+                    "day": 6
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-05-01",
+                "datetime": {
+                    "year": 2026,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-05-08",
+                "datetime": {
+                    "year": 2026,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-05-14",
+                "datetime": {
+                    "year": 2026,
+                    "month": 5,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-05-25",
+                "datetime": {
+                    "year": 2026,
+                    "month": 5,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-07-14",
+                "datetime": {
+                    "year": 2026,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-08-15",
+                "datetime": {
+                    "year": 2026,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-11-01",
+                "datetime": {
+                    "year": 2026,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-11-11",
+                "datetime": {
+                    "year": 2026,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2026-12-25",
+                "datetime": {
+                    "year": 2026,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-01-01",
+                "datetime": {
+                    "year": 2027,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-03-29",
+                "datetime": {
+                    "year": 2027,
+                    "month": 3,
+                    "day": 29
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-05-01",
+                "datetime": {
+                    "year": 2027,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-05-06",
+                "datetime": {
+                    "year": 2027,
+                    "month": 5,
+                    "day": 6
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-05-08",
+                "datetime": {
+                    "year": 2027,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-05-17",
+                "datetime": {
+                    "year": 2027,
+                    "month": 5,
+                    "day": 17
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-07-14",
+                "datetime": {
+                    "year": 2027,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-08-15",
+                "datetime": {
+                    "year": 2027,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-11-01",
+                "datetime": {
+                    "year": 2027,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-11-11",
+                "datetime": {
+                    "year": 2027,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2027-12-25",
+                "datetime": {
+                    "year": 2027,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-01-01",
+                "datetime": {
+                    "year": 2028,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-04-17",
+                "datetime": {
+                    "year": 2028,
+                    "month": 4,
+                    "day": 17
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-05-01",
+                "datetime": {
+                    "year": 2028,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-05-08",
+                "datetime": {
+                    "year": 2028,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-05-25",
+                "datetime": {
+                    "year": 2028,
+                    "month": 5,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-06-05",
+                "datetime": {
+                    "year": 2028,
+                    "month": 6,
+                    "day": 5
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-07-14",
+                "datetime": {
+                    "year": 2028,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-08-15",
+                "datetime": {
+                    "year": 2028,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-11-01",
+                "datetime": {
+                    "year": 2028,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-11-11",
+                "datetime": {
+                    "year": 2028,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2028-12-25",
+                "datetime": {
+                    "year": 2028,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-01-01",
+                "datetime": {
+                    "year": 2029,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-04-02",
+                "datetime": {
+                    "year": 2029,
+                    "month": 4,
+                    "day": 2
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-05-01",
+                "datetime": {
+                    "year": 2029,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-05-08",
+                "datetime": {
+                    "year": 2029,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-05-10",
+                "datetime": {
+                    "year": 2029,
+                    "month": 5,
+                    "day": 10
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-05-21",
+                "datetime": {
+                    "year": 2029,
+                    "month": 5,
+                    "day": 21
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-07-14",
+                "datetime": {
+                    "year": 2029,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-08-15",
+                "datetime": {
+                    "year": 2029,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-11-01",
+                "datetime": {
+                    "year": 2029,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-11-11",
+                "datetime": {
+                    "year": 2029,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2029-12-25",
+                "datetime": {
+                    "year": 2029,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-01-01",
+                "datetime": {
+                    "year": 2030,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-04-22",
+                "datetime": {
+                    "year": 2030,
+                    "month": 4,
+                    "day": 22
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-05-01",
+                "datetime": {
+                    "year": 2030,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-05-08",
+                "datetime": {
+                    "year": 2030,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-05-30",
+                "datetime": {
+                    "year": 2030,
+                    "month": 5,
+                    "day": 30
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-06-10",
+                "datetime": {
+                    "year": 2030,
+                    "month": 6,
+                    "day": 10
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-07-14",
+                "datetime": {
+                    "year": 2030,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-08-15",
+                "datetime": {
+                    "year": 2030,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-11-01",
+                "datetime": {
+                    "year": 2030,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-11-11",
+                "datetime": {
+                    "year": 2030,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2030-12-25",
+                "datetime": {
+                    "year": 2030,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-01-01",
+                "datetime": {
+                    "year": 2031,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-04-14",
+                "datetime": {
+                    "year": 2031,
+                    "month": 4,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-05-01",
+                "datetime": {
+                    "year": 2031,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-05-08",
+                "datetime": {
+                    "year": 2031,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-05-22",
+                "datetime": {
+                    "year": 2031,
+                    "month": 5,
+                    "day": 22
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-06-02",
+                "datetime": {
+                    "year": 2031,
+                    "month": 6,
+                    "day": 2
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-07-14",
+                "datetime": {
+                    "year": 2031,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-08-15",
+                "datetime": {
+                    "year": 2031,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-11-01",
+                "datetime": {
+                    "year": 2031,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-11-11",
+                "datetime": {
+                    "year": 2031,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2031-12-25",
+                "datetime": {
+                    "year": 2031,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "New Year's Day",
+            "description": "New Year's Day is the first day of the year in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-01-01",
+                "datetime": {
+                    "year": 2032,
+                    "month": 1,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/new-year-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Easter Monday",
+            "description": "Easter Monday is the day after Easter Sunday.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-03-29",
+                "datetime": {
+                    "year": 2032,
+                    "month": 3,
+                    "day": 29
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/easter-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Labor Day / May Day",
+            "description": "People in France give loved ones flowers and may celebrate or campaign for workers' rights on May Day, also known as Labor Day.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-05-01",
+                "datetime": {
+                    "year": 2032,
+                    "month": 5,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/labor-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Ascension Day",
+            "description": "Ascension Day marks the day that Jesus ascended to heaven, according to Christian belief.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-05-06",
+                "datetime": {
+                    "year": 2032,
+                    "month": 5,
+                    "day": 6
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/ascension-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "WWII Victory Day",
+            "description": "WWII Victory Day marks the anniversary of the official end of World War II and is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-05-08",
+                "datetime": {
+                    "year": 2032,
+                    "month": 5,
+                    "day": 8
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/wwii-victory-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Whit Monday",
+            "description": "Pentecost Monday is the day after Pentecost Sunday. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-05-17",
+                "datetime": {
+                    "year": 2032,
+                    "month": 5,
+                    "day": 17
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/whit-monday",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Bastille Day",
+            "description": "Bastille Day is an occasion to honor the French Republic. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-07-14",
+                "datetime": {
+                    "year": 2032,
+                    "month": 7,
+                    "day": 14
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/bastille-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Assumption of Mary",
+            "description": "The Feast of the Assumption of Mary is an occasion for Catholics to honor the belief that God assumed the Virgin Mary to heaven.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-08-15",
+                "datetime": {
+                    "year": 2032,
+                    "month": 8,
+                    "day": 15
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/assumption",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "All Saints' Day",
+            "description": "All Saints' Day celebrates all Christian saints, particularly those who have no special feast days of their own. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-11-01",
+                "datetime": {
+                    "year": 2032,
+                    "month": 11,
+                    "day": 1
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/all-saints-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Armistice Day",
+            "description": "Armistice Day marks the anniversary of the end of World War I. It is a public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-11-11",
+                "datetime": {
+                    "year": 2032,
+                    "month": 11,
+                    "day": 11
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/armistice-day",
+            "locations": "All",
+            "states": "All"
+        },
+        {
+            "name": "Christmas Day",
+            "description": "Christmas Day is an occasion for Christians to celebrate Jesus Christ's birth. It is public holiday in France.",
+            "country": {
+                "id": "fr",
+                "name": "France"
+            },
+            "date": {
+                "iso": "2032-12-25",
+                "datetime": {
+                    "year": 2032,
+                    "month": 12,
+                    "day": 25
+                }
+            },
+            "type": [
+                "National holiday"
+            ],
+            "urlid": "france/christmas-day",
+            "locations": "All",
+            "states": "All"
+        }
+    ]
+}

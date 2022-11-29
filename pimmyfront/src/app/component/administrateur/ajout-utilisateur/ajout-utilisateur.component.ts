@@ -110,11 +110,11 @@ export class AjoutUtilisateurComponent implements OnInit {
     //   }
     // })
 
-    this.http.post<any>(this.mainConfig.getApiBaseUrl() + "absDispo", {
-      status: form.value.status,
-      id_util: userId,
-      id_abs: id_absences,
-    }, { headers: this.mainConfig.getHeaders() })
+    // this.http.post<any>(this.mainConfig.getApiBaseUrl() + "absDispo", {
+    //   status: form.value.status,
+    //   id_util: userId,
+    //   id_abs: id_absences,
+    // }, { headers: this.mainConfig.getHeaders() })
   }
 
   // Ajout d'utilisateur via CSV (upload du fichier + traitement)

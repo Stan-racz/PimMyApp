@@ -1,5 +1,16 @@
 <h1>Validation des congés - Administrateur</h1>
 <br>
+<form>
+    <div class="form-group ">
+        <select ngModel class="form-select" id="motif" required name="motif" (ngModelChange)="onChange($event)">
+            <option value="" disabled hidden>---- Choisir un service ----</option>
+            <option value="0">All</option>
+            <option *ngFor="let service of servicesFilter" [ngValue]="service.id">{{service.nom}}</option>
+        </select>
+    </div>
+</form>
+<br>
+<br>
 
 <table mat-table [dataSource]="thingsAsMatTableDataSource$ | async">
     <!--- Note that these columns can be defined in any order.
@@ -8,13 +19,13 @@
     <!-- Position Column -->
     <ng-container matColumnDef="Début de l'absence">
         <th mat-header-cell *matHeaderCellDef>Début de l'absence</th>
-        <td mat-cell *matCellDef="let element">{{ element.date_deb }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.date_deb | date: 'dd/MM/yyyy' }}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="Fin de l'absence">
         <th mat-header-cell *matHeaderCellDef>Fin de l'absence</th>
-        <td mat-cell *matCellDef="let element">{{ element.date_fin }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.date_fin | date: 'dd/MM/yyyy'}}</td>
     </ng-container>
 
     <!-- Weight Column -->
@@ -45,7 +56,8 @@
 
     <ng-container matColumnDef="Statut du manager">
         <th mat-header-cell *matHeaderCellDef>Statut du manager</th>
-        <td mat-cell *matCellDef="let element">{{ element.manager_ok == false ? "En attente de validation" : "Validée" }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.manager_ok == false ? "En attente de validation" : "Validée"
+            }}</td>
     </ng-container>
 
     <ng-container matColumnDef="Décision">
@@ -59,3 +71,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+<br>
+<br>
+
+<full-calendar #calendar [options]="calendarOptions"></full-calendar>

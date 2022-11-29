@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainConfig } from '../../../mainConfig';
+// import { AbsenceService } from '../../../absenceService';
 
 @Component({
   selector: 'app-fermeture-institution',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FermetureInstitutionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    // private absenceService: AbsenceService
+    private mainConfig: MainConfig,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onClick() {
+    this.mainConfig.getMotifsAbsence().subscribe(data => console.log(data));
+    this.mainConfig.getUserIdByMail("stan@racz.com").subscribe(data => console.log("lol", data));
   }
 
 }
