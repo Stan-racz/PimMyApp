@@ -12,6 +12,20 @@ export class Absence {
   @Column("text")
   nom: string;
 
+  @Column({
+    type: "int",
+    nullable: true,
+    default: null
+  })
+  nbJour!: number
+
+  @Column({
+    type: "int",
+    nullable: true,
+    default: null
+  })
+  longMax: number
+
   @OneToMany(() => DemandeAbsEntity, (demandeAbs) => demandeAbs.id_absence)
   demandeAbs: DemandeAbsEntity[]
 

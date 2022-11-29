@@ -9,7 +9,7 @@ export class Abs_dispo {
   id: number;
 
   @Column("int")
-  compteur: number;
+  nbJour: number;
 
   @ManyToOne(type => UserEntity)
   @JoinColumn({ name: 'id_util' })

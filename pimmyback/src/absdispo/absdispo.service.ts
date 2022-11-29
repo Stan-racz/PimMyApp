@@ -40,11 +40,11 @@ export class AbsDispoService {
     const newDemande = new Abs_dispo();
     console.log(absDispo.status);
     if (absDispo.status == this.statusEtConges[0].status) {
-      newDemande.compteur = this.statusEtConges[0].compteurConges;
+      newDemande.nbJour = this.statusEtConges[0].compteurConges;
     } else if (absDispo.status == this.statusEtConges[1].status) {
-      newDemande.compteur = this.statusEtConges[1].compteurConges;
+      newDemande.nbJour = this.statusEtConges[1].compteurConges;
     } else if (absDispo.status == this.statusEtConges[2].status) {
-      newDemande.compteur = this.statusEtConges[2].compteurConges;
+      newDemande.nbJour = this.statusEtConges[2].compteurConges;
     }
     newDemande.id_util = absDispo.id_util;
     newDemande.id_abs = absDispo.id_abs;

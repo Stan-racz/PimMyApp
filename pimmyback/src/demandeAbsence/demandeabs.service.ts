@@ -13,13 +13,25 @@ export class DemandeAbsService {
   ) { }
 
   findAll(): Promise<DemandeAbsEntity[]> {
-    return this.demandeAbsServ.find({ relations: ['id_absence'] });
+    return this.demandeAbsServ.find({
+      relations: {
+        id_absence: true,
+        user_info: {
+          id_service: true,
+        },
+      },
+    });
   }
 
   findAllManagerOk(): Promise<DemandeAbsEntity[]> {
     return this.demandeAbsServ.find(
       {
-        relations: ['id_absence'],
+        relations: {
+          id_absence: true,
+          user_info: {
+            id_service: true,
+          },
+        },
         where: {
           manager_ok: true,
           admin_ok: false
@@ -33,7 +45,12 @@ export class DemandeAbsService {
 
     return this.demandeAbsServ.find(
       {
-        relations: ['id_absence'],
+        relations: {
+          id_absence: true,
+          user_info: {
+            id_service: true,
+          },
+        },
         where: {
           manager_ok: false,
           admin_ok: false,
@@ -82,6 +99,36 @@ export class DemandeAbsService {
         }
       }
     )
+  }
+
+  // SELECT * FROM `DemandeAbsEntity` 
+  // INNER JOIN user_entity on DemandeAbsEntity.userInfoId = user_entity.id 
+  // INNER JOIN services on user_entity.idServiceId = services.id 
+  // WHERE services.id = 3; 
+  findByService(service: any) {
+
+    return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
+      .select()
+      .addSelect('DemandeAbsEntity.id', 'id')
+      .addSelect('DemandeAbsEntity.date_deb', 'date_deb')
+      .addSelect('DemandeAbsEntity.deb_mat', 'deb_mat')
+      .addSelect('DemandeAbsEntity.date_fin', 'date_fin')
+      .addSelect('DemandeAbsEntity.fin_mat', 'fin_mat')
+      .addSelect('DemandeAbsEntity.commentaire', 'commentaire')
+      .addSelect('DemandeAbsEntity.manager_ok', 'manager_ok')
+      .addSelect('DemandeAbsEntity.admin_ok', 'admin_ok')
+      .addSelect('DemandeAbsEntity.email', 'email')
+      .addSelect('DemandeAbsEntity.refus', 'refus')
+      .addSelect('user.nom', 'user_nom')
+      .addSelect('user.prenom', 'user_prenom')
+      .addSelect('srv.nom', 'service_nom')
+      .addSelect('abs.nom', 'abs_nom')
+      .innerJoin('user_entity', 'user', 'DemandeAbsEntity.userInfoId=user.id')
+      .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
+      .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
+      .where('srv.id=' + service)
+      .andWhere('manager_ok=1')
+      .getRawMany()
   }
 
   updateValidationManager(email: string) {

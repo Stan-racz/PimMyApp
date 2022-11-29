@@ -12,7 +12,7 @@ export const AbsDispoSchema = new EntitySchema<Abs_dispo>
                     primary: true,
                     generated: true,
                 },
-                compteur: {
+                nbJour: {
                     type: Number,
                 }
             }

@@ -31,11 +31,11 @@ export class DemandeCongesComponent implements OnInit {
   choixConditionDebut = this.conditions[1].id
   choixConditionFin = this.conditions[1].id
 
-
+// Refresh fair même méthode que visualisation congé par service
   calendarOptions: CalendarOptions = {
     plugins: [listPlugin],
     headerToolbar: {
-      left: 'dayGridMonth list',
+      left: 'dayGridMonth listMonth',
       center: 'title',
       right: 'prev next today',
 
@@ -53,6 +53,11 @@ export class DemandeCongesComponent implements OnInit {
     locale: 'fr',
     firstDay: 1,
     select: this.openPopup.bind(this),
+    eventContent: function (arg) {
+      return {
+        html: arg.event.title + ' <br/>' + arg.event.extendedProps.user + '<br/>' + arg.event.extendedProps.service
+      }
+    }
   };
 
   constructor(private router: Router, private http: HttpClient, private mainConfig: MainConfig) {
@@ -70,7 +75,7 @@ export class DemandeCongesComponent implements OnInit {
     ).subscribe(
       async (res) => {
         this.calendarOptions.events = [];
-        // console.log("yolo", res[0].user_info);
+        console.log("yolo", res[0]);
 
         for (let index = 0; index < res.length; index++) {
           const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
@@ -79,7 +84,10 @@ export class DemandeCongesComponent implements OnInit {
           this.dates.push(res[index].date_fin)
           this.calendarOptions.events.push(
             {
-              title: res[index].id_absence.nom + " " + res[index].user_info.prenom + " " + res[index].user_info.nom + " " + res[index].user_info.id_service.nom,
+              // Revoir pour id_service et le format
+              title: res[index].id_absence.nom,
+              user:  res[index].user_info.prenom + " " + res[index].user_info.nom,
+              service: res[index].user_info.id_service?.nom,
               start: res[index].date_deb,
               end: res[index].date_fin,
               color: color,

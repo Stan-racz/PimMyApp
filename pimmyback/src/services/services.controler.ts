@@ -21,7 +21,7 @@ export class ServicesController {
     this.servicesServices.create(services["nomService"], services['nomManagerService'], services['prenomManagerService']);
   }
 
-  @hasRoles(UserRole.ADMIN)
+  @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   affichageService() {

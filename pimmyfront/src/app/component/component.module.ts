@@ -23,11 +23,11 @@ import { FicheUtilisateurComponent } from './administrateur/fiche-utilisateur/fi
 import { MotifAbsenceComponent } from './administrateur/motif-absence/motif-absence.component';
 import { ServicesComponent } from './administrateur/services/services.component';
 import { SyntheseCongesComponent } from './administrateur/synthese-conges/synthese-conges.component';
-import { ValidationCongesComponent } from './administrateur/validation-conges/validation-conges.component';
+// import { ValidationCongesComponent } from './administrateur/validation-conges/validation-conges.component';
 import { VisibiliteEmployesComponent } from './administrateur/visibilite-employes/visibilite-employes.component';
 
 // Manager
-import { ValidationCongesManagerComponent } from './manager/validation-conges-manager/validation-conges-manager.component';
+// import { ValidationCongesManagerComponent } from './manager/validation-conges-manager/validation-conges-manager.component';
 import { VisualisationAbsencesComponent } from './manager/visualisation-absences/visualisation-absences.component';
 
 // Utilisateur
@@ -87,10 +87,10 @@ import { HttpClientModule } from '@angular/common/http';
     MotifAbsenceComponent,
     ServicesComponent,
     SyntheseCongesComponent,
-    ValidationCongesComponent,
+    // ValidationCongesComponent,
     // Manager
     VisibiliteEmployesComponent,
-    ValidationCongesManagerComponent,
+    // ValidationCongesManagerComponent,
     VisualisationAbsencesComponent,
     // Utilisateur
     ConventionCollectiveComponent,

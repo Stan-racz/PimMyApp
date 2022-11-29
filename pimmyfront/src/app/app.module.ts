@@ -28,6 +28,19 @@ import { DemandeCongesComponent } from './component/utilisateur/demande-conges/d
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction';
+import { ValidationCongesComponent } from './component/administrateur/validation-conges/validation-conges.component';
+import { ValidationCongesManagerComponent } from './component/manager/validation-conges-manager/validation-conges-manager.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule, MatButton } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MainConfig } from './mainConfig';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -51,6 +64,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NavigationComponent,
     SidebarComponent,
     DemandeCongesComponent,
+    ValidationCongesComponent,
+    ValidationCongesManagerComponent
   ],
   imports: [
     CommonModule,
@@ -63,6 +78,17 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy', onSameUrlNavigation: 'reload' }),
     PerfectScrollbarModule,
     FullCalendarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatToolbarModule,
   ],
   providers: [
     {

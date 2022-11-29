@@ -12,7 +12,7 @@
             <form #congesForm="ngForm" (ngSubmit)="onSubmit(congesForm)">
                 <div class="modal-body">
                     <div class="form-group">
-                        <select ngModel class="form-control" id="motif" required name="motif">
+                        <select ngModel class="form-select" id="motif" required name="motif">
                             <option value="" disabled hidden>---- Choisir un motif ----</option>
                             <option *ngFor="let motif of motifs" [ngValue]="motif['id']">{{motif['nom']}}</option>
                         </select>
