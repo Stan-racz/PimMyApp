@@ -15,7 +15,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
   login(loginForm: LoginForm) {
-    // console.log(loginForm.email, loginForm.password)
+    //TODO ajouter le mainconfig.getapibaseurl
     return this.http.post<any>('http://localhost:3000/back-end/users/login', {
       email: loginForm.email,
       password: loginForm.password

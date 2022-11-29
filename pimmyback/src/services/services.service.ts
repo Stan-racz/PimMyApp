@@ -31,6 +31,7 @@ export class ServicesService {
       }
     });
   }
+
   deleteOne(id: number): Observable<any> {
     return from(this.utilServ.delete(id));
   }

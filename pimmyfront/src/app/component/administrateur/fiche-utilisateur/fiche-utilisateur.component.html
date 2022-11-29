@@ -2,45 +2,53 @@
 
 <br>
 
-<div class="form-group" #form>
+<div class="form-group">
     <form #userForm="ngForm">
-        <input type="text" class="form-control" id="Nom" required [(ngModel)]="model.nom" name="Nom" placeholder="Nom de l'employé">
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="Nom de l'employé">
 
-        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="Prenom" placeholder="Prénom de l'employé">
-
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom" placeholder="Prénom de l'employé">
+        <br>
         <button type="button" class="btn btn-primary" (click)="onUserSearch(userForm)">Chercher</button>
+        &nbsp;
+        <button type="button" class="btn btn-primary" (click)="reload()">Réinitialiser</button>
         &nbsp;
     </form>
 </div>
 
-<table mat-table [dataSource]="dataSource" matSort>
+<table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="nom">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Nom </mat-header-cell>
-        <mat-cell *matCellDef="let row"> Raczynski </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="prenom">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom </mat-header-cell>
-        <mat-cell *matCellDef="let element"> Stanislas </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="dateNaiss">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Statut </mat-header-cell>
-        <mat-cell *matCellDef="let element"> Non Cadres Administratif</mat-cell>
-    </ng-container>
     <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>
-        <mat-cell *matCellDef="let element"> stan@racz.com</mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="service">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Service </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id_service.nom}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rôle </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.role}} </mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="conges">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Congés restants </mat-header-cell>
-        <mat-cell *matCellDef="let element"> 15j </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="nbHeureContrat">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Heures contractuelles </mat-header-cell>
-        <mat-cell *matCellDef="let element"> 1500 </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.nbHeureContractuelle}} </mat-cell>
     </ng-container>
-
 
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -36,7 +36,14 @@ export class ServicesComponent implements OnInit {
   ajoutService(form: NgForm) {
     console.log(form.value)
     //un post se constitue de : 'url', {body}, {headers} puis un subscribe si on a besoin d'interpreter le retour api
-    this.http.post(this.mainConfig.getApiBaseUrl() + 'services', { nomService: form.value.Nom, nomManagerService: form.value.nomManagerService, prenomManagerService: form.value.prenomManagerService }, { headers: this.mainConfig.getHeaders() }).subscribe(data => { console.log(data) });
+    this.http.post(
+      this.mainConfig.getApiBaseUrl() + 'services',
+      {
+        nomService: form.value.Nom,
+        nomManagerService: form.value.nomManagerService,
+        prenomManagerService: form.value.prenomManagerService
+      },
+      { headers: this.mainConfig.getHeaders() }).subscribe(data => { console.log(data) });
     //rafraichissement de la page pour afficher les nouvelles données
     this.mainConfig.reloadCurrentRoute();
   }
@@ -59,17 +66,24 @@ export class ServicesComponent implements OnInit {
     this.http.delete<Services>(this.mainConfig.getApiBaseUrl() + 'services/' + row['nom'], { headers: this.mainConfig.getHeaders() }).subscribe(() => this.status = 'Delete successful');
     this.mainConfig.reloadCurrentRoute();
   }
+
   //récupération des données via requête get à l'api puis formatage de la map en tableau lisible pour notre tableau
   getServicesData() {
-    return this.http.get<Services[]>(this.mainConfig.getApiBaseUrl() + 'services', { headers: this.mainConfig.getHeaders() }).pipe(
-      map((services: any[]) => services.map(
-        service => {
-          return <Services>{
-            nom: service["nom"],
-            nomManagerService: service["manager_Nom"],
-            prenomManagerService: service['manager_Prenom']
+    return this.http.get<Services[]>(
+      this.mainConfig.getApiBaseUrl() + 'services',
+      { headers: this.mainConfig.getHeaders() }
+    ).pipe(
+      map(
+        (services: any[]) => services.map(
+          service => {
+
+            return <Services>{
+              nom: service["nom"],
+              nomManagerService: service["manager_Nom"],
+              prenomManagerService: service['manager_Prenom']
+            }
           }
-        })
+        )
       ),
     )
   }
