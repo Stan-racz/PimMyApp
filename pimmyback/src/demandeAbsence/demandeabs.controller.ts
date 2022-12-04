@@ -28,9 +28,9 @@ export class DemandeAbsController {
   }
   // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
   // @UseGuards(JwtAuthGuard, RolesGuard)
-  @Get('absManager')
-  findAllManagerNotOk() {
-    return this.DemandeAbsService.findAllManagerNotOk();
+  @Get('absManager/:serviceId')
+  findAllManagerNotOk(@Param() params) {
+    return this.DemandeAbsService.findAllManagerNotOk(params.serviceId);
   }
 
   // @hasRoles(UserRole.ADMIN)
