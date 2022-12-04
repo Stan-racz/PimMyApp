@@ -28,6 +28,7 @@ export class AuthenticationService {
         localStorage.setItem('role', token.role);
         localStorage.setItem('userEmail', token.userEmail);
         localStorage.setItem('userId', token.userId);
+        localStorage.setItem('serviceId', token.serviceId);
         return token;
       })
     )
