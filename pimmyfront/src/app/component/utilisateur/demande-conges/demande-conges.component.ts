@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { MainConfig } from '../../../mainConfig';
 import { Absences } from './Absences';
 import { DemandeAbs } from './DemandeAbs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-demande-conges',
@@ -15,6 +16,8 @@ import { DemandeAbs } from './DemandeAbs';
   styleUrls: ['./demande-conges.component.scss']
 })
 export class DemandeCongesComponent implements OnInit {
+
+  private _jsonURL = "../../../../assets/ressources/holidays.json"
 
   motifs: any[] = [];
   dates: any[] = [];
@@ -30,8 +33,10 @@ export class DemandeCongesComponent implements OnInit {
   ];
   choixConditionDebut = this.conditions[1].id
   choixConditionFin = this.conditions[1].id
+  events: any = []
 
-  // Refresh fair même méthode que visualisation congé par service
+  // TODO : Refresh fair même méthode que visualisation congé par service
+
   calendarOptions: CalendarOptions = {
     plugins: [listPlugin],
     headerToolbar: {
@@ -74,7 +79,7 @@ export class DemandeCongesComponent implements OnInit {
       { headers: this.mainConfig.getHeaders() }
     ).subscribe(
       async (res) => {
-        this.calendarOptions.events = [];
+        this.calendarOptions.events = [... this.events];
         for (let index = 0; index < res.length; index++) {
           const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
           const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
@@ -96,6 +101,21 @@ export class DemandeCongesComponent implements OnInit {
         }
       }
     );
+
+    this.http.get("https://calendrier.api.gouv.fr/jours-feries/metropole.json").subscribe(
+      (data: any) => {
+        for (let element in data) {
+          this.events.push({
+            title: data[element],
+            user: "",
+            service: "",
+            date: element,
+            color: "gray",
+            textColor: "black"
+          })
+        }
+      }
+    )
   }
 
   ngOnInit() {
