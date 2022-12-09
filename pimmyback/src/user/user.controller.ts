@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, combineLatest, forkJoin, map, mergeMap, Observable, of, switchMap, throwError } from 'rxjs';
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
@@ -21,23 +21,30 @@ export class UserController {
             catchError(err => of({ error: err.message }))
         );
     }
-    @Post('login')
-    login(@Body() user: User): Observable<Object> {
 
-        this.userService.findByMail(user['email']).subscribe((value) => {
-            this.userId = value.id;
-            this.idService = value.id_service['id'];            
-            return this.leRole = value['role'];
-        });
-        // console.log(user)
-        return this.userService.login(user).pipe(
-            map((jwt: string) => {
-                console.log(this.userId)
-                return { access_token: jwt, role: this.leRole, userEmail: user.email, userId: this.userId, serviceId: this.idService};
-            })
-        )
-    }
-    @Get(':id')
+  @Post('login')
+  login(
+    @Body() userCredentials: User,
+  ): Observable<{ access_token: string; role: UserRole; userEmail: string; serviceId: number; userId: number; }> {
+    /**
+     * forkJoin require all input observables to be completed
+     */
+    return forkJoin([
+      this.userService.findByEmail(userCredentials.email),
+      this.userService.login(userCredentials),
+    ]).pipe(
+      map(([findedUser, token]) => ({
+        access_token: token,
+        userEmail: findedUser.email,
+        role: findedUser.role,
+        userId: findedUser.id,
+        serviceId: findedUser?.id_service,
+      })),
+      catchError((err) => throwError(() => err.message)),
+    );
+  }
+
+  @Get(':id')
     findOne(@Param() params): Observable<User> {
         return this.userService.findOne(params.id);
     }
