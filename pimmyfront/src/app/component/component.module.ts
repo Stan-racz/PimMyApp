@@ -74,21 +74,21 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     NgbdpaginationBasicComponent,
     NgbdAlertBasicComponent,
-    NgbdDropdownBasicComponent,
+    // NgbdDropdownBasicComponent,
     NgbdnavBasicComponent,
     ButtonsComponent,
     CardsComponent,
     TableComponent,
     // Administrateur
     AjoutUtilisateurComponent,
-    FermetureInstitutionComponent,
-    FicheUtilisateurComponent,
-    MotifAbsenceComponent,
+    // FermetureInstitutionComponent,
+    // FicheUtilisateurComponent,
+    // MotifAbsenceComponent,
     ServicesComponent,
-    SyntheseCongesComponent,
+    // SyntheseCongesComponent,
     // ValidationCongesComponent,
     // Manager
-    VisibiliteEmployesComponent,
+    // VisibiliteEmployesComponent,
     // ValidationCongesManagerComponent,
     VisualisationAbsencesComponent,
     // Utilisateur

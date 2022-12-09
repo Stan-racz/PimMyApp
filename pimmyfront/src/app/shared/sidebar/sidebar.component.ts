@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private authService: AuthenticationService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     const role = localStorage.getItem('role') as UserRole | null;
