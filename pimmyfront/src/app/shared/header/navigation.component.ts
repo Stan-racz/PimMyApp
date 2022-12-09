@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Router } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainConfig } from '../../mainConfig';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -11,6 +12,7 @@ declare var $: any;
   templateUrl: './navigation.component.html'
 })
 export class NavigationComponent implements AfterViewInit {
+
   @Output() toggleSidebar = new EventEmitter<void>();
 
   public config: PerfectScrollbarConfigInterface = {};
@@ -19,6 +21,7 @@ export class NavigationComponent implements AfterViewInit {
 
   constructor(
     private authService: AuthenticationService,
+    private router: Router,
     // private mainConfig: MainConfig,
   ) {
 
@@ -30,11 +33,11 @@ export class NavigationComponent implements AfterViewInit {
 
   logOut() {
     this.authService.logOut();
-    // this.mainConfig.redirect("")
+    this.router.navigate(['/login']);
   }
 
   // This is for Notifications
-  notifications: Object[] = [
+  notifications: any[] = [
     {
       btn: 'btn-danger',
       icon: 'ti-link',

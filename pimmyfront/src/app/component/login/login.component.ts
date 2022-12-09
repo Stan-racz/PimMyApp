@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service/authentication.service';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -29,9 +30,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.authService.login(this.loginForm.value).pipe(
-      map(token => this.router.navigate(['dashboard']))
-    ).subscribe();
+    this.authService
+      .login(this.loginForm.value)
+      .subscribe(payload => {
+        console.log('payload : ', payload);
+        this.router.navigate(['/'] );
+      })
   }
 
 }
