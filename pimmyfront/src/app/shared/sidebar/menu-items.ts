@@ -1,8 +1,11 @@
+import { UserRole } from "../../services/user.service/user.types";
 import { RouteInfo } from './sidebar.metadata';
-let ROUTES: RouteInfo[];
-let role = localStorage.getItem('role');
-if (role == "admin") {
-  ROUTES = [
+
+
+export type SidebarConfig = { [T in UserRole]: RouteInfo[] };
+
+export const SIDEBAR_CONFIG: SidebarConfig = {
+  admin: [
     {
       path: '/component/demande-conges',
       title: 'Demande de congés',
@@ -91,10 +94,8 @@ if (role == "admin") {
       extralink: false,
       submenu: []
     },
-  ];
-}
-if (role == "manager") {
-  ROUTES = [
+  ],
+  manager: [
     {
       path: '/component/demande-conges',
       title: 'Demande de congés',
@@ -135,11 +136,8 @@ if (role == "manager") {
       extralink: false,
       submenu: []
     },
-  ];
-}
-
-if (role == "user") {
-  ROUTES = [
+  ],
+  user: [
     {
       path: '/component/demande-conges',
       title: 'Demande de congés',
@@ -164,7 +162,5 @@ if (role == "user") {
       extralink: false,
       submenu: []
     },
-  ];
+  ]
 }
-
-export { ROUTES }

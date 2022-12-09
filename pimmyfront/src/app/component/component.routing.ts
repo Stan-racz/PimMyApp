@@ -25,103 +25,99 @@ import { LoginComponent } from './login/login.component';
 
 
 export const ComponentsRoutes: Routes = [
-	{
-		path: '',
-		children: [
-			{
-				path: 'table',
-				component: TableComponent
-			},
-			{
-				path: 'card',
-				component: CardsComponent
-			},
-			{
-				path: 'pagination',
-				component: NgbdpaginationBasicComponent
-			},
-			{
-				path: 'badges',
-				component: BadgeComponent
-			},
-			{
-				path: 'alert',
-				component: NgbdAlertBasicComponent
-			},
-			{
-				path: 'dropdown',
-				component: NgbdDropdownBasicComponent
-			},
-			{
-				path: 'nav',
-				component: NgbdnavBasicComponent
-			},
-			{
-				path: 'buttons',
-				component: ButtonsComponent
-			},
-			{
-				path: 'login',
-				component: LoginComponent
-			},
+  {
+    path: 'component',
+    children: [
+      {
+        path: 'table',
+        component: TableComponent
+      },
+      {
+        path: 'card',
+        component: CardsComponent
+      },
+      {
+        path: 'pagination',
+        component: NgbdpaginationBasicComponent
+      },
+      {
+        path: 'badges',
+        component: BadgeComponent
+      },
+      {
+        path: 'alert',
+        component: NgbdAlertBasicComponent
+      },
+      {
+        path: 'dropdown',
+        component: NgbdDropdownBasicComponent
+      },
+      {
+        path: 'nav',
+        component: NgbdnavBasicComponent
+      },
+      {
+        path: 'buttons',
+        component: ButtonsComponent
+      },
 
-			// Administrateur
-			{
-				path: 'ajout-utilisateur',
-				component: AjoutUtilisateurComponent
-			},
-			{
-				path: 'fermeture-institution',
-				component: FermetureInstitutionComponent
-			},
-			{
-				path: 'fiche-utilisateur',
-				component: FicheUtilisateurComponent
-			},
-			{
-				path: 'motif-absence',
-				component: MotifAbsenceComponent
-			},
-			{
-				path: 'services',
-				component: ServicesComponent
-			},
-			{
-				path: 'synthese-conges',
-				component: SyntheseCongesComponent
-			},
-			{
-				path: 'validation-conges',
-				component: ValidationCongesComponent
-			},
-			{
-				path: 'visibilite-employes',
-				component: VisibiliteEmployesComponent
-			},
+      // Administrateur
+      {
+        path: 'ajout-utilisateur',
+        component: AjoutUtilisateurComponent
+      },
+      {
+        path: 'fermeture-institution',
+        component: FermetureInstitutionComponent
+      },
+      {
+        path: 'fiche-utilisateur',
+        component: FicheUtilisateurComponent
+      },
+      {
+        path: 'motif-absence',
+        component: MotifAbsenceComponent
+      },
+      {
+        path: 'services',
+        component: ServicesComponent
+      },
+      {
+        path: 'synthese-conges',
+        component: SyntheseCongesComponent
+      },
+      {
+        path: 'validation-conges',
+        component: ValidationCongesComponent
+      },
+      {
+        path: 'visibilite-employes',
+        component: VisibiliteEmployesComponent
+      },
 
-			// Manager
-			{
-				path: 'validation-conges-manager',
-				component: ValidationCongesManagerComponent
-			},
-			{
-				path: 'visualisation-absences',
-				component: VisualisationAbsencesComponent
-			},
+      // Manager
+      {
+        path: 'validation-conges-manager',
+        component: ValidationCongesManagerComponent
+      },
+      {
+        path: 'visualisation-absences',
+        component: VisualisationAbsencesComponent
+      },
 
-			// Utilisateur
-			{
-				path: 'convention-collective',
-				component: ConventionCollectiveComponent
-			},
-			{
-				path: 'demande-conges',
-				component: DemandeCongesComponent
-			},
-			{
-				path: 'visualisation',
-				component: VisualisationComponent
-			},
-		]
-	}
+      // Utilisateur
+      {
+        path: 'convention-collective',
+        component: ConventionCollectiveComponent
+      },
+      {
+        path: 'demande-conges',
+        component: DemandeCongesComponent
+      },
+      {
+        path: 'visualisation',
+        component: VisualisationComponent
+      },
+    ]
+  }
 ];

@@ -14,7 +14,7 @@ import { HeuresSemaine } from './heuresSemaine/heuressemaine.entity';
 import { ServicesModule } from './services/services.module';
 import { ServicesController } from './services/services.controler';
 import { ServicesService } from './services/services.service';
-import { DemandeAbsModule } from './demandeAbsence/demandeAbs.module';
+import { DemandeAbsModule } from './demandeAbsence/demandeabs.module';
 import { AbsenceModule } from './absences/absence.module';
 import { AbsDispoModule } from './absdispo/absdispo.module';
 

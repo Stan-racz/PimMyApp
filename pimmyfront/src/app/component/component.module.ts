@@ -51,8 +51,8 @@ import { DxButtonModule, DxSelectBoxComponent, DxSelectBoxModule } from 'devextr
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forChild(ComponentsRoutes),
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
@@ -79,7 +79,6 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonsComponent,
     CardsComponent,
     TableComponent,
-    LoginComponent,
     // Administrateur
     AjoutUtilisateurComponent,
     FermetureInstitutionComponent,
