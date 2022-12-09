@@ -12,6 +12,7 @@ export class UserController {
 
     leRole: string;
     userId: number;
+    idService: number;
     constructor(private userService: UserService) { }
     @Post()
     create(@Body() user: UserEntity): Observable<User | Object> {
@@ -25,13 +26,14 @@ export class UserController {
 
         this.userService.findByMail(user['email']).subscribe((value) => {
             this.userId = value.id;
+            this.idService = value.id_service['id'];            
             return this.leRole = value['role'];
         });
         // console.log(user)
         return this.userService.login(user).pipe(
             map((jwt: string) => {
                 console.log(this.userId)
-                return { access_token: jwt, role: this.leRole, userEmail: user.email, userId: this.userId };
+                return { access_token: jwt, role: this.leRole, userEmail: user.email, userId: this.userId, serviceId: this.idService};
             })
         )
     }

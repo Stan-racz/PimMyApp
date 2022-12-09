@@ -139,6 +139,9 @@ export class UserService {
 
     findByMail(email: string): Observable<User> {
         return from(this.userRepository.findOne({
+            relations: {
+                id_service: true,
+            },
             where: {
                 email: email
             }
