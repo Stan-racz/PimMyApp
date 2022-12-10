@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { Absence } from 'src/absences/absence.entity';
+import { UserEntity } from 'src/user/models/user.entity';
 import { Abs_dispo } from './absdispo.entity';
 import { AbsDispoService } from './absdispo.service';
 
@@ -8,12 +10,14 @@ import { AbsDispoService } from './absdispo.service';
 export class AbsDispoController {
   constructor(private readonly absDispoService: AbsDispoService) { }
 
-
+  /**
+   * Fonction qui ajoute dans la base de données pour un utilisateur un motif d'absence et les jours qu'il possède
+   * @param absence 
+   * @param user 
+   */
   @Post()
-  populateAbsDispo(@Body() absDispo: any) {
-    //ne pas oublier d'ajouter une fonction qui décompte les jours de congés dispo de l'utilisateur /!\
-    // console.log(demandeAbs);
-    // return this.absDispoService.ajoutCPP(absDispo).pipe()
-    this.absDispoService.ajoutCPP(absDispo)
+  populateAbsDispo(@Body() absence: Absence, user: UserEntity) {
+    this.absDispoService.ajoutConge(absence, user)
   }
+
 }

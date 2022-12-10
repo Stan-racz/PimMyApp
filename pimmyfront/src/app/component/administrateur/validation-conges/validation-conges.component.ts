@@ -53,6 +53,7 @@ export class ValidationCongesComponent implements OnInit {
       map((demandeAbsences: any[]) => demandeAbsences.map(
         demandeAbsence => {
           return <DemandeAbs>{
+            id: demandeAbsence.id,
             date_deb: demandeAbsence.date_deb,
             deb_mat: demandeAbsence.deb_mat,
             date_fin: demandeAbsence.date_fin,
@@ -67,11 +68,15 @@ export class ValidationCongesComponent implements OnInit {
     )
   }
 
-  acceptanceConges(email: string) {
-    this.http.put<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/validationAdmin", {
-      email: email
-    }, { headers: this.mainConfig.getHeaders() }).subscribe()
-    console.log(email);
+  acceptanceConges(data: any) {
+    this.http.put<DemandeAbs>(
+      this.mainConfig.getApiBaseUrl() + "demandeAbs/validationAdmin",
+      {
+        data
+      },
+      { headers: this.mainConfig.getHeaders() }).subscribe()
+
+    console.log(data);
 
     this.mainConfig.sleep(300)
     this.mainConfig.reloadCurrentRoute()
@@ -123,7 +128,6 @@ export class ValidationCongesComponent implements OnInit {
       )
     }
     else {
-
       this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/service/' + newValue, { headers: this.mainConfig.getHeaders() }).subscribe(
         (res) => {
           this.refreshTab = []

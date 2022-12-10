@@ -23,6 +23,20 @@ export class DemandeAbsService {
     });
   }
 
+  findbyId(demandeCongeId: number): Promise<DemandeAbsEntity> {
+    return this.demandeAbsServ.findOne({
+      relations: {
+        id_absence: true,
+        user_info: {
+          id_service: true,
+        },
+      },
+      where: {
+        id: demandeCongeId
+      }
+    });
+  }
+
   findAllManagerOk(): Promise<DemandeAbsEntity[]> {
     return this.demandeAbsServ.find(
       {
@@ -127,12 +141,7 @@ export class DemandeAbsService {
     )
   }
 
-  // SELECT * FROM `DemandeAbsEntity` 
-  // INNER JOIN user_entity on DemandeAbsEntity.userInfoId = user_entity.id 
-  // INNER JOIN services on user_entity.idServiceId = services.id 
-  // WHERE services.id = 3; 
   findByService(service: any) {
-
     return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
       .select()
       .addSelect('DemandeAbsEntity.id', 'id')
@@ -168,32 +177,15 @@ export class DemandeAbsService {
     )
   }
 
-  updateValidationAdmin(email: string) {
+  updateValidationAdmin(email: string, demandeAbsId: number) {
     return this.demandeAbsServ.update(
       {
-        email: email
+        email: email,
+        id: demandeAbsId
       },
       {
         admin_ok: true,
       }
     )
   }
-
-  // create(demandeAbs: DemandeAbsEntity): Observable<DemandeAbsEntity> {
-  //   return this.demandeAbsServ
-  //     .createQueryBuilder()
-  //     .insert()
-  //     .into(DemandeAbsEntity)
-  //     .values([{
-  //       commentaire: demandeAbs.commentaire,
-  //       admin_ok: demandeAbs.admin_ok,
-  //       date_deb: demandeAbs.date_deb,
-  //       date_fin: demandeAbs.date_fin,
-  //       deb_mat: demandeAbs.deb_mat,
-  //       fin_mat: demandeAbs.fin_mat,
-  //       manager_ok: demandeAbs.manager_ok,
-  //       id_absence: demandeAbs.id_absence,
-  //     }])
-  //     .execute();
-  // }
 }

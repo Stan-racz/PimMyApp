@@ -8,4 +8,4 @@ import { DemandeAbsController } from './demandeabs.controller';
   providers: [DemandeAbsService],
   controllers: [DemandeAbsController],
 })
-export class DemandeAbsHttpModule {}
+export class DemandeAbsHttpModule { }

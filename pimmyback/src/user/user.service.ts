@@ -15,7 +15,7 @@ export class UserService {
     create(user: UserEntity): Observable<User> {
         return this.authService.hashPassword(user.password).pipe(
             switchMap((passwordHash: string) => {
-                console.log("service ", user);
+                // console.log("service ", user);
 
                 const newUser = new UserEntity();
                 newUser.nom = user.nom;
@@ -68,7 +68,7 @@ export class UserService {
         }))
     }
 
-    findByEmail(email: string): Observable<User> {
+    findByEmail(email: string): Observable<UserEntity> {
         console.log(email);
 
         return from(this.userRepository.findOne({
@@ -76,7 +76,7 @@ export class UserService {
                 email: email,
             }
         })).pipe(
-            map((user: User) => {
+            map((user: UserEntity) => {
                 const { password, ...result } = user;
                 return result;
             }),

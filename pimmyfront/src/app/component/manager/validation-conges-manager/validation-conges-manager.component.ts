@@ -77,13 +77,14 @@ export class ValidationCongesManagerComponent implements OnInit {
   }
 
   //  TODO a modifier manager pour un service
-
   getAllDemande() {
     this.http.get<any[]>(
       this.mainConfig.getApiBaseUrl() + "demandeAbs/absManager/" + localStorage.getItem("serviceId"),
       { headers: this.mainConfig.getHeaders() }
     ).subscribe(
       async (res) => {
+        // console.log(res);
+
         this.calendarOptions.events = [];
 
         for (let index = 0; index < res.length; index++) {
@@ -106,6 +107,50 @@ export class ValidationCongesManagerComponent implements OnInit {
         this.calendarOptions.events = Object.assign([], this.calendarOptions.events)
       }
     );
+  }
+
+  onChange(newValue: number) {
+    if (newValue == 0) {
+      this.getAllDemande()
+      this.getDemandeConges().subscribe(
+        (res) => {
+          const dataSource = this.dataSource;
+          dataSource.data = this.formatTab(res);
+
+        }
+      )
+    }
+    else {
+
+      this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/service/' + newValue, { headers: this.mainConfig.getHeaders() }).subscribe(
+        (res) => {
+          this.refreshTab = []
+
+          for (let index = 0; index < res.length; index++) {
+            const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
+            const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+            this.dates.push(res[index].date_deb)
+            this.dates.push(res[index].date_fin)
+            this.refreshTab.push(
+              {
+                title: res[index].abs_nom,
+                user: res[index].user_prenom + " " + res[index].user_nom,
+                start: res[index].date_deb,
+                end: res[index].date_fin,
+                color: color,
+                textColor: textColor,
+                borderColor: "#272c33",
+              }
+            )
+          }
+
+          const dataSource = this.dataSource;
+          dataSource.data = this.formatTab(res);
+
+          this.calendarOptions.events = Object.assign([], this.refreshTab)
+        }
+      );
+    }
   }
 
   formatTab(response: any[]): DemandeAbs[] {

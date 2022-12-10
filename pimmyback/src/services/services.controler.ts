@@ -17,7 +17,7 @@ export class ServicesController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   ajoutService(@Body() services: Services): void {
-    console.log("coucou ajout serv");
+    // console.log("coucou ajout serv");
     this.servicesServices.create(services["nomService"], services['nomManagerService'], services['prenomManagerService']);
   }
 
@@ -25,7 +25,7 @@ export class ServicesController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   affichageService() {
-    console.log("coucou c le find all");
+    // console.log("coucou c le find all");
     return this.servicesServices.findAll();
   }
 
