@@ -1,10 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
-<<<<<<< HEAD
-import { catchError, combineLatest, forkJoin, map, mergeMap, Observable, of, switchMap, throwError } from 'rxjs';
-=======
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, forkJoin, map, Observable, of, throwError } from 'rxjs';
 import { AbsenceService } from '../absences/absence.service';
->>>>>>> ed0e6876 (creation des conges pour un utilisateur cree, deduction des bons nombres de jour selon  la demande)
 import { hasRoles } from 'src/auth/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
