@@ -18,7 +18,7 @@ import { LoginComponent } from './login/login.component';
 
 // Administrateur
 import { AjoutUtilisateurComponent } from './administrateur/ajout-utilisateur/ajout-utilisateur.component';
-import { FermetureInstitutionComponent } from './administrateur/fermeture-institution/fermeture-institution.component';
+// import { FermetureInstitutionComponent } from './administrateur/fermeture-institution/fermeture-institution.component';
 import { FicheUtilisateurComponent } from './administrateur/fiche-utilisateur/fiche-utilisateur.component';
 import { MotifAbsenceComponent } from './administrateur/motif-absence/motif-absence.component';
 import { ServicesComponent } from './administrateur/services/services.component';
@@ -33,7 +33,7 @@ import { VisualisationAbsencesComponent } from './manager/visualisation-absences
 // Utilisateur
 import { ConventionCollectiveComponent } from './utilisateur/convention-collective/convention-collective.component';
 // import { DemandeCongesComponent } from './utilisateur/demande-conges/demande-conges.component';
-import { VisualisationComponent } from './utilisateur/visualisation/visualisation.component';
+// import { VisualisationComponent } from './utilisateur/visualisation/visualisation.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule, MatButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -80,21 +80,21 @@ import { HttpClientModule } from '@angular/common/http';
     CardsComponent,
     TableComponent,
     // Administrateur
-    AjoutUtilisateurComponent,
+    // AjoutUtilisateurComponent,
     // FermetureInstitutionComponent,
     // FicheUtilisateurComponent,
     // MotifAbsenceComponent,
-    ServicesComponent,
+    // ServicesComponent,
     // SyntheseCongesComponent,
     // ValidationCongesComponent,
     // Manager
     // VisibiliteEmployesComponent,
     // ValidationCongesManagerComponent,
-    VisualisationAbsencesComponent,
+    // VisualisationAbsencesComponent,
     // Utilisateur
     ConventionCollectiveComponent,
     // DemandeCongesComponent,
-    VisualisationComponent
+    // VisualisationComponent
   ],
   providers: [
     MainConfig

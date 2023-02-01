@@ -48,55 +48,93 @@ export class DemandeAbsService {
         },
         where: {
           manager_ok: true,
-          admin_ok: false
+          admin_ok: false,
+          refus: false
         }
       }
     );
   }
-
-  findAllManagerNotOk(idService :number): Promise<DemandeAbsEntity[]> {
-    console.log("cc la manager validation", idService);
+  findAllManagerOkService(idService: number): Promise<DemandeAbsEntity[]> {
     return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
-    .select()
-    .addSelect('DemandeAbsEntity.id', 'id')
-    .addSelect('DemandeAbsEntity.date_deb', 'date_deb')
-    .addSelect('DemandeAbsEntity.deb_mat', 'deb_mat')
-    .addSelect('DemandeAbsEntity.date_fin', 'date_fin')
-    .addSelect('DemandeAbsEntity.fin_mat', 'fin_mat')
-    .addSelect('DemandeAbsEntity.commentaire', 'commentaire')
-    .addSelect('DemandeAbsEntity.manager_ok', 'manager_ok')
-    .addSelect('DemandeAbsEntity.admin_ok', 'admin_ok')
-    .addSelect('DemandeAbsEntity.email', 'email')
-    .addSelect('DemandeAbsEntity.refus', 'refus')
-    .addSelect('user.nom', 'user_nom')
-    .addSelect('user.prenom', 'user_prenom')
-    .addSelect('srv.nom', 'service_nom')
-    .addSelect('abs.nom', 'abs_nom')
-    .innerJoin('user_entity', 'user', 'DemandeAbsEntity.userInfoId=user.id')
-    .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
-    .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
-    .where('srv.id=' + idService)
-    .andWhere('manager_ok=false')
-    .andWhere('admin_ok=false')
-    .getRawMany()
+      .select()
+      .addSelect('DemandeAbsEntity.id', 'id')
+      .addSelect('DemandeAbsEntity.date_deb', 'date_deb')
+      .addSelect('DemandeAbsEntity.deb_mat', 'deb_mat')
+      .addSelect('DemandeAbsEntity.date_fin', 'date_fin')
+      .addSelect('DemandeAbsEntity.fin_mat', 'fin_mat')
+      .addSelect('DemandeAbsEntity.commentaire', 'commentaire')
+      .addSelect('DemandeAbsEntity.manager_ok', 'manager_ok')
+      .addSelect('DemandeAbsEntity.admin_ok', 'admin_ok')
+      .addSelect('DemandeAbsEntity.email', 'email')
+      .addSelect('DemandeAbsEntity.refus', 'refus')
+      .addSelect('user.nom', 'user_nom')
+      .addSelect('user.prenom', 'user_prenom')
+      .addSelect('srv.nom', 'service_nom')
+      .addSelect('abs.nom', 'abs_nom')
+      .innerJoin('user_entity', 'user', 'DemandeAbsEntity.userInfoId=user.id')
+      .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
+      .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
+      .where('srv.id=' + idService)
+      .andWhere('manager_ok=1')
+      .andWhere('admin_ok=0')
+      .andWhere('refus=0')
+      .getRawMany()
+  }
 
-    // return this.demandeAbsServ.find(
-    //   {
-    //     relations: {
-    //       id_absence: true,
-    //       user_info: {
-    //         id_service: true,
-    //       },
-    //     },
-    //     where: {
-    //       manager_ok: false,
-    //       admin_ok: false,
-    //       user_info: {
-    //         id_service : 1
-    //       }
-    //     }
-    //   }
-    // );
+  findAllManagerNotOk(idService: number): Promise<DemandeAbsEntity[]> {
+    // console.log("cc la manager validation", idService);
+    return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
+      .select()
+      .addSelect('DemandeAbsEntity.id', 'id')
+      .addSelect('DemandeAbsEntity.date_deb', 'date_deb')
+      .addSelect('DemandeAbsEntity.deb_mat', 'deb_mat')
+      .addSelect('DemandeAbsEntity.date_fin', 'date_fin')
+      .addSelect('DemandeAbsEntity.fin_mat', 'fin_mat')
+      .addSelect('DemandeAbsEntity.commentaire', 'commentaire')
+      .addSelect('DemandeAbsEntity.manager_ok', 'manager_ok')
+      .addSelect('DemandeAbsEntity.admin_ok', 'admin_ok')
+      .addSelect('DemandeAbsEntity.email', 'email')
+      .addSelect('DemandeAbsEntity.refus', 'refus')
+      .addSelect('user.nom', 'user_nom')
+      .addSelect('user.prenom', 'user_prenom')
+      .addSelect('srv.nom', 'service_nom')
+      .addSelect('abs.nom', 'abs_nom')
+      .innerJoin('user_entity', 'user', 'DemandeAbsEntity.userInfoId=user.id')
+      .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
+      .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
+      .where('srv.id=' + idService)
+      .andWhere('manager_ok=0')
+      .andWhere('admin_ok=0')
+      .andWhere('refus=0')
+      .getRawMany()
+  }
+  
+  findAllManager(idService: number): Promise<DemandeAbsEntity[]> {
+    // console.log("cc la manager validation", idService);
+    return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
+      .select()
+      .addSelect('DemandeAbsEntity.id', 'id')
+      .addSelect('DemandeAbsEntity.date_deb', 'date_deb')
+      .addSelect('DemandeAbsEntity.deb_mat', 'deb_mat')
+      .addSelect('DemandeAbsEntity.date_fin', 'date_fin')
+      .addSelect('DemandeAbsEntity.fin_mat', 'fin_mat')
+      .addSelect('DemandeAbsEntity.commentaire', 'commentaire')
+      .addSelect('DemandeAbsEntity.manager_ok', 'manager_ok')
+      .addSelect('DemandeAbsEntity.admin_ok', 'admin_ok')
+      .addSelect('DemandeAbsEntity.email', 'email')
+      .addSelect('DemandeAbsEntity.refus', 'refus')
+      .addSelect('user.nom', 'user_nom')
+      .addSelect('user.prenom', 'user_prenom')
+      .addSelect('srv.nom', 'service_nom')
+      .addSelect('abs.nom', 'abs_nom')
+      .innerJoin('user_entity', 'user', 'DemandeAbsEntity.userInfoId=user.id')
+      .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
+      .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
+      .where('srv.id=' + idService)
+      .andWhere('manager_ok=0')
+      .andWhere('admin_ok=0')
+      .andWhere('refus=0')
+      .getRawMany()
   }
 
   async remove(id: number): Promise<void> {
@@ -162,14 +200,17 @@ export class DemandeAbsService {
       .innerJoin('services', 'srv', 'user.idServiceId=srv.id')
       .innerJoin('absence', 'abs', 'DemandeAbsEntity.idAbsenceId=abs.id')
       .where('srv.id=' + service)
-      .andWhere('manager_ok=1')
+      // .andWhere('manager_ok=1')
+      // .andWhere('refus=0')
       .getRawMany()
   }
 
-  updateValidationManager(email: string) {
+  updateValidationManager(email: string, demandeAbsId: number) {
+    // console.log("slt", email, demandeAbsId);
     return this.demandeAbsServ.update(
       {
-        email: email
+        email: email,
+        id: demandeAbsId
       },
       {
         manager_ok: true,
@@ -187,5 +228,38 @@ export class DemandeAbsService {
         admin_ok: true,
       }
     )
+  }
+
+  updateRefusAdmin(email: string, demandeAbsId: number) {
+    return this.demandeAbsServ.update(
+      {
+        email: email,
+        id: demandeAbsId
+      },
+      {
+        refus: true,
+      }
+    )
+  }
+
+  updateRefusManager(email: string, demandeAbsId: number) {
+    return this.demandeAbsServ.update(
+      {
+        email: email,
+        id: demandeAbsId
+      },
+      {
+        refus: true,
+      }
+    )
+  }
+
+  dernierId(nombre) {
+    return this.demandeAbsServ.createQueryBuilder('DemandeAbsEntity')
+      .select()
+      .addSelect('DemandeAbsEntity.id', 'id')
+      .orderBy('DemandeAbsEntity.id', 'DESC')
+      .limit(nombre)
+      .getRawMany()
   }
 }

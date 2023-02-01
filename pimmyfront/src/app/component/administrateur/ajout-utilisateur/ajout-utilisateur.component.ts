@@ -19,11 +19,30 @@ export class AjoutUtilisateurComponent implements OnInit {
   fileReaded: any;
   private dataSource: any;
 
+
+  civilite = ['Homme', 'Femme'];
+  status = ['Cadres', 'Non Cadres Administratif', 'Non Cadres Vie Scolaire'];
+  roles = ['user', 'manager', 'admin'];
+  nbHeuresContractuelles = [1470, 1558]
+  model = new Utilisateur(18, '', '', '', this.civilite[0], this.status[0], "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, "");
+  submitted = false;
+  servicesDisplay: Services[] = [];
   constructor(private http: HttpClient, private mainConfig: MainConfig) {
   }
 
   ngOnInit(): void {
-    // this.datasource = this.getServices();
+    this.getServices().subscribe(
+      (data) => {
+        data.forEach(
+          (service) => {
+            this.servicesDisplay.push(service)
+            // console.log(service);
+
+          }
+
+        )
+      }
+    )
   }
 
   thingsAsMatTableDataSource$: Observable<any> = this.getServices().pipe(
@@ -35,13 +54,8 @@ export class AjoutUtilisateurComponent implements OnInit {
   );
 
 
-  // donnees du formulaire
-  civilite = ['Homme', 'Femme'];
-  status = ['Cadres', 'Non Cadres Administratif', 'Non Cadres Vie Scolaire'];
-  roles = ['user', 'manager', 'admin'];
-  model = new Utilisateur(18, '', '', '', this.civilite[0], this.status[0], "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, "");
-  submitted = false;
-  services: Services[] = [];
+
+
   onSubmit(form: NgForm) {
     //si on clique sur le button formulaire :
     this.ajoutUtilisateurManuel(form);
@@ -54,6 +68,7 @@ export class AjoutUtilisateurComponent implements OnInit {
       map((services: any[]) => services.map(
         service => {
           return <Services>{
+            id: service['id'],
             nom: service["nom"],
             nomManagerService: service["manager_Nom"],
             prenomManagerService: service['manager_Prenom']
@@ -65,13 +80,13 @@ export class AjoutUtilisateurComponent implements OnInit {
 
   //ajout d'utilisateur via le formulaire
   ajoutUtilisateurManuel(form: NgForm) {
+    // console.log(form.value);
 
     let mdp = password.randomPassword()
-    // console.log(form.value);
+    console.log(mdp);
+
+    // console.log(form.value.nbHeureContractuelle);
     let userId;
-    let absences;
-    let found;
-    let id_absences;
     this.http.post<Utilisateur>(this.mainConfig.getApiBaseUrl() + 'users', {
       nom: form.value.nom,
       prenom: form.value.prenom,
@@ -81,41 +96,28 @@ export class AjoutUtilisateurComponent implements OnInit {
       civilite: form.value.civilite,
       status: form.value.status,
       dateNaiss: form.value.dateNaiss,
-      nbHeureContractuelle: Number(form.value.nombreHeureContractuelle),
-      //trouver pourquoi ça s'ajoute pas dans la bdd - (est ce que je reçois le 1 dans le back? si oui alors c'est le formattage de la requete la bas)
+      nbHeureContractuelle: form.value.nbHeureContractuelle,
       id_service: 1,
     }).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       userId = data.id
     })
 
     this.mainConfig.sleep(300)
-    absences = this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).pipe(map(
-      (absences) => absences.map(
-        absence => {
-          // console.log("yo", absence);
+    // absences = this.http.get<Absences[]>(this.mainConfig.getApiBaseUrl() + "absences", { headers: this.mainConfig.getHeaders() }).pipe(map(
+    //   (absences) => absences.map(
+    //     absence => {
+    //       // console.log("yo", absence);
 
-          return <Absences>{
-            id: absence.id,
-            nom: absence.nom
-          }
-        }
-      )
-    ))
+    //       return <Absences>{
+    //         id: absence.id,
+    //         nom: absence.nom
+    //       }
+    //     }
+    //   )
+    // ))
     this.mainConfig.sleep(300)
-    // console.log("absneces :) ", absences);
 
-    // found = absences.forEach((absence) => {
-    //   if (absence[0].nom == "Congés Payés") {
-    //     id_absences = absence[0].id
-    //   }
-    // })
-
-    // this.http.post<any>(this.mainConfig.getApiBaseUrl() + "absDispo", {
-    //   status: form.value.status,
-    //   id_util: userId,
-    //   id_abs: id_absences,
-    // }, { headers: this.mainConfig.getHeaders() })
   }
 
   // Ajout d'utilisateur via CSV (upload du fichier + traitement)

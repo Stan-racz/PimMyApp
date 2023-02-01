@@ -27,7 +27,7 @@ export class AbsenceController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   ajoutService(@Body() absence: Absence): void {
-    console.log("controller : ", absence);
+    // console.log("controller : ", absence);
     this.absenceService.create(absence["nom"]);
   }
 

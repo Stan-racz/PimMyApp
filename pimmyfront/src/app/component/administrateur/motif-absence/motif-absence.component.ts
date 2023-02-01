@@ -36,7 +36,7 @@ export class MotifAbsenceComponent implements OnInit {
 
   //call api POST pour envoyer le service à la BDD
   ajoutAbsence(form: NgForm) {
-    console.log(form.value)
+    // console.log(form.value)
     //un post se constitue de : 'url', {body}, {headers} puis un subscribe si on a besoin d'interpreter le retour api
     this.http.post(
       this.mainConfig.getApiBaseUrl() + 'absences',
@@ -61,7 +61,7 @@ export class MotifAbsenceComponent implements OnInit {
 
 
   suppressionAbsence(row: any) {
-    console.log(row["nom"]);
+    // console.log(row["nom"]);
 
     this.getAbsencesData().subscribe(data => {
       let absId = data.findIndex(x => x.nom === row["nom"])

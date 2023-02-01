@@ -34,7 +34,7 @@ export class ServicesComponent implements OnInit {
 
   //call api POST pour envoyer le service à la BDD
   ajoutService(form: NgForm) {
-    console.log(form.value)
+    // console.log(form.value)
     //un post se constitue de : 'url', {body}, {headers} puis un subscribe si on a besoin d'interpreter le retour api
     this.http.post(
       this.mainConfig.getApiBaseUrl() + 'services',
@@ -43,7 +43,7 @@ export class ServicesComponent implements OnInit {
         nomManagerService: form.value.nomManagerService,
         prenomManagerService: form.value.prenomManagerService
       },
-      { headers: this.mainConfig.getHeaders() }).subscribe(data => { console.log(data) });
+      { headers: this.mainConfig.getHeaders() }).subscribe();
     //rafraichissement de la page pour afficher les nouvelles données
     this.mainConfig.reloadCurrentRoute();
   }

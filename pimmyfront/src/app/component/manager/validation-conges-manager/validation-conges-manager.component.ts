@@ -22,10 +22,26 @@ export class ValidationCongesManagerComponent implements OnInit {
   motifs: Absences[] = [];
   dates: any[] = [];
   refreshTab: any[] = []
+  events: any = []
+
 
 
 
   constructor(private http: HttpClient, private mainConfig: MainConfig) {
+    this.http.get("https://calendrier.api.gouv.fr/jours-feries/metropole.json").subscribe(
+      (data: any) => {
+        for (let element in data) {
+          this.events.push({
+            title: data[element],
+            user: "",
+            service: "",
+            date: element,
+            color: "#babcbd",
+            textColor: "#272c33"
+          })
+        }
+      }
+    )
     this.getAllDemande()
   }
 
@@ -43,10 +59,11 @@ export class ValidationCongesManagerComponent implements OnInit {
 
   getDemandeConges() {
 
-    return this.http.get<DemandeAbs[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/absManager/' + localStorage.getItem("serviceId"), { headers: this.mainConfig.getHeaders() }).pipe(
+    return this.http.get<DemandeAbs[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/absManagerNotOk/' + localStorage.getItem("serviceId"), { headers: this.mainConfig.getHeaders() }).pipe(
       map((demandeAbsences: any[]) => demandeAbsences.map(
         demandeAbsence => {
           return <DemandeAbs>{
+            id: demandeAbsence.id,
             date_deb: demandeAbsence.date_deb,
             deb_mat: demandeAbsence.deb_mat,
             date_fin: demandeAbsence.date_fin,
@@ -61,22 +78,32 @@ export class ValidationCongesManagerComponent implements OnInit {
     )
   }
 
-  acceptanceConges(email: string) {
+  acceptanceConges(data: string) {
 
     this.http.put<DemandeAbs>(this.mainConfig.getApiBaseUrl() + "demandeAbs/validationManager", {
-      email: email
+      data
     }, { headers: this.mainConfig.getHeaders() }).subscribe()
-    console.log(email);
+    // console.log(data);
 
     this.mainConfig.sleep(300)
     this.mainConfig.reloadCurrentRoute()
   }
 
-  refusConges() {
+  refusConges(data: any) {
+    this.http.put<DemandeAbs>(
+      this.mainConfig.getApiBaseUrl() + "demandeAbs/refusAdmin",
+      {
+        data
+      },
+      { headers: this.mainConfig.getHeaders() }).subscribe()
+
+    // console.log(data);
+
+    this.mainConfig.sleep(300)
+    this.mainConfig.reloadCurrentRoute()
 
   }
 
-  //  TODO a modifier manager pour un service
   getAllDemande() {
     this.http.get<any[]>(
       this.mainConfig.getApiBaseUrl() + "demandeAbs/absManager/" + localStorage.getItem("serviceId"),
@@ -85,11 +112,11 @@ export class ValidationCongesManagerComponent implements OnInit {
       async (res) => {
         // console.log(res);
 
-        this.calendarOptions.events = [];
+        this.calendarOptions.events = [... this.events];
 
         for (let index = 0; index < res.length; index++) {
-          const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
-          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+          const color = res[index].manager_ok ? res[index].admin_ok && !res[index].refus ? "#272c33" : "orange" : res[index].refus ? "#f85758" : "transparent"
+          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : res[index].refus ? "#fff" : "#272c33"
           this.dates.push(res[index].date_deb)
           this.dates.push(res[index].date_fin)
           this.calendarOptions.events.push(
@@ -107,50 +134,6 @@ export class ValidationCongesManagerComponent implements OnInit {
         this.calendarOptions.events = Object.assign([], this.calendarOptions.events)
       }
     );
-  }
-
-  onChange(newValue: number) {
-    if (newValue == 0) {
-      this.getAllDemande()
-      this.getDemandeConges().subscribe(
-        (res) => {
-          const dataSource = this.dataSource;
-          dataSource.data = this.formatTab(res);
-
-        }
-      )
-    }
-    else {
-
-      this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/service/' + newValue, { headers: this.mainConfig.getHeaders() }).subscribe(
-        (res) => {
-          this.refreshTab = []
-
-          for (let index = 0; index < res.length; index++) {
-            const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
-            const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
-            this.dates.push(res[index].date_deb)
-            this.dates.push(res[index].date_fin)
-            this.refreshTab.push(
-              {
-                title: res[index].abs_nom,
-                user: res[index].user_prenom + " " + res[index].user_nom,
-                start: res[index].date_deb,
-                end: res[index].date_fin,
-                color: color,
-                textColor: textColor,
-                borderColor: "#272c33",
-              }
-            )
-          }
-
-          const dataSource = this.dataSource;
-          dataSource.data = this.formatTab(res);
-
-          this.calendarOptions.events = Object.assign([], this.refreshTab)
-        }
-      );
-    }
   }
 
   formatTab(response: any[]): DemandeAbs[] {

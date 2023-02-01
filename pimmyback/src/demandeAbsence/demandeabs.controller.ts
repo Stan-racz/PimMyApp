@@ -29,11 +29,18 @@ export class DemandeAbsController {
   findAllAbs() {
     return this.DemandeAbsService.findAll();
   }
+  
+  // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  @Get('absManagerNotOk/:serviceId')
+  findAllManagerNotOk(@Param() params) {
+    return this.DemandeAbsService.findAllManagerNotOk(params.serviceId);
+  }
   // @hasRoles(UserRole.ADMIN, UserRole.MANAGER)
   // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('absManager/:serviceId')
-  findAllManagerNotOk(@Param() params) {
-    return this.DemandeAbsService.findAllManagerNotOk(params.serviceId);
+  findAllManager(@Param() params) {
+    return this.DemandeAbsService.findAllManager(params.serviceId);
   }
 
   // @hasRoles(UserRole.ADMIN)
@@ -41,6 +48,13 @@ export class DemandeAbsController {
   @Get('manager_ok')
   findAllAbsManagerOk() {
     return this.DemandeAbsService.findAllManagerOk();
+  }
+
+    // @hasRoles(UserRole.ADMIN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  @Get('manager_ok/:service')
+  findAllAbsManagerOkService(@Param() params) {
+    return this.DemandeAbsService.findAllManagerOkService(params.service);
   }
 
   // @hasRoles(UserRole.ADMIN, UserRole.MANAGER, UserRole.USER)
@@ -61,8 +75,8 @@ export class DemandeAbsController {
   //roles : manager & admin
   @Put('validationManager')
   managerOk(@Body() body) {
-    // console.log(body.email);
-    return this.DemandeAbsService.updateValidationManager(body.email)
+    // console.log("lololo", body.data);
+    return this.DemandeAbsService.updateValidationManager(body.data.email, body.data.id)
   }
 
   // @hasRoles(UserRole.ADMIN)
@@ -70,12 +84,14 @@ export class DemandeAbsController {
   //roles : admin
   @Put('validationAdmin')
   adminOk(@Body() body) {
+    
     return this.UserService.findByEmail(
       body.data.email
-    ).subscribe(
-      (user) => {
-        this.AbsenceService.findByName(body.data.id_absence).subscribe(
-          (absence) => {
+      ).subscribe(
+        (user) => {
+          this.AbsenceService.findByName(body.data.id_absence).subscribe(
+            (absence) => {
+              // console.log("lol", absence);
             this.absDispoService.updateConge(absence, user, body.data.id);
             if (absence.nbJour == null) {
               this.DemandeAbsService.updateValidationAdmin(user.email, body.data.id)
@@ -84,5 +100,50 @@ export class DemandeAbsController {
         )
       }
     )
+  }
+
+  // @hasRoles(UserRole.ADMIN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  //roles : admin
+  @Put('refusAdmin')
+  adminRefus(@Body() body) {
+    // console.log("lol", body);
+    return this.UserService.findByEmail(
+      body.data.email
+    ).subscribe(
+      (user) => {
+        this.AbsenceService.findByName(body.data.id_absence).subscribe(
+          (absence) => {
+
+            this.DemandeAbsService.updateRefusAdmin(user.email, body.data.id)
+
+          }
+        )
+      }
+    )
+  }
+
+  // @hasRoles(UserRole.ADMIN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  //roles : admin
+  @Put('refusManager')
+  managerRefus(@Body() body) {
+    // console.log("lol", body);
+    return this.UserService.findByEmail(
+      body.data.email
+    ).subscribe(
+      (user) => {
+        this.AbsenceService.findByName(body.data.id_absence).subscribe(
+          (absence) => {
+            this.DemandeAbsService.updateRefusManager(user.email, body.data.id)
+          }
+        )
+      }
+    )
+  }
+
+  @Get('dernier/:nombre')
+  dernierId(@Param() params) {
+    return this.DemandeAbsService.dernierId(params.nombre)
   }
 }

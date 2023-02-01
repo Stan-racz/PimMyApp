@@ -33,12 +33,12 @@ export class FicheUtilisateurComponent implements OnInit {
   }
 
   model = new Utilisateur(18, '', '', '', "", "", "", "", { id: 1, nom: "", nomManagerService: "", prenomManagerService: "" }, "");
-  displayedColumns: string[] = ['nom', 'prenom', 'email', 'service', 'role', 'conges', 'nbHeureContrat'];
+  displayedColumns: string[] = ['nom', 'prenom', 'email', 'service', 'role', 'nbHeureContrat'];
 
   onUserSearch(form: NgForm) {
     this.getUserData(form.value.nom, form.value.prenom).subscribe(data => {
       this.users[0] = data;
-      console.log("users", this.users);
+      // console.log("users", this.users);
       this.dataSource.data = this.users
     }
     );

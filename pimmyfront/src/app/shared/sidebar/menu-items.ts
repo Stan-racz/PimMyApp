@@ -14,14 +14,14 @@ export const SIDEBAR_CONFIG: SidebarConfig = {
       extralink: false,
       submenu: []
     },
-    {
-      path: '/component/visualisation',
-      title: 'Historiques demandes',
-      icon: 'bi bi-calendar3',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
+    // {
+    //   path: '/component/visualisation',
+    //   title: 'Historiques demandes',
+    //   icon: 'bi bi-calendar3',
+    //   class: '',
+    //   extralink: false,
+    //   submenu: []
+    // },
     {
       path: '/component/convention-collective',
       title: 'Convention collective',
@@ -38,14 +38,14 @@ export const SIDEBAR_CONFIG: SidebarConfig = {
       extralink: false,
       submenu: []
     },
-    {
-      path: '/component/visualisation-absences',
-      title: 'Visualisation absences',
-      icon: 'bi bi-eye',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
+    // {
+    //   path: '/component/visualisation-absences',
+    //   title: 'Visualisation absences',
+    //   icon: 'bi bi-eye',
+    //   class: '',
+    //   extralink: false,
+    //   submenu: []
+    // },
     {
       path: '/component/ajout-utilisateur',
       title: 'Ajout utilisateur',
@@ -128,14 +128,14 @@ export const SIDEBAR_CONFIG: SidebarConfig = {
       extralink: false,
       submenu: []
     },
-    {
-      path: '/component/synthese-conges',
-      title: 'Synthèse des congés',
-      icon: 'bi bi-clipboard-data',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
+    // {
+    //   path: '/component/synthese-conges',
+    //   title: 'Synthèse des congés',
+    //   icon: 'bi bi-clipboard-data',
+    //   class: '',
+    //   extralink: false,
+    //   submenu: []
+    // },
   ],
   user: [
     {
@@ -154,13 +154,13 @@ export const SIDEBAR_CONFIG: SidebarConfig = {
       extralink: false,
       submenu: []
     },
-    {
-      path: '/component/synthese-conges',
-      title: 'Synthèse des congés',
-      icon: 'bi bi-clipboard-data',
-      class: '',
-      extralink: false,
-      submenu: []
-    },
+    // {
+    //   path: '/component/synthese-conges',
+    //   title: 'Synthèse des congés',
+    //   icon: 'bi bi-clipboard-data',
+    //   class: '',
+    //   extralink: false,
+    //   submenu: []
+    // },
   ]
 }

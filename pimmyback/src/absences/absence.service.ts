@@ -49,7 +49,7 @@ export class AbsenceService {
   }
 
   async create(nom: string) {
-    console.log("service ! ", nom);
+    // console.log("service ! ", nom);
     return await this.absServ.createQueryBuilder().insert().into(Absence).values([{ nom: nom }]).execute();
   }
 

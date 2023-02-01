@@ -1,2 +1,47 @@
-<p>fermeture-institution works!</p>
-<button type="button" class="btn btn-primary" (click)="onClick()">Ajouter</button>
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openModal()">Nouvelle demande</button>
+
+<span style="background-color: transparent;color:#272c33; border: 1px solid #272c33;" class="badge">Demande en
+    cours</span>
+<span style="background-color: orange;color:#272c33; margin-left:1em;margin-right:1em" class="badge">Accepter par le
+    manager</span>
+<span style="background-color: #272c33;color:#fff" class="badge">Accepter par l'administrateur</span>
+<span style="background-color: #f85758;color:#fff;margin-left:1em;margin-right:1em" class="badge">Refuser</span>
+<span style="background-color: #babcbd;color:#272c33" class="badge">Jour férie</span>
+
+<full-calendar #calendar [options]="calendarOptions"></full-calendar>
+
+<!-- Ajouter légende pour les congés -->
+<div class="modal" id="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Fermeture de l'institution</h4>
+            </div>
+            <form #congesForm="ngForm" (ngSubmit)="onSubmit(congesForm)">
+                <div class="modal-body">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="form-label">Début du congé : </label>
+                            <input [ngModel]="debut | date:'yyyy-MM-dd'" class="form-control" type="date" id="debut"
+                                required name="debut" (change)="changeConditionDebut($event)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="form-label">Fin du congé :</label>
+                            <input [ngModel]="fin | date:'yyyy-MM-dd'" class="form-control" type="date" id="fin"
+                                required name="fin" (change)="changeConditionFin($event)">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" [disabled]="congesForm.form.invalid"
+                            class="btn btn-primary">Valider</button>
+                        <button type="button" class="btn btn-danger" (click)="closePopup(congesForm)">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

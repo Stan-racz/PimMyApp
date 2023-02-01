@@ -28,7 +28,7 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   statut() {
-    console.log(localStorage.getItem('role'));
+    // console.log(localStorage.getItem('role'));
   }
 
   logOut() {

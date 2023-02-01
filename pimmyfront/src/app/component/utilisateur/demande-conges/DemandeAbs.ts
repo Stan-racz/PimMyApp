@@ -11,6 +11,7 @@ export class DemandeAbs {
         public manager_ok: boolean,
         public admin_ok: boolean,
         public email: string,
+        public refus: boolean,
         public id_absence: Absences,
         public user_info: Utilisateur,
     ) { }

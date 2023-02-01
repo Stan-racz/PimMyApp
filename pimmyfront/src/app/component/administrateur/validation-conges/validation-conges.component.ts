@@ -23,6 +23,7 @@ export class ValidationCongesComponent implements OnInit {
   dates: any[] = [];
   servicesFilter: Services[] = [];
   refreshTab: any[] = []
+  events: any = []
 
 
   constructor(private http: HttpClient, private mainConfig: MainConfig) {
@@ -32,6 +33,21 @@ export class ValidationCongesComponent implements OnInit {
         this.servicesFilter = res
       }
     );
+
+    this.http.get("https://calendrier.api.gouv.fr/jours-feries/metropole.json").subscribe(
+      (data: any) => {
+        for (let element in data) {
+          this.events.push({
+            title: data[element],
+            user: "",
+            service: "",
+            date: element,
+            color: "#babcbd",
+            textColor: "#272c33"
+          })
+        }
+      }
+    )
 
     this.getAllDemande()
   }
@@ -69,6 +85,8 @@ export class ValidationCongesComponent implements OnInit {
   }
 
   acceptanceConges(data: any) {
+    console.log(data);
+    
     this.http.put<DemandeAbs>(
       this.mainConfig.getApiBaseUrl() + "demandeAbs/validationAdmin",
       {
@@ -76,14 +94,24 @@ export class ValidationCongesComponent implements OnInit {
       },
       { headers: this.mainConfig.getHeaders() }).subscribe()
 
-    console.log(data);
+    // console.log(data);
 
     this.mainConfig.sleep(300)
     this.mainConfig.reloadCurrentRoute()
   }
 
-  refusConges() {
+  refusConges(data: any) {
+    this.http.put<DemandeAbs>(
+      this.mainConfig.getApiBaseUrl() + "demandeAbs/refusAdmin",
+      {
+        data
+      },
+      { headers: this.mainConfig.getHeaders() }).subscribe()
 
+    // console.log(data);
+
+    this.mainConfig.sleep(300)
+    this.mainConfig.reloadCurrentRoute()
   }
 
   getAllDemande() {
@@ -92,11 +120,13 @@ export class ValidationCongesComponent implements OnInit {
       { headers: this.mainConfig.getHeaders() }
     ).subscribe(
       async (res) => {
-        this.calendarOptions.events = [];
+        console.log(res);
+
+        this.calendarOptions.events = [... this.events];
 
         for (let index = 0; index < res.length; index++) {
-          const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
-          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+          const color = res[index].manager_ok ? res[index].admin_ok && !res[index].refus ? "#272c33" : "orange" : res[index].refus ? "#f85758" : "transparent"
+          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : res[index].refus ? "#fff" : "#272c33"
           this.dates.push(res[index].date_deb)
           this.dates.push(res[index].date_fin)
           this.calendarOptions.events.push(
@@ -128,13 +158,13 @@ export class ValidationCongesComponent implements OnInit {
       )
     }
     else {
-      this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/service/' + newValue, { headers: this.mainConfig.getHeaders() }).subscribe(
+      this.http.get<any[]>(this.mainConfig.getApiBaseUrl() + 'demandeAbs/manager_ok/' + newValue, { headers: this.mainConfig.getHeaders() }).subscribe(
         (res) => {
           this.refreshTab = []
 
           for (let index = 0; index < res.length; index++) {
-            const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
-            const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+            const color = res[index].manager_ok ? res[index].admin_ok && !res[index].refus ? "#272c33" : "orange" : res[index].refus ? "#f85758" : "transparent"
+            const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : res[index].refus ? "#fff" : "#272c33"
             this.dates.push(res[index].date_deb)
             this.dates.push(res[index].date_fin)
             this.refreshTab.push(

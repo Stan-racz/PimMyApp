@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('je suis le dashboard component');
+    // console.log('je suis le dashboard component');
     // if (this.router.url === "/") {
     //   this.router.navigate(["/dashboard"]);
     // }

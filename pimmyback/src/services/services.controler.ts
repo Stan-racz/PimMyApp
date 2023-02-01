@@ -34,7 +34,7 @@ export class ServicesController {
   @Delete(':id')
   async suppressionService(@Param('id') id) {
     // console.log("delete :) = " + id)
-    console.log('Delete' + id);
+    // console.log('Delete' + id);
     let service = await this.servicesServices.findOne(id);
     return this.servicesServices.deleteOne(service.id);
   }

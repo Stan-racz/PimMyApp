@@ -17,8 +17,6 @@ import { Observable } from 'rxjs';
 })
 export class DemandeCongesComponent implements OnInit {
 
-  private _jsonURL = "../../../../assets/ressources/holidays.json"
-
   motifs: any[] = [];
   dates: any[] = [];
   debut: any;
@@ -74,6 +72,21 @@ export class DemandeCongesComponent implements OnInit {
       }
     );
 
+    this.http.get("https://calendrier.api.gouv.fr/jours-feries/metropole.json").subscribe(
+      (data: any) => {
+        for (let element in data) {
+          this.events.push({
+            title: data[element],
+            user: "",
+            service: "",
+            date: element,
+            color: "#babcbd",
+            textColor: "#272c33"
+          })
+        }
+      }
+    )
+    
     this.http.get<DemandeAbs[]>(
       this.mainConfig.getApiBaseUrl() + "demandeAbs/" + localStorage.getItem('userEmail'),
       { headers: this.mainConfig.getHeaders() }
@@ -81,8 +94,8 @@ export class DemandeCongesComponent implements OnInit {
       async (res) => {
         this.calendarOptions.events = [... this.events];
         for (let index = 0; index < res.length; index++) {
-          const color = res[index].manager_ok ? res[index].admin_ok ? "#272c33" : "orange" : "transparent"
-          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : "#272c33"
+          const color = res[index].manager_ok ? res[index].admin_ok && !res[index].refus ? "#272c33" : "orange" : res[index].refus ? "#f85758" : "transparent"
+          const textColor = res[index].manager_ok ? res[index].admin_ok ? "#fff" : "#272c33" : res[index].refus ? "#fff" : "#272c33"
           this.dates.push(res[index].date_deb)
           this.dates.push(res[index].date_fin)
           this.calendarOptions.events.push(
@@ -101,21 +114,6 @@ export class DemandeCongesComponent implements OnInit {
         }
       }
     );
-
-    this.http.get("https://calendrier.api.gouv.fr/jours-feries/metropole.json").subscribe(
-      (data: any) => {
-        for (let element in data) {
-          this.events.push({
-            title: data[element],
-            user: "",
-            service: "",
-            date: element,
-            color: "gray",
-            textColor: "black"
-          })
-        }
-      }
-    )
   }
 
   ngOnInit() {

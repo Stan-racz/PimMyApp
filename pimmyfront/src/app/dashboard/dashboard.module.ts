@@ -104,16 +104,16 @@ const routes: Routes = [
     LoginComponent,
     // Administrateur
     AjoutUtilisateurComponent,
-    FermetureInstitutionComponent,
+    // FermetureInstitutionComponent,
     FicheUtilisateurComponent,
     MotifAbsenceComponent,
     ServicesComponent,
-    SyntheseCongesComponent,
+    // SyntheseCongesComponent,
     // ValidationCongesComponent,
     // Manager
     VisibiliteEmployesComponent,
     // ValidationCongesManagerComponent,
-    VisualisationAbsencesComponent,
+    // VisualisationAbsencesComponent,
     // Utilisateur
     ConventionCollectiveComponent,
     // DemandeCongesComponent,

@@ -69,7 +69,7 @@ export class MainConfig {
             map(
                 (absences: any[]) => absences.map(
                     abs => {
-                        console.log(abs);
+                        // console.log(abs);
                         return <Absences>{
                             nom: abs["nom"],
                             nbJour: abs["nbJour"],

@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.loginForm.value)
       .subscribe(payload => {
-        console.log('payload : ', payload);
-        this.router.navigate(['/'] );
+        // console.log('payload : ', payload);
+        this.router.navigate(['/']);
       })
   }
 

@@ -39,9 +39,12 @@ export class UserController {
           (absences) => {
             absences.forEach(
               (absence) => {
-                console.log(absence);
+
                 if (absence.nbJour != null) {
-                  if (absence.nom == "Congés Payés") {
+                  // console.log("kalalalalalalalalalal", absence.nom);
+
+                  if (absence.nom == "Congés payés") {
+                    // console.log("lalalalalalalalalalalalalalal", user.nbHeureContractuelle);
                     if (user.nbHeureContractuelle == 1470) {
                       absence.nbJour = 36;
                     } else if (user.nbHeureContractuelle == 1558) {
@@ -70,7 +73,7 @@ export class UserController {
   @Post('login')
   login(
     @Body() userCredentials: User,
-  ): Observable<{ access_token: string; role: UserRole; userEmail: string; serviceId: number; userId: number; }> {
+  ) {
     /**
      * forkJoin require all input observables to be completed
      */
@@ -83,7 +86,7 @@ export class UserController {
         userEmail: findedUser.email,
         role: findedUser.role,
         userId: findedUser.id,
-        serviceId: findedUser?.id_service,
+        serviceId: findedUser.id_service,
       })),
       catchError((err) => throwError(() => err.message)),
     );
@@ -113,12 +116,12 @@ export class UserController {
   }
   @Delete(':id')
   deleteOne(@Param('id') id: string): Observable<User> {
-    console.log("update user" + id);
+    // console.log("update user" + id);
     return this.userService.deleteOne(Number(id));
   }
   @Put(':id')
   updateOne(@Param('id') id: string, @Body() user: User): Observable<any> {
-    console.log("update user" + id);
+    // console.log("update user" + id);
     return this.userService.updateOne(Number(id), user);
   }
 }

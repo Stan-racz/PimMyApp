@@ -34,7 +34,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MainConfig } from './mainConfig';
-
+import { FermetureInstitutionComponent } from './component/administrateur/fermeture-institution/fermeture-institution.component';
+import { SyntheseCongesComponent } from './component/administrateur/synthese-conges/synthese-conges.component';
+import { VisualisationAbsencesComponent } from './component/manager/visualisation-absences/visualisation-absences.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -55,7 +57,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SpinnerComponent,
     DemandeCongesComponent,
     ValidationCongesComponent,
-    ValidationCongesManagerComponent
+    ValidationCongesManagerComponent,
+    FermetureInstitutionComponent,
+    SyntheseCongesComponent,
+    VisualisationAbsencesComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +70,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(Approutes, { enableTracing: true }),
+    RouterModule.forRoot(Approutes, { enableTracing: false }),
     PerfectScrollbarModule,
     FullCalendarModule,
     MatFormFieldModule,

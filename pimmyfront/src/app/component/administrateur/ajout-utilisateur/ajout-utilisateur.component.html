@@ -1,19 +1,26 @@
 <div class="form-group">
     <form #userForm="ngForm">
-        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="nom" #name="ngModel">
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="nom"
+            #name="ngModel">
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required
         </div>
 
-        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom" placeholder="Prenom">
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom"
+            placeholder="Prenom">
 
-        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email" placeholder="Email">
+        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email"
+            placeholder="Email">
 
         <label for="civilite">Civilite</label>
         <select class="form-control" id="civilite" required [(ngModel)]="model.civilite" name="civilite">
             <option *ngFor="let civ of civilite" [value]="civ">{{civ}}</option>
         </select>
 
-        <input type="text" class="form-control" id="nombreHeureContractuelle" required [(ngModel)]="model.nombreHeureContractuelle" name="nombreHeureContractuelle" placeholder="Nombre d'heures Contractuelles">
+        <label for="statu">Nombre d'heures contractuelles</label>
+        <select class="form-control" id="nbHeureContractuelle" required [(ngModel)]="model.nombreHeureContractuelle"
+            name="nbHeureContractuelle">
+            <option *ngFor="let heure of nbHeuresContractuelles" [value]="heure">{{heure}}</option>
+        </select>
 
         <label for="statu">Status</label>
         <select class="form-control" id="status" required [(ngModel)]="model.status" name="status">
@@ -22,11 +29,10 @@
 
 
         <label for="services">Service</label>
-        <!-- <dx-select-box [dataSource]="thingsAsMatTableDataSource$ | async" displayExpr="prj_number "></dx-select-box> -->
 
-        <!-- <select class="form-control" id="id_service" required [(ngModel)]="model.id_service" name="id_service">
-            <option *ngFor="let service of datasource" [value]="service">{{service}}</option>
-        </select> -->
+        <select class="form-control" id="id_service" required [(ngModel)]="model.id_service" name="id_service">
+            <option *ngFor="let service of servicesDisplay" [value]="service.id">{{service.nom}}</option>
+        </select>
 
         <label for="role">Rôle</label>
         <select class="form-control" id="role" required [(ngModel)]="model.role" name="role">
@@ -35,7 +41,8 @@
         <td>Date De Naissance :</td><br>
 
         <td>
-            <input class="form-control" type="date" id="dateNaiss" required [(ngModel)]="model.dateNaiss" name="dateNaiss" value="" min="1960-01-01" max="2022-12-31">
+            <input class="form-control" type="date" id="dateNaiss" required [(ngModel)]="model.dateNaiss"
+                name="dateNaiss" value="" min="1960-01-01" max="2022-12-31">
         </td>
 
         <button type="button" class="btn btn-primary" (click)="onSubmit(userForm)">Ajouter</button> &nbsp;

@@ -34,7 +34,7 @@ export class UserService {
                         return result;
                     }),
                     catchError(err => throwError(() => {
-                        console.log(err);
+                        // console.log(err);
 
                         new Error(err);
                     }))
@@ -44,11 +44,16 @@ export class UserService {
     }
     findOne(id: number): Observable<User> {
         return from(this.userRepository.findOne({
+            relations: {
+                id_service: true,
+            },
             where: {
                 id: id
             }
         })).pipe(
             map((user: User) => {
+                // console.log(user);
+
                 const { password, ...result } = user;
                 return result;
             }),
@@ -69,18 +74,21 @@ export class UserService {
     }
 
     findByEmail(email: string): Observable<UserEntity> {
-        console.log(email);
-
         return from(this.userRepository.findOne({
+            relations: {
+                id_service: true
+            },
             where: {
                 email: email,
             }
         })).pipe(
             map((user: UserEntity) => {
+                // console.log(user);
+
                 const { password, ...result } = user;
                 return result;
             }),
-          catchError(err => throwError(() => new Error("Pas d'utilisateur correspondant à ce mail")))
+            catchError(err => throwError(() => new Error("Pas d'utilisateur correspondant à ce mail")))
         );
     }
 
@@ -103,19 +111,19 @@ export class UserService {
         return from(this.userRepository.update(id, user));
     }
 
-  login(user: User): Observable<string> {
-    return this.validateUser(user.email, user.password).pipe(
-      /**
-       * If the user is valid, we generate a JWT for him
-       * switchMap resolves the Observable and return the value
-       */
-      switchMap((user: User) => this.authService.generateJWT(user)),
-      /**
-       * If anything went wrong, an error will be thrown
-       */
-      catchError((err) => throwError(() => new Error(err.message))),
-    );
-  }
+    login(user: User): Observable<string> {
+        return this.validateUser(user.email, user.password).pipe(
+            /**
+             * If the user is valid, we generate a JWT for him
+             * switchMap resolves the Observable and return the value
+             */
+            switchMap((user: User) => this.authService.generateJWT(user)),
+            /**
+             * If anything went wrong, an error will be thrown
+             */
+            catchError((err) => throwError(() => new Error(err.message))),
+        );
+    }
 
     validateUser(email: string, password: string): Observable<User> {
         return this.findByMail(email).pipe(
@@ -125,7 +133,7 @@ export class UserService {
                         const { password, ...result } = user;
                         return result;
                     } else {
-                        console.log("yolo l'erreur")
+                        // console.log("yolo l'erreur")
                         throw new Error('les identifiants sont incorrects');
                     }
                 })

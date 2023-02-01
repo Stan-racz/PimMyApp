@@ -4,9 +4,11 @@
 
 <div class="form-group">
     <form #userForm="ngForm">
-        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom" placeholder="Nom de l'employé">
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="model.nom" name="nom"
+            placeholder="Nom de l'employé">
 
-        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom" placeholder="Prénom de l'employé">
+        <input type="text" class="form-control" id="prenom" required [(ngModel)]="model.prenom" name="prenom"
+            placeholder="Prénom de l'employé">
         <br>
         <button type="button" class="btn btn-primary" (click)="onUserSearch(userForm)">Chercher</button>
         &nbsp;
@@ -39,11 +41,6 @@
     <ng-container matColumnDef="role">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Rôle </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.role}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="conges">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Congés restants </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="nbHeureContrat">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Heures contractuelles </mat-header-cell>
